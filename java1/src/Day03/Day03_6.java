@@ -167,7 +167,7 @@ public class Day03_6 {//cs
 		
 		
 		
-		
+		 scanner.close(); 
 	}//me
 	
 }//ce

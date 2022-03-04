@@ -80,7 +80,7 @@ public class Day03_4 {//cs
 			default: System.out.println("Å»¶ô"); break;
 		}
 		
-		
+		 scanner.close(); 
 		
 		
 		

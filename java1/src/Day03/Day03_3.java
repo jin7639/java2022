@@ -83,7 +83,7 @@ public class Day03_3 {//cs
 		}else {System.out.println("재시험");} //그외
 		
 		
-		
+		 scanner.close(); 
 		
 		
 	}//me

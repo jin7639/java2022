@@ -40,7 +40,7 @@ public class Day03_7 {//ce
 			
 		}
 		
-		
+		 scanner.close(); 
 		
 	}//me
 	
