@@ -100,7 +100,8 @@ public class Day05_4 {//cs
 						
 						if (ch_login == 1) {
 							
-						}else if (ch_login == 2) {//도서목록
+							
+						} else if (ch_login == 2) {//도서목록
 							System.out.println("-------------------------------------------");
 							System.out.println("-------------------도서목록-------------------");
 							System.out.println("-------------------------------------------");
@@ -117,14 +118,14 @@ public class Day05_4 {//cs
 								}//if end
 							}//for end
 								
-						}else if (ch_login == 3) {
+						} else if (ch_login == 3) {
 							
-						}else if (ch_login == 4) {
+						} else if (ch_login == 4) {
 							
-						}else if (ch_login == 5) {
+						} else if (ch_login == 5) {
 							System.err.println(">>> 로그아웃");
 							break;
-						}else {
+						} else {
 							System.err.println(">>> 잘못된 접근입니다.");
 							break;
 						}
@@ -222,19 +223,12 @@ public class Day05_4 {//cs
 					}
 				}//if admin end
 			} else {
-				System.err.println("알 수 없는 입력입니다.");
+				System.err.println(">>> 알 수 없는 입력입니다.");
 				break;
 			}
 			
 			
 		}//while1 end
-		
-		
-		
-		
-		
-		
-		
 		
 		
 	}//me
