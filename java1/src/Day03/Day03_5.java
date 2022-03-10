@@ -70,9 +70,10 @@ public class Day03_5 {//cs
 		
 		for(int ´Ü = 2 ; ´Ü<=9; ´Ü++) {
 			System.out.println(´Ü + "´Ü");
-		} for(int °ö =1 ; °ö<=9; °ö++) {
-			System.out.printf("%d X %d = %d \n", ´Ü , °ö, ´Ü * °ö);
-		}
+			for(int °ö =1 ; °ö<=9; °ö++) {
+				System.out.printf("%d X %d = %d \n", ´Ü , °ö, ´Ü * °ö);
+			}
+		} 
 		
 		
 		
