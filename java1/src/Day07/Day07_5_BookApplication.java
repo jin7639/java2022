@@ -123,6 +123,7 @@ public class Day07_5_BookApplication {//cs
 			
 		}else if ( ch == 5 ) { 
 			
+			return;
 			
 		}else { 
 			System.out.println("알 수 없는 번호입니다.");
@@ -132,33 +133,35 @@ public class Day07_5_BookApplication {//cs
 	
 	//3. 관리자 메뉴 메소드
 	void adminmenu () {
-		System.out.println("-------------------관리자 메뉴-----------------");
-		System.out.println("1.도서등록 2.도서목록 3.도서삭제 4.로그아웃");
+		while(true) {
+			System.out.println("-------------------관리자 메뉴-----------------");
+			System.out.println("1.도서등록 2.도서목록 3.도서삭제 4.로그아웃");
+			
+			int ch = scanner.nextInt();
+			
+			Book book = new Book();
 		
-		int ch = scanner.nextInt();
-		
-		Book book = new Book();
-	
-		if (ch == 1) {
+			if (ch == 1) {
+				
+				book.도서등록();
+				
+			} else if (ch == 2 ) {
+				
+				book.도서목록();
+				
+			} else if (ch == 3 ) {
+				
+				book.도서삭제();
+				
+			} else if (ch == 4 ) {
 			
-			book.도서등록();
-			
-		} else if (ch == 2 ) {
-			
-			book.도서목록();
-			
-		} else if (ch == 3 ) {
-			
-			book.도서삭제();
-			
-		} else if (ch == 4 ) {
-		
-			
-		} else {
-			System.out.println("알 수 없는 번호입니다.");
-			
-		}
-	}
+				
+			} else {
+				System.out.println("알 수 없는 번호입니다.");
+				
+			}
+		}//while end
+	}//adminmenu end
 	
 	
 	

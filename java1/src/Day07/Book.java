@@ -10,10 +10,10 @@ public class Book {//cs
 	String mid;		//대여인 ID
 	
 	//2.생성자
-		//1.빈 생성자
+		//1.빈 생성자 : 메소드 호출용
 	public Book() {}
 	
-		//2.모든 필드 생성자
+		//2.모든 필드 생성자 : 도서등록
 	public Book(String iSBN, String bname, String bwriter, boolean brental, String mid) {
 		ISBN = iSBN;
 		this.bname = bname;
@@ -41,15 +41,13 @@ public class Book {//cs
 					System.out.println( temp.ISBN +"\t" +temp.bname+"\t" +temp.bwriter+"\t" +"대여중");
 			}
 		}
-		
-		
 	}
 		//3.도서대여
 	void 도서대여(String loginid) {
 		System.out.println("--------------도서 대여-------------");
-		System.out.println("검색 : ");	String iSBN = Day07_5_BookApplication.scanner.next();
+		System.out.println("검색 : ");	String isbn = Day07_5_BookApplication.scanner.next();
 		for(Book temp : Day07_5_BookApplication.books) {
-			if ( temp !=null && temp.ISBN.equals(iSBN)) {
+			if ( temp !=null && temp.ISBN.equals(isbn)) {
 				if (temp.brental) {
 					System.out.println("대여 완료");
 					temp.brental = false;
@@ -58,22 +56,33 @@ public class Book {//cs
 				}
 			}else {
 				System.out.println("다른 사람이 대여중인 도서입니다! [대여불가]");
+				return;
 			}
 		}
-		
+		System.out.println("일치하는 도서가 없습니다.");
 	}
 		//4.도서반납
-	void 도서반납(String loginid) {
-		System.out.println("--------------도서 반납-------------");
-		대출목록(loginid);
-		System.out.println("검색 : "); String ISBN = Day07_5_BookApplication.scanner.next();
-		for (Book temp : Day07_5_BookApplication.books) {
-			if (temp != null && temp.ISBN.equals(iSBN)) {
-				if (temp.mid) {
-					
+	void 도서반납( String loginid ) {
+		System.out.println(" ------- 도서반납 페이지 -------");
+		대출목록( loginid  );
+		System.out.println(" 도서 ISBN "); String isbn = Day07_5_BookApplication.scanner.next();
+		for( Book temp : Day07_5_BookApplication.books ) {
+			if( temp !=null && temp.ISBN.equals(isbn) ) { // 입력한 isbn이 있으면
+				if( temp.mid.equals(loginid) ) { // 대여인id 과 현재 로그인된id 동일하면 
+					if( temp.brental ) { // 대여중이 아니면 
+						System.out.println(" 알림]] 현재 도서가 대여중이 아닙니다. ");
+					}else { // 대여중이면 
+						System.out.println(" 알림]] 반납 완료 !!!! ");
+						temp.brental = true; // 대여중 -> 대여가능 변경 
+						temp.mid = null; // 대여한 사람의 id를 다시 없음변경 [ null ]
+						return;
+					}
+				}else {
+					System.out.println(" 알림]] 회원님이 대여한 도서가 아닙니다.");
 				}
 			}
 		}
+		System.out.println(" 알림]] 동일한 도서ISBN이 없습니다. ");
 	}
 		
 		//현재 로그인 한 회원이 대여중인 도서 목록
