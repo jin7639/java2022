@@ -11,8 +11,6 @@ public class Bankbook {//cs
 	String account; //계좌번호
 	String name;	//예금주
 	int balance; 	//계좌잔액
-	String date;	//날짜
-	String bank;	//은행이름
 	//2.생성자
 		//1.빈 생성자 : 메소드 호출용
 	public Bankbook() {}
@@ -65,17 +63,12 @@ public class Bankbook {//cs
 						if (temp.balance >= sendamount) {
 							System.out.println("입금하실 은행 : "); 		String depositbank = Day08_Bank.scanner.next();
 							System.out.println("입금하실 계좌 번호 : "); 		String depositaccount = Day08_Bank.scanner.next();
-							System.out.println("통장 비밀번호를 눌러주세요");	String sendpassword = Day08_Bank.scanner.next();
-							
-							
-						
-								//공백이 아니면서 비밀번호가 일치하면
-								System.out.println("이체 완료하였습니다.");
-								//계좌 잔액 변동
-								temp.balance -= sendamount;
-								System.out.println("계좌번호"+sendaccount+"의 잔액 : " + temp.balance);
-								return;
-			
+					
+							System.out.println("이체 완료하였습니다.");
+							//계좌 잔액 변동
+							temp.balance -= sendamount;
+							System.out.println("계좌번호"+sendaccount+"의 잔액 : " + temp.balance);
+							return;
 							
 						}else {
 							System.out.println("잔액이 부족합니다.");
