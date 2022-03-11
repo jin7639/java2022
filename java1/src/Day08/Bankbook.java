@@ -26,7 +26,6 @@ public class Bankbook {//cs
 	
 	//3.메소드 
 		//1.계좌생성 
-	Bankbook 통장1 = new Bankbook("1234","신용권",10000);
 	
 		//2.입금 
 			void 입금() {
@@ -53,7 +52,7 @@ public class Bankbook {//cs
 			}
 	
 		//4.이체 
-//	출금계좌 금액 받는사람 은행 계좌번호 보내는 사람 계좌비밀번호
+	//	출금계좌 금액 받는사람 은행 계좌번호 보내는 사람 계좌비밀번호
 			
 			void 이체() {
 				System.out.println("출금할 계좌 번호 : "); 	String sendaccount = Day08_Bank.scanner.next();
@@ -70,12 +69,12 @@ public class Bankbook {//cs
 							
 							
 						
-									//공백이 아니면서 비밀번호가 일치하면
-									System.out.println("이체 완료하였습니다.");
-									//계좌 잔액 변동
-									temp.balance -= sendamount;
-									System.out.println("계좌번호"+sendaccount+"의 잔액 : " + temp.balance);
-									return;
+								//공백이 아니면서 비밀번호가 일치하면
+								System.out.println("이체 완료하였습니다.");
+								//계좌 잔액 변동
+								temp.balance -= sendamount;
+								System.out.println("계좌번호"+sendaccount+"의 잔액 : " + temp.balance);
+								return;
 			
 							
 						}else {
