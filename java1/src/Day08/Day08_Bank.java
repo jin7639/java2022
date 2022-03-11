@@ -49,8 +49,15 @@ public class Day08_Bank {//cs
 	static Bankbook[] bankbook = new Bankbook[1000];
 	
 	
+	
+	
+	
+	
 	//0. 코드를 읽어주는 시작 메소드[스레드]
 	public static void main(String[] args) {//ms
+		Bankbook bank1 = new Bankbook("123-123", "gkggk", 0);
+		bankbook[0] = bank1;
+		
 		Day08_Bank bank = new Day08_Bank();
 		bank.menu();
 		

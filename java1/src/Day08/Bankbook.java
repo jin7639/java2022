@@ -33,6 +33,7 @@ public class Bankbook {//cs
 						System.out.println("입금할 금액 : ");	int amount = Day08_Bank.scanner.nextInt();
 						temp.balance += amount;
 						System.out.println("입금이 완료되었습니다. 잔액 : "+ temp.balance);
+						return;
 					}
 				} System.out.println("존재하지 않는 계좌입니다.");
 			}//입금 end
@@ -42,9 +43,20 @@ public class Bankbook {//cs
 				System.out.println("출금할 계좌 번호 : "); String withdrawaccount = Day08_Bank.scanner.next();
 				for(Bankbook temp : Day08_Bank.bankbook) {
 					if (temp != null && temp.account.equals(withdrawaccount)) {
+						System.out.println("현재 잔액 : " + temp.balance);
 						System.out.println("출금할 금액 : ");	int amount = Day08_Bank.scanner.nextInt();
-						temp.balance -= amount;
-						System.out.println("출금이 완료되었습니다. 잔액 : " + temp.balance);
+						if (temp.balance >= amount) {
+							
+							System.out.println("출금이 완료되었습니다.");
+							//계좌 잔액 변동
+							temp.balance -= amount;
+							System.out.println("현재 잔액 : " + temp.balance);
+							return;
+							
+						}else {
+							System.out.println("잔액이 부족합니다.");
+						}
+						return; //종료
 					}
 				} System.out.println("존재하지 않는 계좌입니다.");
 			}
@@ -58,28 +70,28 @@ public class Bankbook {//cs
 				for(Bankbook temp : Day08_Bank.bankbook) {
 					if (temp != null && temp.account.equals(sendaccount)) {
 						//공백이 아니면서 동일한 계좌번호를 찾음
-						System.out.println("계좌번호"+sendaccount+"의 잔액 : " + temp.balance);
-						System.out.println("보내실 금액 : ");		int sendamount = Day08_Bank.scanner.nextInt();
-						if (temp.balance >= sendamount) {
-							System.out.println("입금하실 은행 : "); 		String depositbank = Day08_Bank.scanner.next();
-							System.out.println("입금하실 계좌 번호 : "); 		String depositaccount = Day08_Bank.scanner.next();
-					
-							System.out.println("이체 완료하였습니다.");
-							//계좌 잔액 변동
-							temp.balance -= sendamount;
-							System.out.println("계좌번호"+sendaccount+"의 잔액 : " + temp.balance);
-							return;
-							
-						}else {
-							System.out.println("잔액이 부족합니다.");
-						}
+						System.out.println("현재 잔액 : " + temp.balance);
 						return; //종료
 					}else {//못 찾았으면 찾은 id 출력하고 못 찾았으면 알림 출력
-					System.out.println("존재하지 않는 계좌입니다.");
-					return;
+						System.out.println("존재하지 않는 계좌입니다.");
+						return;
 					}
 				}
 				
+				System.out.println("보내실 금액 : ");		int sendamount = Day08_Bank.scanner.nextInt();
+				if (temp.balance >= sendamount) {
+					System.out.println("입금하실 은행 : "); 		String depositbank = Day08_Bank.scanner.next();
+					System.out.println("입금하실 계좌 번호 : "); 		String depositaccount = Day08_Bank.scanner.next();
+//
+//					System.out.println("이체 완료하였습니다.");
+//					//계좌 잔액 변동
+//					temp.balance -= sendamount;
+//					System.out.println("현재 잔액 : " + temp.balance);
+//					return;
+//					
+				}else {
+					System.out.println("잔액이 부족합니다.");
+				}
 			}//이체 end
 	
 		//5.대출 
