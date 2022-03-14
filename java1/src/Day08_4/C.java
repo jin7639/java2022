@@ -11,9 +11,9 @@ public class C {
 	//A a2 = new A(1);
 	//A a3 = new A("문자열");
 	
-	public c() {
+	public C() {
 		A a = new A(true);
-		a.field = 1; 	//불가능
+		a.field1 = 1; 	//불가능
 //		a.fiele2 =1;
 	}
 	
