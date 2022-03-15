@@ -16,9 +16,8 @@ public class 롯데리아 extends 점포{//여러개의 롯데리아
 	public 롯데리아() {}
 	
 	
-	public 롯데리아(Scanner scanner, String 점주, ArrayList<상품> 상품리스트) {
+	public 롯데리아(String 점주, ArrayList<상품> 상품리스트) {
 		super();
-		this.scanner = scanner;
 		this.점주 = 점주;
 		this.상품리스트 = 상품리스트;
 	}
