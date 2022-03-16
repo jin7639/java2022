@@ -49,7 +49,7 @@ public class Day10_2 {
 		}
 		
 		@Override
-		public void setVolume() {
+		public void setVolume(int volume) {
 			System.out.println("현재 음량 : " + volume);
 			
 		}

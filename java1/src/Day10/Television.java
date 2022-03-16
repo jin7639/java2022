@@ -20,7 +20,7 @@ public class Television implements RemoteControl , Searchable{
 	}
 	
 	@Override
-	public void setVolume() {
+	public void setVolume(int volume) {
 		if (volume > RemoteControl.MAX_VOLUME) {
 			//리모콘의 최대소음보다 크면 소음을 10으로 대입 [제한]
 			this.volume = RemoteControl.MAX_VOLUME;

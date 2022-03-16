@@ -14,7 +14,7 @@ public class Audio implements RemoteControl{
 
 	@Override
 	public void turnOff() {
-	// TODO Auto-generated method stub
+		System.out.println("오디오를 끕니다.");
 			
 	}
 	
@@ -27,5 +27,6 @@ public class Audio implements RemoteControl{
 		}else {
 			this.volume = volume;
 		}
+		System.out.println("현재 오디오 볼륨 : " + this.volume);
 	}
 }

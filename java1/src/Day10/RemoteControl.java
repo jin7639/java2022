@@ -9,7 +9,7 @@ public interface RemoteControl {//인터페이스 선언
 		//2.추상메소드** : 선언O 구현X
 	public void turnOn();	//{}생략 [ 구현X]
 	public void turnOff(); 	//구현 x
-	public void setVolume();	//구현 x
+	public abstract void setVolume(int volume);	//구현 x
 		//3.디폴트 메소드 : 선언O 구현O
 	default void setMute (boolean mute) {
 		if(mute) {
