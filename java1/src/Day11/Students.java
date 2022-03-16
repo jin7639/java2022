@@ -2,57 +2,91 @@ package Day11;
 
 public class Students {
 
-	private String 이름;
-	private int 국어;
-	private int 영어;
-	private int 수학;
+	private int no;	//번호
+	private String name;//이름
+	private int korea;	//국어점수
+	private int english;//영어점수
+	private int math;	//수학점수
+	private int sum;	//총점
+	private double avg;	//평균
+
 	//생성자
 	
-	
-	public Students(String no, String name, int ko, int en, int math) {}
-	
-	public Students(String 이름, int 국어, int 영어, int 수학) {
+	public Students() {}
+
+	public Students(int no, String name, int korea, int english, int math, int sum, double avg) {
 		super();
-		this.이름 = 이름;
-		this.국어 = 국어;
-		this.영어 = 영어;
-		this.수학 = 수학;
+		this.no = no;
+		this.name = name;
+		this.korea = korea;
+		this.english = english;
+		this.math = math;
+		this.sum = sum;
+		this.avg = avg;
 	}
-	
-	
+
 	//메소드
-
-	public String get이름() {
-		return 이름;
+	public int getNo() {
+		return no;
 	}
 
-	public void set이름(String 이름) {
-		this.이름 = 이름;
+	public void setNo(int no) {
+		this.no = no;
 	}
 
-	public int get국어() {
-		return 국어;
+	public String getName() {
+		return name;
 	}
 
-	public void set국어(int 국어) {
-		this.국어 = 국어;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public int get영어() {
-		return 영어;
+	public int getKorea() {
+		return korea;
 	}
 
-	public void set영어(int 영어) {
-		this.영어 = 영어;
+	public void setKorea(int korea) {
+		this.korea = korea;
 	}
 
-	public int get수학() {
-		return 수학;
+	public int getEnglish() {
+		return english;
 	}
 
-	public void set수학(int 수학) {
-		this.수학 = 수학;
+	public void setEnglish(int english) {
+		this.english = english;
+	}
+
+	public int getMath() {
+		return math;
+	}
+
+	public void setMath(int math) {
+		this.math = math;
+	}
+
+	public int getSum() {
+		return sum;
+	}
+
+	public void setSum(int sum) {
+		this.sum = sum;
+	}
+
+	public double getAvg() {
+		return avg;
+	}
+
+	public void setAvg(double avg) {
+		this.avg = avg;
 	}
 	
 	
-}
+	
+	
+	
+	
+	
+}//ce	
+	
