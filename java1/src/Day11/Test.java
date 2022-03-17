@@ -57,14 +57,13 @@ public class Test {//cs
 					}
 					//석차
 					if (students[1] != null) {
-						for (int i = 0; i < students.length; i++) {
-							
-							for (int j = i + 1; j < students.length; j++) {
-								if (students[i].getSum() < students[j].getSum()) {
+						for (int i = 0; i < students.length ; i++) {
+							for (int j = 0; j < students.length- 1; j++) {
+								if (students[i].getSum() > students[j].getSum()) {
 									System.out.println(students[i].getSum()+ " , "+ students[j].getSum());
-									Students temp = students[i];
-									students[i] = students[j];
-									students[j] = temp;
+									Students temp = students[j];
+									students[j] = students[j+1];
+									students[j+1] = temp;
 								}
 							}
 						}
@@ -74,7 +73,7 @@ public class Test {//cs
 					System.out.println("삭제할 학생 번호: ");
 					int st_del = scanner.nextInt();
 					boolean delete = false;
-					for (int i = 0 ; i < students.length; i++) {
+					for (int i = 0 ; i > students.length; i++) {
 						if(students[i].getNo() == st_del) {
 							students[i] = null;
 							for (int j = i; j < students.length; j++) {
