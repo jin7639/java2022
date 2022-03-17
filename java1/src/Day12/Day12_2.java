@@ -1,73 +1,79 @@
 package Day12;
 
-import javax.swing.plaf.synth.SynthRadioButtonMenuItemUI;
-
 public class Day12_2 {//cs
 	
 	public static void main(String[] args) {//ms
-//		//p.499
-//		//String 메소드
-//		String ssn = "010624-1230123";
-//		char sex = ssn.charAt(7);
-//		switch (sex) {//switch 제어문 [switch(검사대상)]
-//		case '1':	//sex 변수값이 문자 1, 3이면
-//		case '3': System.out.println("남자");
-//			break;
-//		case '2'://sex 변수 값이 문자 '2','4'면
-//		case '4': System.out.println("여자");
-//			break;
-//		}
 		
+		//String 메소드
+		//p.499 charAt() : 문자열에서 특정문자 추출
+		String ssn = "010624-1230123";	//주민등록번호
+		char sex = ssn.charAt(7);	//7번 인덱스의 문자를 추출
+		
+		switch (sex) {//switch 제어문 [switch(검사대상)]
+		case '1':	//sex 변수값이 문자 1, 3이면
+		case '3': System.out.println("남자");
+			break;
+		case '2'://sex 변수 값이 문자 '2','4'면
+		case '4': System.out.println("여자");
+			break;
+		}//switch end
+		
+		System.out.println("------------------------");
+		
+		//p.501 equals() : 문자열비교
+			//기본자료형 사용하는 변수는 연산자 사용가능 [==]
+			//String 클래스 사용하는 객체는 == 연산자 사용불가능[equals]
+
 		//자바 메모리 [JVM]
 			//스택 메모리 : 지역변수
 			//힙 메모리 : 객체
 			//메소드 메모리
 		
+		//1.문자열 선언
+		String strVar1 = new String("신민철");
+		String strVar2 = "신문철";	//객체는 new 연산자 필수 이지만 String 클래스는 자동생성 가능
 		
+		//2.문자열 비교
+		if (strVar1 == strVar2) {//문자열 == 불가능 [== 힙 주소 비교]
+			System.out.println("같은 String 객체를 참조");
+		}else {
+			System.out.println("다른 String 객체를 참조");
+		}
+		//3.
+		if (strVar1.equals(strVar2)) {// [equals 힙 내용물 비교]
+			System.out.println("같은 문자열을 가짐");
+		}else {
+			System.out.println("다른 문자열을 가짐");
+		}
+		System.out.println("------------------------");
+		//p.502 .getBytes():문자열 -> 바이트열 변환
+		String str= "안녕하세요"; //영문 1 바이트 한글 2바이트
+		//문자열->바이트열 변환
+		byte[]bytes1 =  str.getBytes();
+		System.out.println("영문1byte 한글2byte : " + bytes1.length);//배열명.length
 		
-//		//p.501 equals() : 문자열비교
-//			//기본자료형 사용하는 변수는 연산자 사용가능 [==]
-//			//String 클래스 사용하는 객체는 == 연산자 사용불가능[equals]
-//		String strVar1 = new String("신민철");
-//		String strVar2 = "신문철";	//객체는 new 연산자 필수 이지만 String 클래스는 자동생성 가능
-//		
-//		//2.문자열 비교
-//		if (strVar1 == srtVar2) {
-//			System.out.println("같은 String 객체를 참조");
-//		}else {
-//			System.out.println("다른 String 객체를 참조");
-//		}
-//		//3.
-//		if (strVar1.equals(strVar2)) {
-//			System.out.println("같은 문자열을 가짐");
-//		}else {
-//			System.out.println("다른 문자열을 가짐");
-//		}
-//		//502
-//		String str= "안녕하세요";
-//		
-//		byte[]	bytes1 =  str.getBytes();
-//		System.out.println(bytes1.length);
-//		//바이트열 ->문자열 변환
-//		String str1 = new String(bytes1);
-//		System.out.println("바이트열 -> 문자열 : "+ str1);
-//		
-//		
+		//바이트열 ->문자열 변환
+		String str1 = new String(bytes1);
+		System.out.println("바이트열 -> 문자열 : "+ str1);
+		
 		try {
-//			//1.인코딩타입 [인코딩/디코딩 : 변환 방식]
-//			
-//			//1.EUC-KR[한글/영문 : 2바이트씩]
-//			byte[]	bytes2 = str.getBytes("EUC-KR");//일반예외 발생
-//			System.out.println("EUC-KR 길이 : " + bytes2.length);
-//			String str2 =new String( bytes2, "EUC-KR");
-//			System.out.println("바이트열 -> 문자열 : " + str2);
-//			
-//			//2.UTF-8 [전세계용어]
-//			byte[]	bytes3 = str.getBytes("UTF-8");//일반예외 발생
-//			System.out.println("UTF-8 길이 : " + bytes3.length);
-//			String str3 =new String( bytes3, "UTF-8");
-//			System.out.println("바이트열 -> 문자열 : " + str3);
-//	
+			//1.인코딩타입 [인코딩/디코딩 : 변환 방식]
+			
+			//1.EUC-KR[한글/영문 : 2바이트씩]
+			byte[]bytes2 = str.getBytes("EUC-KR");//일반예외 발생
+			System.out.println("EUC-KR 길이 : " + bytes2.length);
+			String str2 =new String( bytes2, "EUC-KR");
+			System.out.println("바이트열 -> 문자열 : " + str2);
+			
+			//2.UTF-8 [전세계용어:한글 3바이트]
+			byte[]bytes3 = str.getBytes("UTF-8");//일반예외 발생
+			System.out.println("UTF-8 길이 : " + bytes3.length);
+			String str3 =new String( bytes3, "UTF-8");
+			System.out.println("바이트열 -> 문자열 : " + str3);
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 //		//504
 //			String subject = "자바 프로그래밍";
 //			int location = subject.indexOf("프로그래밍");
@@ -123,10 +129,7 @@ public class Day12_2 {//cs
 			
 			
 			
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
+		
 		
 		
 		
