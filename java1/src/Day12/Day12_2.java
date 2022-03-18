@@ -74,27 +74,30 @@ public class Day12_2 {//cs
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-//		//504
-//			String subject = "자바 프로그래밍";
-//			int location = subject.indexOf("프로그래밍");
-//			System.out.println("location");
-//			
-//			//문자열 내 특정문자열 위치[인덱스]찾기 /만약에 없으면 -[없다]
-//			if(subject.indexOf("자바") != -1 ) {//인덱스는 0번 시작
-//				System.out.println("자바 관련 책");
-//			}else {
-//				System.out.println("자바와 관련 없음");
-//			}
-//			
-//			//505
-//			
-//			String ssn2 = "754861515485";
-//			int length = ssn2.length(); //
-//			if (length == 13 ) {
-//				System.out.println("주민번호 자리수가 맞습니다.");
-//			}else {
-//				System.out.println("주민번호 자리수가 틀립니다.");
-//			}
+		System.out.println("------------------------");
+		//p.504 indexOf() : 문자 위치[인덱스]찾기
+			String subject = "자바 프로그래밍";
+			int location = subject.indexOf("프로그래밍");
+			System.out.println("location");
+			
+			//문자열 내 특정문자열 위치[인덱스]찾기 /만약에 없으면 -1[없다]
+			if(subject.indexOf("자바") != -1 ) {//인덱스는 0번 시작
+				System.out.println("자바 관련 책");
+			}else {
+				System.out.println("자바와 관련 없음");
+			}
+			
+			System.out.println("------------------------");
+			
+			//p.505 length() : 문자열 길이 
+			
+			String ssn2 = "754861515485";
+			int length = ssn2.length(); //
+			if (length == 13 ) {
+				System.out.println("주민번호 자리수가 맞습니다.");
+			}else {
+				System.out.println("주민번호 자리수가 틀립니다.");
+			}
 			
 		System.out.println("-----------------------------------");	
 			//p.506 replace ("기존문자","새로운 문자")
@@ -102,10 +105,10 @@ public class Day12_2 {//cs
 		String newSrt = oldStr.replace("자바", "JAVA");
 						//문자열.replace("기존문자","새로운 문자");
 			
-		System.out.println(oldStr);
-		System.out.println(newSrt);
+		System.out.println("기존 문자열 : " + oldStr);
+		System.out.println("새로운 문자열 : " + newSrt);
 		
-		//507 Substring(인덱스기준) vs split(문자기준) :문자열자르기
+		//p. 507 substring(인덱스기준) vs split(문자기준) :문자열자르기
 			String ssn3 = "880815-1234567";
 			String firstNum = ssn3.substring(0,6);	//시작인덱스, 마지막 인덱스 전
 			System.out.println(firstNum);
@@ -116,25 +119,21 @@ public class Day12_2 {//cs
 			System.out.println("앞부분 : "+ ssn3.split("-")[0]);
 			System.out.println("뒷부분 : "+ ssn3.split("-")[1]);
 //			[0] = 880815 [1] = 1234567
-			//508
+			
+			//p.508
 				//영문문자열.toLowerCase("영문") -> 영문 [소문자로 변환]
 				//영문문자열.toUpperCase()-> 영문 [대문자로 변환]
-			//509
+			//p.509
 				//문자열.trim() : 앞뒤 공백제거
-			//510 valueOF() : 기본타입 [int,double 등] ->문자열 변환
+			//p.510 valueOF() : 기본타입 [int,double 등] ->문자열 변환
 			String str2 = String.valueOf(10);	//int 형 10 ->String 10으로 변환
 			String str3 = String.valueOf(10.5);
 			String str4 = String.valueOf(true);
 			String str5 = 10+"";	//int 형을 String 변수에 저장[불가능]
 			
-			
-			
-		
-		
-		
-		
-		
-		
+			System.out.println(str2 + 10); // 문자 +문자 연결
+			System.out.println(str3 + 10);
+			//if (str4) 오류 : str5에는 boolean 형이 아닌 문자형 true 저장
 		
 	}//me
 
