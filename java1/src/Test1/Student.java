@@ -1,4 +1,4 @@
-package 프로그래밍언어활용_유희진;
+package Test1;
 
 public class Student {
 	

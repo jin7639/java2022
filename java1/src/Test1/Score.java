@@ -1,9 +1,9 @@
-package 프로그래밍언어활용_유희진;
+package Test1;
 
 import java.util.Iterator;
 import java.util.Scanner;
 
-public class Test {
+public class Score {
 
 	public static void main(String[] args) {
 		
