@@ -10,6 +10,7 @@ public class 사람 extends 직업{
 	}
 	//메소드
 	public void 이름호출() {
+		System.out.println(" *부모클래스에서 실행");
 		System.out.println(this.이름);
 	}
 	
