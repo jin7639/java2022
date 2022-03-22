@@ -52,7 +52,7 @@ public class Day15_2 {
 			
 		////////////////////////////////////////////////
 
-		// 			상속[ extends ] 	vs 인터페이스 [interpace]
+		// 			상속[ extends ] 	vs 인터페이스 [interface]
 		// 연결수 			1		vs	다중[여러개]			
 		//@Override		재정의[수정]	vs	구현[정의]
 		//다형성			부모<-자식		vs	부모<-자식
