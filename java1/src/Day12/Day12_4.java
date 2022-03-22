@@ -79,8 +79,10 @@ public class Day12_4 {
 							}
 						}
 					}else {
-						for (int i = 0; i < oddlest.length; i++) {
-							if( oddlist[i] == null ) { oddlist[i] = strnum; break; }
+						for (int i = 0; i < oddlist.length; i++) {
+							if( oddlist[i] == null ) { 
+								oddlist[i] = carnum; break; 
+							}
 						}
 					}
 				}
