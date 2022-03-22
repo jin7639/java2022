@@ -1,7 +1,15 @@
 package Day15;
 
+import java.util.ArrayList;
+
 public class Controller {
 
+	//1.배열
+	public static Car[] carlist = new Car[100];
+	//2.리스트
+	public static ArrayList<Car> carlist2 = new ArrayList<>();
+	
+	
 	//입차 메소드
 	public static boolean 입차(String 차량번호) {
 		
