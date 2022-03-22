@@ -5,9 +5,9 @@ import java.time.LocalTime;
 
 public class Car {
 
-	private LocalDate 날짜;
-	private String 차량번호;
-	private LocalTime 입차시간;
+	private LocalDate carInDate;
+	private String carNum;
+	private LocalTime carInTime;
 	private LocalTime 출차시간 ;
 	private int 금액;
 	
@@ -15,37 +15,49 @@ public class Car {
 		//1.빈생성자
 	public Car() {}
 
-	public Car(LocalDate 날짜, String 차량번호, LocalTime 입차시간, LocalTime 출차시간, int 금액) {
+	
+		//차량 등록시
+	public Car(LocalDate carInDate, String carNum, LocalTime carInTime) {
 		super();
-		this.날짜 = 날짜;
-		this.차량번호 = 차량번호;
-		this.입차시간 = 입차시간;
+		this.carInDate = carInDate;
+		this.carNum = carNum;
+		this.carInTime = carInTime;
+	}
+
+
+		//풀생성자
+	public Car(LocalDate carInDate, String carNum, LocalTime carInTime, LocalTime 출차시간, int 금액) {
+		super();
+		this.carInDate = carInDate;
+		this.carNum = carNum;
+		this.carInTime = carInTime;
 		this.출차시간 = 출차시간;
 		this.금액 = 금액;
 	}
 
-	public LocalDate get날짜() {
-		return 날짜;
+	//메소드
+	public LocalDate getcarInDate() {
+		return carInDate;
 	}
 
-	public void set날짜(LocalDate 날짜) {
-		this.날짜 = 날짜;
+	public void setcarInDate(LocalDate carInDate) {
+		this.carInDate = carInDate;
 	}
 
-	public String get차량번호() {
-		return 차량번호;
+	public String getcarNum() {
+		return carNum;
 	}
 
-	public void set차량번호(String 차량번호) {
-		this.차량번호 = 차량번호;
+	public void setcarNum(String carNum) {
+		this.carNum = carNum;
 	}
 
-	public LocalTime get입차시간() {
-		return 입차시간;
+	public LocalTime getcarInTime() {
+		return carInTime;
 	}
 
-	public void set입차시간(LocalTime 입차시간) {
-		this.입차시간 = 입차시간;
+	public void setcarInTime(LocalTime carInTime) {
+		this.carInTime = carInTime;
 	}
 
 	public LocalTime get출차시간() {

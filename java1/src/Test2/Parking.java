@@ -21,11 +21,14 @@ public class Parking {
 	public static void main(String[] args) {//ms
 		
 		Scanner scanner = new Scanner(System.in);
+		
 		while(true) { //무한루프 [종료조건 : 없음]
 			try {
 				System.out.println("-------------주차 현황 표--------------");
 				System.out.println("날짜\t차량번호\t입차시간\t출차시간\t금액");
 				System.out.printf("%s\t%s\t%s\t%s\t%d \n", "날짜", "차량번호","입차시간","출차시간","금액");
+				
+				
 				
 				System.out.println("------------------------------------");
 				System.out.println("1.입차 2. 출차 | 선택 : ");

@@ -35,8 +35,6 @@ public class Controller {
 			return false;
 		}
 		
-		
-		
 	}
 	
 	//5.삭제 메소드				//현재 게시물 번호[인덱스] 현재 게시물 비밀번호
