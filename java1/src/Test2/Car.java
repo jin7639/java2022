@@ -1,34 +1,39 @@
 package Test2;
 
-public class Car {
+import java.time.LocalDate;
+import java.time.LocalTime;
 
-//	날짜 차량번호 입차시간 출차시간 금액
-	private String carInDate;
+public class Car {
+	
 	private String carNum;
-	private String carInTime;
-	private String carOutTime;
+	private LocalDate carInDate;
+	private LocalTime carInTime;
+	private LocalTime carOutTime;
 	private int parkingFee;
 	
-	public Car () {}
+	public Car() {}
 
-
-
-	public Car(String carInDate, String carNum, String carInTime, String carOutTime, int parkingFee) {
+	
+	
+	public Car(String carNum, LocalDate carInDate, LocalTime carInTime) {
 		super();
-		this.carInDate = carInDate;
 		this.carNum = carNum;
+		this.carInDate = carInDate;
+		this.carInTime = carInTime;
+	}
+
+
+
+	public Car(String carNum, LocalDate carInDate, LocalTime carInTime, LocalTime carOutTime, int parkingFee) {
+		super();
+		this.carNum = carNum;
+		this.carInDate = carInDate;
 		this.carInTime = carInTime;
 		this.carOutTime = carOutTime;
 		this.parkingFee = parkingFee;
 	}
 
-	public String getCarInDate() {
-		return carInDate;
-	}
-
-	public void setCarInDate(String carInDate) {
-		this.carInDate = carInDate;
-	}
+	
 
 	public String getCarNum() {
 		return carNum;
@@ -38,19 +43,27 @@ public class Car {
 		this.carNum = carNum;
 	}
 
-	public String getCarInTime() {
+	public LocalDate getCarInDate() {
+		return carInDate;
+	}
+
+	public void setCarInDate(LocalDate carInDate) {
+		this.carInDate = carInDate;
+	}
+
+	public LocalTime getCarInTime() {
 		return carInTime;
 	}
 
-	public void setCarInTime(String carInTime) {
+	public void setCarInTime(LocalTime carInTime) {
 		this.carInTime = carInTime;
 	}
 
-	public String getCarOutTime() {
+	public LocalTime getCarOutTime() {
 		return carOutTime;
 	}
 
-	public void setCarOutTime(String carOutTime) {
+	public void setCarOutTime(LocalTime carOutTime) {
 		this.carOutTime = carOutTime;
 	}
 
