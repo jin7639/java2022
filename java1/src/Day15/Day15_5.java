@@ -15,7 +15,16 @@ public class Day15_5 {
 		Calculator 계산기 = new Calculator();
 		
 		//2. user1 객체 생성
-		User
+		User1 사람1 = new User1();
+		// 계산기 객체를 user1설정 [대입]
+		사람1.setCalculator(계산기);
+		사람1.start();
 		
+		// 3. user2 객체 생성 
+			User2 사람2 = new User2();
+			// * 계산기 객체를 user2 설정[대입]
+			사람2.setCalculator(계산기);
+			사람2.start();
+	
 	}//me
 }//ce
