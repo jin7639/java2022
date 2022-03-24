@@ -20,7 +20,6 @@ public class Controller {
 		
 		carlist.add(car);
 
-		
 		return;
 	}
 	
@@ -43,10 +42,6 @@ public class Controller {
 				
 			}
 		}
-		
-		
-		
-		
 	}
 	
 }//ce
