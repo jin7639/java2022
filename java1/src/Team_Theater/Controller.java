@@ -35,7 +35,6 @@ public class Controller {
 		//회원정보 저장
 		
 		memberlist.add(member);
-	
 		return "good";
 	}
 	
