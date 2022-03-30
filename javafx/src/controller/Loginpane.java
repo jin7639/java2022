@@ -64,6 +64,9 @@ public class Loginpane implements Initializable {
 
 	    @FXML
 	    void login(ActionEvent event) {
+	    	
+	    
+	    	
 	    	System.out.println("로그인처리");
 	    }
 	

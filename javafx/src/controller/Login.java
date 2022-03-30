@@ -18,7 +18,7 @@ public class Login implements Initializable {
 		//1. 현재 클래스로 객체 선언
 	public static Login instance;
 		//2.생성자에서 객체 내 this 넣어주기
-			//this : 현재 클래스이 메모리 [ 새로운 메모리 할당 X ]
+			//this : 현재 클래스에 메모리 [ 새로운 메모리 할당 X ]
 	
 	public Login() {
 		instance = this;
@@ -32,17 +32,17 @@ public class Login implements Initializable {
     
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// 1. 동영상 삽입하기
-			// 1. 동영상파일 객체화
-			Media media = new Media( getClass().getResource("/img/login.mp4").toString());
-			// 2. 미디어플레이어 객체에 동영상 넣기 
-			MediaPlayer mediaPlayer = new MediaPlayer(media);
-			MediaView mediaView = new MediaView();
-			// 3. 미디어뷰에 미디어플레이어 넣기 
-			mediaView.setMediaPlayer(mediaPlayer);
-			// 4. 미디어플레이어 시작
-			mediaPlayer.play();
-			
+//		// 1. 동영상 삽입하기
+//			// 1. 동영상파일 객체화
+//			Media media = new Media( getClass().getResource("/img/login.mp4").toString());
+//			// 2. 미디어플레이어 객체에 동영상 넣기 
+//			MediaPlayer mediaPlayer = new MediaPlayer(media);
+//			MediaView mediaView = new MediaView();
+//			// 3. 미디어뷰에 미디어플레이어 넣기 
+//			mediaView.setMediaPlayer(mediaPlayer);
+//			// 4. 미디어플레이어 시작
+//			mediaPlayer.play();
+//			
 			loadpage("/view/loginpane.fxml");
 	}
 	public void loadpage( String page ) {
