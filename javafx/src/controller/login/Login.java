@@ -1,4 +1,4 @@
-package controller;
+package controller.login;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -23,6 +23,10 @@ public class Login implements Initializable {
 	
 	public Login() {
 		instance = this;
+	}
+	
+	public static Login getinstance( ) {
+		return instance;
 	}
 	
 	@FXML
