@@ -20,7 +20,7 @@ public class Start extends Application{
 		stage.setScene(scene);
 		//3.스테이지 로고 설정
 			//1.이미지 불러오기
-		Image image = new Image("/img/stage.jpg");
+		Image image = new Image("/img/icon.png");
 			//절대 경로 vs 상대경로
 			//절대 경로 : 모든 경로
 				//C:\Users\504\git\java2022\Javafx2\src\img\파일명.확장자

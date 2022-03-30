@@ -25,6 +25,10 @@ public class Login implements Initializable {
 		instance = this;
 	}
 	
+	public static Login getinstance( ) {
+		return instance;
+	}
+	
 	@FXML
     private MediaView mediaview;
 
