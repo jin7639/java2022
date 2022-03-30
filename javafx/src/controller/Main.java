@@ -18,7 +18,6 @@ public class Main implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		System.out.println("메인 뷰가 실행되었습니다.");	
-		//1.
 		loadpage("/view/login");
 	
 	}
@@ -28,6 +27,7 @@ public class Main implements Initializable {
 			borderpane.setCenter(parent); //컨테이너 (fxml) 가운데에 페이지 넣기
 		} catch (Exception e) {
 			// TODO: handle exception
+			System.out.println("페이지 불러오기 실패 사유 : "+ e);
 		}
 	}
 	
