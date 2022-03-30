@@ -30,7 +30,6 @@ public class Controller {
 	}
 	
 	public String login(String id,String pw) {
-		
 
 		for(Member temp : memberlist) {
 			if(temp!=null) {
@@ -40,13 +39,11 @@ public class Controller {
 				else if(temp.getId().equals(id)&&temp.getPw().equals(pw)) {
 					return temp.getId();
 				}
-				
 			}
 			
 		}
 		return "false";
 	}
-	
 	
 	public String findid(String name, String phone) {//아이디찾기
 
@@ -164,7 +161,7 @@ public class Controller {
 		return ;
 	}
 	
-	//영화시스템///////////////////////////////////////////////////////////////////////////
+	//영화시스템/////////////////////////////////////////////////////////////////////////////
 	
 	public void reserve(String id,String title,String intime,String runtime,int money,int seat,int Th_num) {
 		Random random = new Random();
