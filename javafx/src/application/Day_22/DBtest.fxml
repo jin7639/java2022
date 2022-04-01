@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:controller="application.DBtest컨트롤러" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label alignment="CENTER" layoutX="35.0" layoutY="36.0" prefHeight="40.0" prefWidth="250.0" text="데이터 베이스 테스트">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtwriter" layoutX="35.0" layoutY="106.0" prefHeight="40.0" prefWidth="250.0" promptText="작성자 " />
+      <TextField fx:id="txtcontent" layoutX="35.0" layoutY="159.0" prefHeight="40.0" prefWidth="250.0" promptText="내용" />
+      <Button fx:id="btnget" layoutX="315.0" layoutY="36.0" mnemonicParsing="false" onAction="#get" prefHeight="40.0" prefWidth="250.0" text="DB 호출" />
+      <Button fx:id="btnwrite" layoutX="35.0" layoutY="231.0" mnemonicParsing="false" onAction="#write" prefHeight="40.0" prefWidth="250.0" text="등록" />
+      <Label fx:id="txtcontentlist" alignment="CENTER" layoutX="315.0" layoutY="101.0" prefHeight="227.0" prefWidth="250.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
