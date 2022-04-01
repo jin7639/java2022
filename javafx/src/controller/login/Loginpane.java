@@ -14,11 +14,11 @@ import javafx.scene.control.TextField;
 
 public class Loginpane implements Initializable {
 
-			@Override
-			public void initialize(URL arg0, ResourceBundle arg1) {
-				// TODO Auto-generated method stub
-				
-			}
+		@Override
+		public void initialize(URL arg0, ResourceBundle arg1) {
+			// TODO Auto-generated method stub
+			
+		}
 	
 		@FXML
 	    private TextField txtid;
@@ -44,11 +44,13 @@ public class Loginpane implements Initializable {
 	    @FXML
 	    void accfindid(ActionEvent event) {
 	    	System.out.println("아이디찾기 페이지로 이동");
+	    	Login.instance.loadpage("/view/findidpane.fxml");
 	    }
 
 	    @FXML
 	    void accfindpw(ActionEvent event) {
 	    	System.out.println("비밀번호 찾기 페이지로 이동");
+	    	Login.instance.loadpage("/view/findpwpane.fxml");
 	    }
 
 	    @FXML

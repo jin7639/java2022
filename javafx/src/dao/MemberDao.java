@@ -109,12 +109,43 @@ public class MemberDao { // DB 접근객체
 		
 		return false; //로그인 실패
 	}
-		//3.아이디
+		//3.아이디 찾기
 	public String findid(String email) {
+		try {
+			//아이디찾기 → DB연동
+				//입력한 이메일이 존재하면 메시지[알람]에 찾은 아이디 알려주기
+			//1.SQL 작성
+			String sql = "select * from member where memail = ?";
+			//2.SQL 조작
+			ps = con.prepareStatement(sql);
+			ps.setString(1, email);
+			//3.SQL 실행
+			rs = ps.executeQuery();
+			//4.SQL 결과
+			if (rs.next()) {
+				
+			}
+		
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 		return null;
 	}
-		//4.비밀번호
+		//4.비밀번호 찾기
 	public String findpassword (String id , String email) {
+		//패스워드찾기 → DB연동
+			//입력한 아이디, 이메일 존재하면 메시지[알람]에 찾은 비밀번호 알려주기
+		//1.SQL 작성
+		
+		//2.SQL 조작
+		
+		//3.SQL 실행
+		
+		//4.SQL 결과
+		
+
+		
 		return null;
 	}
 	
