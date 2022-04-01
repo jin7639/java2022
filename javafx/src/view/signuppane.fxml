@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane  fx:controller="controller.Signuppane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #00ff0000;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #00ff0000;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.login.Signuppane">
    <children>
       <TextField fx:id="txtid" layoutX="26.0" layoutY="91.0" prefHeight="40.0" prefWidth="250.0" promptText="아이디" />
       <PasswordField fx:id="txtpw" layoutX="26.0" layoutY="140.0" prefHeight="40.0" prefWidth="250.0" promptText="비밀번호" />
@@ -24,7 +24,7 @@
             <Font name="MS UI Gothic" size="12.0" />
          </font>
       </Button>
-      <Label fx:id="lalconfirm" alignment="CENTER" layoutX="92.0" layoutY="57.0" text="회원가입 실패시 표시">
+      <Label fx:id="lblconfirm" alignment="CENTER" layoutX="92.0" layoutY="57.0" text="회원가입 실패시 표시">
          <font>
             <Font size="12.0" />
          </font>
