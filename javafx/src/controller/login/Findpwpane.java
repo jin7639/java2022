@@ -3,12 +3,15 @@ package controller.login;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import dao.MemberDao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 
 public class Findpwpane implements Initializable {
 
@@ -42,7 +45,24 @@ public class Findpwpane implements Initializable {
 
     @FXML
     void findpw(ActionEvent event) {
-
+    	//1.컨트롤에 입력된 값 가져오기
+    	String id = txtid.getText();
+    	String email = txtemail.getText();
+    	//2.DB객체 내 메소드 호출
+    	boolean result = MemberDao.memberDao.findpw(id, email);
+    	//3.결과 확인
+    	if (result) {
+			//알람
+    		Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("알림"); //메시지 제목 설정
+			alert.setHeaderText("회원님의 비밀번호");
+			alert.setContentText("");
+			
+			alert.showAndWait();
+		}else {
+			lblconfirm.setText("동일한 회원정보가 없습니다.");
+			
+		}
     }
 	
 }

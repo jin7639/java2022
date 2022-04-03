@@ -7,9 +7,11 @@ import dao.MemberDao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 
 public class Findidpane implements Initializable{
 
@@ -46,7 +48,11 @@ public class Findidpane implements Initializable{
     	//3.결과 확인
     	if (result) {
 			//알람
-    		
+    		Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("알림"); //메시지 제목 설정
+			alert.setHeaderText("회원님의 아이디");
+			alert.setContentText("");
+			alert.showAndWait();
 		}else {
 			lblconfirm.setText("동일한 회원정보가 없습니다.");
 			
