@@ -1,9 +1,12 @@
 package dao;
 
+import java.lang.annotation.Retention;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+
+import com.mysql.cj.QueryReturnType;
 
 import dto.Member;
 
@@ -104,7 +107,7 @@ public class MemberDao { // DB 접근객체
 		
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("SQL오류 " + e);
+			System.out.println("SQL오류00 " + e);
 		}
 		
 		return false; //로그인 실패
@@ -157,8 +160,65 @@ public class MemberDao { // DB 접근객체
 		}
 		return null;
 	
-}
+	}	
 	
+	//5. 아이디 인수로 회원정보 호출
+	public Member getMember(String id) {
+		try {
+			//1. SQL 작성
+				String sql = "select * from member where mid=?";
+			//2. SQL 조작
+			ps = con.prepareStatement(sql);
+			ps.setString(1, id);
+			//3. SQL 실행
+			rs = ps.executeQuery();
+			//4. SQL 결과
+			if (rs.next()) {
+				//1.객체 선언
+				Member member = new Member(
+						rs.getInt(1),
+						rs.getString(2),
+						rs.getString(3),
+						rs.getString(4),
+						rs.getString(5),
+						rs.getInt(6),
+						rs.getString(7)
+						//rs.next() : 결과내 다음 레코드(줄, 가로)
+						//rs.getInt (필드순서 번호) : 해당 필드의 자료형 정수형으로 가져오기
+						//rs.getString(필드순서 번호) : 해당 필드 자료형 문자열로 가져오기
+						
+						);
+				//2.반환
+				return member;
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("SQL 오류321 " + e);
+		}
+		return null;
+		
+	}
+	//6. 회원탈퇴 [회원번호를 인수로 받아 해당 회원번호의 레코드 삭제]
+	public boolean delete(int num) {
+		try {
+			
+			//1. SQL 작성
+			String sql = "delete from member where mnum=?";
+			//2. SQL 조직
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, num);
+			//3. SQL 실행
+			ps.executeUpdate();
+			//4. SQL 결과
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("SQL 오류 "+ e);
+		}
+		return false;
+	}
+	
+	//7. 회원 수정
 	
 	
 }

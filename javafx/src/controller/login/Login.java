@@ -3,6 +3,7 @@ package controller.login;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import dto.Member;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -28,6 +29,8 @@ public class Login implements Initializable {
 	public static Login getinstance( ) {
 		return instance;
 	}
+	
+	public static Member member;
 	
 	@FXML
     private MediaView mediaview;
