@@ -198,6 +198,7 @@ public class MemberDao { // DB 접근객체
 		return null;
 		
 	}
+<<<<<<< HEAD
 	//6. 회원탈퇴 [회원번호를 인수로 받아 해당 회원번호의 레코드 삭제]
 	public boolean delete(int num) {
 		try {
@@ -219,6 +220,10 @@ public class MemberDao { // DB 접근객체
 	}
 	
 	//7. 회원 수정
+=======
+	//6. 회원탈퇴
+>>>>>>> branch 'master' of https://github.com/jin7639/java2022
 	
+	//7. 회원 수정
 	
 }
