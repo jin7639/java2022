@@ -218,7 +218,28 @@ public class MemberDao { // DB 접근객체
 		return false;
 	}
 	
-	//7. 회원 수정
+	//7. 회원 수정 [ 회원번호. 이메일, 주소 인수로 받아서 수정 ]
+	public boolean update( int num, String email, String address ) {
+		try {
+			
+		//1. SQL 작성
+			//수정 : update 테이블명 set 필드명1=수정값1, 필드명2=수정값2 where 조건
+		String sql = "update member set memail=?, maddress=? where mnum = ? ";
+		//2. SQL 조작
+		ps = con.prepareStatement(sql);
+		ps.setString(1, email);
+		ps.setString(2, address);
+		ps.setInt(3, num);
 	
+		//3. SQL 실행
+		ps.executeUpdate();
+		//4. SQL 결과
+		return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("sql오류 " +  e);
+		}
+		return false;
+	}
 	
 }

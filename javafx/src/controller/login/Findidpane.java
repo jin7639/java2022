@@ -18,7 +18,7 @@ public class Findidpane implements Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		lblconfirm.setText("");
+		lblconfirm.setText("이메일을 입력해주세요");
 		
 	}
 	

@@ -74,7 +74,7 @@
                   <Font size="11.0" />
                </font>
             </Label>
-            <Label layoutX="144.0" layoutY="463.0" prefHeight="24.0" prefWidth="45.0" text="회원수정">
+            <Label fx:id="lblupdate" onMouseClicked="#accupdate" layoutX="144.0" layoutY="463.0" prefHeight="24.0" prefWidth="45.0" text="회원수정">
                <font>
                   <Font size="11.0" />
                </font>

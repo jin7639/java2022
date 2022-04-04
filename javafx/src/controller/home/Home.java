@@ -37,6 +37,14 @@ public class Home implements Initializable {
 	
 	@FXML
     private BorderPane borderpane;
+	
+	@FXML
+	private Label lblupdate;
+	
+	@FXML
+	public void accupdate(MouseEvent e) {
+		loadpage("/view/home/update.fxml");
+	}
 
 	
 	public void loadpage(String page) {
