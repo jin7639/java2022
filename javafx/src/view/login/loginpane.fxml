@@ -11,7 +11,7 @@
    <children>
       <TextField fx:id="txtid" layoutX="25.0" layoutY="101.0" prefHeight="40.0" prefWidth="250.0" promptText="아이디" />
       <PasswordField fx:id="txtpw" layoutX="25.0" layoutY="160.0" prefHeight="40.0" prefWidth="250.0" promptText="비밀번호" />
-      <Button fx:id="btnlogin" layoutX="25.0" layoutY="259.0" mnemonicParsing="false" onAction="#login" prefHeight="40.0" prefWidth="250.0" style="-fx-background-color: #00ff0000;" text="로그인">
+      <Button fx:id="btnlogin" layoutX="25.0" layoutY="232.0" mnemonicParsing="false" onAction="#login" prefHeight="40.0" prefWidth="250.0" style="-fx-background-color: #00ff0000;" text="로그인">
          <font>
             <Font name="MS UI Gothic" size="12.0" />
          </font>
@@ -21,17 +21,17 @@
             <Font name="MS UI Gothic" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="btnfindid" alignment="CENTER_RIGHT" layoutX="175.0" layoutY="299.0" mnemonicParsing="false" onAction="#accfindid" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #00ff0000;" text="아이디찾기">
+      <Button fx:id="btnfindid" alignment="CENTER_RIGHT" layoutX="175.0" layoutY="272.0" mnemonicParsing="false" onAction="#accfindid" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #00ff0000;" text="아이디찾기">
          <font>
             <Font name="MS UI Gothic" size="12.0" />
          </font>
       </Button>
-      <Label fx:id="lblconfirm" alignment="CENTER" layoutX="25.0" layoutY="218.0" prefHeight="32.0" prefWidth="250.0" text="로그인 오류" textFill="#dd0000">
+      <Label fx:id="lblconfirm" alignment="CENTER" layoutX="25.0" layoutY="200.0" prefHeight="32.0" prefWidth="250.0" text="로그인 오류" textFill="#dd0000">
          <font>
             <Font name="MS UI Gothic" size="12.0" />
          </font>
       </Label>
-      <Button fx:id="btnfindpw" alignment="CENTER_RIGHT" layoutX="175.0" layoutY="332.0" mnemonicParsing="false" onAction="#accfindpw" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #00ff0000;" text="비밀번호 찾기">
+      <Button fx:id="btnfindpw" alignment="CENTER_RIGHT" layoutX="175.0" layoutY="302.0" mnemonicParsing="false" onAction="#accfindpw" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #00ff0000;" text="비밀번호 찾기">
          <font>
             <Font name="MS UI Gothic" size="12.0" />
          </font>
