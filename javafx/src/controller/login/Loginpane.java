@@ -3,6 +3,7 @@ package controller.login;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import controller.Main;
 import dao.MemberDao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,7 +18,7 @@ public class Loginpane implements Initializable {
 		@Override
 		public void initialize(URL arg0, ResourceBundle arg1) {
 			// TODO Auto-generated method stub
-			
+			lblconfirm.setText("");
 		}
 	
 		@FXML
@@ -76,6 +77,7 @@ public class Loginpane implements Initializable {
 	    	//3.결과 확인
 	    	if (result) {
 				//페이지 전환
+	    		Main.instance.loadpage("/view/home/home.fxml");
 	    		//테스트
 	    		lblconfirm.setText("로그인 성공");
 			}else {

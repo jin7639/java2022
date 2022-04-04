@@ -12,6 +12,12 @@ import javafx.scene.layout.BorderPane;
 public class Main implements Initializable {
 
 	
+	public static Main instance;
+	public Main() {
+		instance = this;
+	}
+	
+	
 	@FXML
     private BorderPane borderpane; //¾Àºô´õ¿¡¼­ ¸¸µç ÄÁÅ×ÀÌ³Ê °´Ã¼
 	
