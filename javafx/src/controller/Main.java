@@ -18,7 +18,7 @@ public class Main implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		System.out.println("메인 뷰가 실행되었습니다.");	
-		loadpage("/view/login.fxml");
+		loadpage("/view/login/login.fxml");
 		//main.fxml 열기 ->main.fxml 에 borderpane이 있음 -> borderpane 초기화 -> loadpage 실행 -> login 가운데에 실행
 		
 	}

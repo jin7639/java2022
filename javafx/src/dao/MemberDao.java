@@ -110,7 +110,7 @@ public class MemberDao { // DB 접근객체
 		return false; //로그인 실패
 	}
 		//3.아이디 찾기
-	public boolean findid(String email) {
+	public String findid(String email) {
 		try {
 			//아이디찾기 → DB연동
 				//입력한 이메일이 존재하면 메시지[알람]에 찾은 아이디 알려주기
@@ -123,18 +123,17 @@ public class MemberDao { // DB 접근객체
 			rs = ps.executeQuery();
 			//4.SQL 결과
 			if (rs.next()) {
-				return true;
+				return rs.getString(2);
 				
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println("아이디찾기 실패 " + e);
 		}
-		return false;
-		
+		return null;
 	}
 		//4.비밀번호 찾기
-	public boolean findpw (String id , String email) {
+	public String findpw (String id , String email) {
 		try {
 		//패스워드찾기 → DB연동
 			//입력한 아이디, 이메일 존재하면 메시지[알람]에 찾은 비밀번호 알려주기
@@ -149,14 +148,14 @@ public class MemberDao { // DB 접근객체
 		
 		//4.SQL 결과
 		if (rs.next()) {
-			return true;
+			return rs.getString(3);
 			
 		}
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println("아이디찾기 실패 " + e);
 		}
-		return false;
+		return null;
 	
 }
 	

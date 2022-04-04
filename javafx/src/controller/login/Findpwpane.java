@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import dao.MemberDao;
+import dto.Member;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -40,7 +41,7 @@ public class Findpwpane implements Initializable {
 
     @FXML
     void back(ActionEvent event) {
-    	Login.instance.loadpage("/view/loginpane.fxml");
+    	Login.instance.loadpage("/view/login/loginpane.fxml");
     }
 
     @FXML
@@ -49,14 +50,17 @@ public class Findpwpane implements Initializable {
     	String id = txtid.getText();
     	String email = txtemail.getText();
     	//2.DB객체 내 메소드 호출
-    	boolean result = MemberDao.memberDao.findpw(id, email);
+    	String pw = MemberDao.memberDao.findpw(id, email);
     	//3.결과 확인
-    	if (result) {
+    	if (pw != null) {
+    		
+    		//이메일전송
+    		Member.sendmail(email, pw);
+    		
 			//알람
     		Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setTitle("알림"); //메시지 제목 설정
-			alert.setHeaderText("회원님의 비밀번호");
-			alert.setContentText("");
+			alert.setHeaderText("해당 이메일로 비밀번호를 전송했습니다.");
 			
 			alert.showAndWait();
 		}else {

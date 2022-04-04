@@ -24,7 +24,6 @@ public class Signuppane implements Initializable{
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		lblconfirm.setText("");
 		
-		
 	}
 	
 	@FXML
@@ -118,7 +117,7 @@ public class Signuppane implements Initializable{
 			
 			alert.showAndWait();
 			//2.화면 전환 [ 로그인페이지 ]
-			Login.instance.loadpage("/view/loginpane.fxml");
+			Login.instance.loadpage("/view/login/loginpane.fxml");
 			
 		}else {
 			lblconfirm.setText("회원가입 실패 [관리자에게 문의]");

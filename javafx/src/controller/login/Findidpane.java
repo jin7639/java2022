@@ -36,29 +36,27 @@ public class Findidpane implements Initializable{
 
     @FXML
     void back(ActionEvent event) {
-    	Login.instance.loadpage("/view/loginpane.fxml");
+    	Login.instance.loadpage("/view/login/loginpane.fxml");
     }
 
     @FXML
-    void findid(ActionEvent event) {
+    void findid(ActionEvent event) { // 아이디찾기 버튼을 눌렀을때
     	//1.컨트롤에 입력된 값 가져오기
     	String email = txtemail.getText();
     	//2.DB객체 내 메소드 호출
-    	boolean result = MemberDao.memberDao.findid(email);
+    	String id = MemberDao.memberDao.findid(email);
     	//3.결과 확인
-    	if (result) {
+    	if (id != null )  {//id가 존재하면
 			//알람
     		Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setTitle("알림"); //메시지 제목 설정
-			alert.setHeaderText("회원님의 아이디");
-			alert.setContentText("");
+			alert.setHeaderText("회원님의 아이디 : "+ id);
 			alert.showAndWait();
-		}else {
+		}else {//id가 null -> 아이디 정보 없음
 			lblconfirm.setText("동일한 회원정보가 없습니다.");
 			
 		}
     	
-    	
     }
-
+    
 }

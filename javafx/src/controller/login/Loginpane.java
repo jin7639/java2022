@@ -44,13 +44,13 @@ public class Loginpane implements Initializable {
 	    @FXML
 	    void accfindid(ActionEvent event) {
 	    	System.out.println("아이디찾기 페이지로 이동");
-	    	Login.instance.loadpage("/view/findidpane.fxml");
+	    	Login.instance.loadpage("/view/login/findidpane.fxml");
 	    }
 
 	    @FXML
 	    void accfindpw(ActionEvent event) {
 	    	System.out.println("비밀번호 찾기 페이지로 이동");
-	    	Login.instance.loadpage("/view/findpwpane.fxml");
+	    	Login.instance.loadpage("/view/login/findpwpane.fxml");
 	    }
 
 	    @FXML
@@ -61,7 +61,7 @@ public class Loginpane implements Initializable {
 	    		//Login login = new Login(); // 새로운 컨테이너 생성 [x]
 	    		//login.loadpage("/view/signuppane.fxml"); // [x]
 	    	//해결방안 : 기존 컨테이너 가져오는 방법 -> this
-	    	Login.instance.loadpage("/view/signuppane.fxml");
+	    	Login.instance.loadpage("/view/login/signuppane.fxml");
 	    	
 	    }
 
