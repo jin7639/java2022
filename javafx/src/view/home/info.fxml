@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1030.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.home.Info">
+   <children>
+      <Label layoutX="280.0" layoutY="103.0" prefHeight="40.0" prefWidth="80.0" text="회원정보">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Line endX="100.0" layoutX="372.0" layoutY="150.0" startX="-100.0" />
+      <Label layoutX="280.0" layoutY="178.0" prefHeight="30.0" prefWidth="50.0" text="아이디">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblid" layoutX="280.0" layoutY="208.0" prefHeight="50.0" prefWidth="200.0" text="1234">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="280.0" layoutY="258.0" prefHeight="30.0" prefWidth="50.0" text="이메일">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblemail" layoutX="280.0" layoutY="288.0" prefHeight="50.0" prefWidth="200.0" text="1234">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="280.0" layoutY="338.0" prefHeight="30.0" prefWidth="50.0" text="주소">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbladdress" layoutX="280.0" layoutY="368.0" prefHeight="50.0" prefWidth="200.0" text="1234">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="280.0" layoutY="418.0" prefHeight="30.0" prefWidth="50.0" text="포인트">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblpoint" layoutX="280.0" layoutY="448.0" prefHeight="50.0" prefWidth="200.0" text="1234">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="280.0" layoutY="506.0" prefHeight="30.0" prefWidth="50.0" text="가입일">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblsince" layoutX="280.0" layoutY="536.0" prefHeight="50.0" prefWidth="200.0" text="1234">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
