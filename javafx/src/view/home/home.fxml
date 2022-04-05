@@ -42,7 +42,7 @@
                   <Font size="14.0" />
                </font></Label>
             <Line endX="-38.0" layoutX="140.0" layoutY="251.0" startX="-100.0" strokeWidth="1.5" />
-            <Label layoutX="47.0" layoutY="252.0" prefHeight="28.0" prefWidth="52.0" text="공지사항" textFill="WHITE">
+            <Label layoutX="47.0" layoutY="252.0" prefHeight="28.0" prefWidth="59.0" text="공지사항" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
@@ -52,67 +52,67 @@
                   <Font size="14.0" />
                </font></Label>
             <Line endX="-38.0" layoutX="140.0" layoutY="316.0" startX="-100.0" strokeWidth="1.5" />
-            <Label layoutX="47.0" layoutY="318.0" prefHeight="28.0" prefWidth="51.0" text="남성의류" textFill="WHITE">
+            <Label layoutX="47.0" layoutY="318.0" prefHeight="28.0" prefWidth="60.0" text="남성의류" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="45.0" layoutY="362.0" prefHeight="28.0" prefWidth="51.0" text="커뮤니티" textFill="WHITE">
+            <Label layoutX="43.0" layoutY="388.0" prefHeight="28.0" prefWidth="63.0" text="커뮤니티" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <Line endX="-38.0" layoutX="140.0" layoutY="390.0" startX="-100.0" strokeWidth="1.5" />
-            <Label layoutX="47.0" layoutY="391.0" prefHeight="28.0" prefWidth="56.0" text="거래후기" textFill="WHITE">
+            <Line endX="-38.0" layoutX="138.0" layoutY="416.0" startX="-100.0" strokeWidth="1.5" />
+            <Label layoutX="45.0" layoutY="417.0" prefHeight="28.0" prefWidth="56.0" text="거래후기" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="103.0" layoutY="318.0" prefHeight="28.0" prefWidth="51.0" text="여성의류" textFill="WHITE">
+            <Label layoutX="122.0" layoutY="318.0" prefHeight="28.0" prefWidth="59.0" text="여성의류" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="lblboard" layoutX="100.0" layoutY="391.0" onMouseClicked="#accboard" prefHeight="28.0" prefWidth="56.0" text="자유게시" textFill="WHITE">
+            <Label fx:id="lblboard" layoutX="117.0" layoutY="417.0" onMouseClicked="#accboard" prefHeight="28.0" prefWidth="56.0" text="자유게시" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="45.0" layoutY="434.0" prefHeight="28.0" prefWidth="30.0" text="정보" textFill="WHITE">
+            <Label layoutX="42.0" layoutY="454.0" prefHeight="28.0" prefWidth="30.0" text="정보" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <Line endX="-38.0" layoutX="140.0" layoutY="462.0" startX="-100.0" strokeWidth="1.5" />
-            <Label layoutX="47.0" layoutY="464.0" prefHeight="22.0" prefWidth="45.0" text="내가쓴글" textFill="WHITE">
+            <Line endX="-38.0" layoutX="137.0" layoutY="482.0" startX="-100.0" strokeWidth="1.5" />
+            <Label layoutX="42.0" layoutY="484.0" prefHeight="22.0" prefWidth="63.0" text="내가쓴글" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="lblinfo" layoutX="101.0" layoutY="464.0" onMouseClicked="#accinfo" prefHeight="22.0" prefWidth="45.0" text="회원정보" textFill="WHITE">
+            <Label fx:id="lblinfo" layoutX="115.0" layoutY="484.0" onMouseClicked="#accinfo" prefHeight="22.0" prefWidth="62.0" text="회원정보" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="lbldelete" layoutX="209.0" layoutY="464.0" onMouseClicked="#delete" prefHeight="22.0" prefWidth="45.0" text="회원탈퇴" textFill="WHITE">
+            <Label fx:id="lbldelete" layoutX="115.0" layoutY="507.0" onMouseClicked="#delete" prefHeight="22.0" prefWidth="59.0" text="회원탈퇴" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="45.0" layoutY="512.0" prefHeight="28.0" prefWidth="46.0" text="관리자" textFill="WHITE">
+            <Label layoutX="45.0" layoutY="542.0" prefHeight="28.0" prefWidth="46.0" text="관리자" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <Line endX="-38.0" layoutX="140.0" layoutY="540.0" startX="-100.0" strokeWidth="1.5" />
-            <Label layoutX="47.0" layoutY="541.0" prefHeight="28.0" prefWidth="56.0" text="통계" textFill="WHITE">
+            <Line endX="-38.0" layoutX="140.0" layoutY="570.0" startX="-100.0" strokeWidth="1.5" />
+            <Label layoutX="47.0" layoutY="571.0" prefHeight="28.0" prefWidth="56.0" text="통계" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="lblupdate" layoutX="156.0" layoutY="463.0" onMouseClicked="#accupdate" prefHeight="24.0" prefWidth="45.0" text="회원수정" textFill="WHITE">
+            <Label fx:id="lblupdate" layoutX="42.0" layoutY="506.0" onMouseClicked="#accupdate" prefHeight="24.0" prefWidth="57.0" text="회원수정" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="158.0" layoutY="318.0" prefHeight="28.0" prefWidth="51.0" text="생활용품" textFill="WHITE">
+            <Label layoutX="43.0" layoutY="346.0" prefHeight="28.0" prefWidth="60.0" text="생활용품" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>

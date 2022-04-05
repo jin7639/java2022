@@ -1,6 +1,9 @@
 package controller.board;
 
+import java.io.FileOutputStream;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -29,21 +32,21 @@ public class Boardview implements Initializable{
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
 		replytableshow();
-		dto.Board board = controller.board.Board.board; //board ÄÁÆ®·Ñ³» Å×ÀÌºí¿¡¼­ ¼±ÅÃµÈ °´Ã¼ È£Ãâ
+		dto.Board board = controller.board.Board.board; //board ì»¨íŠ¸ë¡¤ë‚´ í…Œì´ë¸”ì—ì„œ ì„ íƒëœ ê°ì²´ í˜¸ì¶œ
 		
-		//°¢ ÄÁÆ®·Ñ¿¡ ¼±ÅÃµÈ boardÀÇ µ¥ÀÌÅÍ ¼³Á¤ÇÏ±â
-		lblwriter.setText("ÀÛ¼ºÀÚ : "+board.getBwriter());
-		lbldate.setText("ÀÛ¼ºÀÏ : "+board.getBdate());
-		lblview.setText("Á¶È¸¼ö : "+board.getBview());
+		//ê° ì»¨íŠ¸ë¡¤ì— ì„ íƒëœ boardì˜ ë°ì´í„° ì„¤ì •í•˜ê¸°
+		lblwriter.setText("ì‘ì„±ì : "+board.getBwriter());
+		lbldate.setText("ì‘ì„±ì¼ : "+board.getBdate());
+		lblview.setText("ì¡°íšŒìˆ˜ : "+board.getBview());
 		txttitle.setText(board.getBtitle());
 		txtcontent.setText(board.getBcontent());
 		
-		//¸¸¾à¿¡ ÀÛ¼ºÀÚ¿Í ÇöÀç ·Î±×ÀÎµÈ id°¡ µ¿ÀÏÇÏÁö ¾ÊÀ¸¸é
+		//ë§Œì•½ì— ì‘ì„±ìì™€ í˜„ì¬ ë¡œê·¸ì¸ëœ idê°€ ë™ì¼í•˜ì§€ ì•Šìœ¼ë©´
 		if (! board.getBwriter().equals(Login.member.getMid())) {
-			btndelete.setVisible(false); //¹öÆ° ¼û±â±â
-			btnupdate.setVisible(false); //false ¼û±â±â true º¸ÀÌ±â
+			btndelete.setVisible(false); //ë²„íŠ¼ ìˆ¨ê¸°ê¸°
+			btnupdate.setVisible(false); //false ìˆ¨ê¸°ê¸° true ë³´ì´ê¸°
 		}
-		//textÇÊµå ÄÁÆ®·Ñ ¼öÁ¤ ¸øÇÏ°Ô Àá±İÃ³¸®
+		//textí•„ë“œ ì»¨íŠ¸ë¡¤ ìˆ˜ì • ëª»í•˜ê²Œ ì ê¸ˆì²˜ë¦¬
 		txttitle.setEditable(false);
 		txtcontent.setEditable(false);
 	}
@@ -86,9 +89,9 @@ public class Boardview implements Initializable{
     	Home.home.loadpage("/view/board/board.fxml");
     }
     
-    //´ñ±Û Å×ÀÌºí ¸Ş¼Òµå
+    //ëŒ“ê¸€ í…Œì´ë¸” ë©”ì†Œë“œ
     public void replytableshow() {
-    	//1. ÇöÀç °Ô½Ã¹° ¹øÈ£
+    	//1. í˜„ì¬ ê²Œì‹œë¬¼ ë²ˆí˜¸
     	int bnum = controller.board.Board.board.getBnum();
     	//2. 
     	ObservableList<Reply> replylist = BoardDao.boardDao.replylist( bnum );
@@ -105,76 +108,72 @@ public class Boardview implements Initializable{
 		tc = replytable.getColumns().get(3);
 		tc.setCellValueFactory(new PropertyValueFactory<>("rcontent"));
     
-		//4. Å×ÀÌºí ºä¿¡ ¸®½ºÆ® ³Ö¾îÁÖ±â
+		//4. í…Œì´ë¸” ë·°ì— ë¦¬ìŠ¤íŠ¸ ë„£ì–´ì£¼ê¸°
 		replytable.setItems(replylist);
     
     }
     
     @FXML
     void accdelete(ActionEvent event) {
-    	//1. °æ°í¸Ş½ÃÁö ¾Ë¸²
+    	//1. ê²½ê³ ë©”ì‹œì§€ ì•Œë¦¼
     	Alert alert = new Alert( AlertType.CONFIRMATION);
-		alert.setHeaderText("ÇØ´ç °Ô½Ã±ÛÀ» »èÁ¦ÇÏ½Ã°Ú½À´Ï±î?");
-		Optional<ButtonType> optional = alert.showAndWait(); //showAndWait() ¸Ş¼ÒµåÀÇ ¹İÈ¯Å¸ÀÔ => ¼±ÅÃÇÑ ¹öÆ°
-    	if (optional.get() == ButtonType.OK ) {//2. È®ÀÎ¹öÆ° ´­·¶À» ¶§
-			//3. »èÁ¦ Ã³¸® ÁøÇà
+		alert.setHeaderText("í•´ë‹¹ ê²Œì‹œê¸€ì„ ì‚­ì œí•˜ì‹œê² ìŠµë‹ˆê¹Œ?");
+		Optional<ButtonType> optional = alert.showAndWait(); //showAndWait() ë©”ì†Œë“œì˜ ë°˜í™˜íƒ€ì… => ì„ íƒí•œ ë²„íŠ¼
+    	if (optional.get() == ButtonType.OK ) {//2. í™•ì¸ë²„íŠ¼ ëˆŒë €ì„ ë•Œ
+			//3. ì‚­ì œ ì²˜ë¦¬ ì§„í–‰
     		BoardDao.boardDao.delete(
     				controller.board.Board.board.getBnum());
     		Home.home.loadpage("/view/board/board.fxml");
 		}
 		
-		//2. È®ÀÎ ¹öÆ° ´­·¶À» ¶§
-    	//3. »èÁ¦ Ã³¸®
+		//2. í™•ì¸ ë²„íŠ¼ ëˆŒë €ì„ ë•Œ
+    	//3. ì‚­ì œ ì²˜ë¦¬
     }
 
     @FXML
     void accrewrite(ActionEvent event) {
-		//1. ÄÁÆ®·Ñ¿¡ ÀÔ·ÂµÈ µ¥ÀÌÅÍ °¡Á®¿À±â
+		//1. ì»¨íŠ¸ë¡¤ì— ì…ë ¥ëœ ë°ì´í„° ê°€ì ¸ì˜¤ê¸°
     	String rcontent = txtrecontent.getText();
-    	//2.ÇöÀç ·Î±×ÀÎµÈ Á¤º¸¿¡¼­ ¾ÆÀÌµğ °¡Á®¿À±â
+    	//2.í˜„ì¬ ë¡œê·¸ì¸ëœ ì •ë³´ì—ì„œ ì•„ì´ë”” ê°€ì ¸ì˜¤ê¸°
     	String rwriter = Login.member.getMid();
-    	//3.ÇöÀç Å×ÀÌºíºä¿¡¼­ Å¬¸¯µÈ °Ô½Ã¹°ÀÇ °Ô½Ã¹° ¹øÈ£ °¡Á®¿À±â
+    	//3.í˜„ì¬ í…Œì´ë¸”ë·°ì—ì„œ í´ë¦­ëœ ê²Œì‹œë¬¼ì˜ ê²Œì‹œë¬¼ ë²ˆí˜¸ ê°€ì ¸ì˜¤ê¸°
     	int bnum = controller.board.Board.board.getBnum();
-    	//°´Ã¼È­
+    	//ê°ì²´í™”
     	Reply reply = new Reply(0, rcontent, rwriter, null, bnum);
-    	//DBÃ³¸®
+    	//DBì²˜ë¦¬
     	boolean result = BoardDao.boardDao.rwrite(reply);
     	if (result) {
 			Alert alert = new Alert (AlertType.INFORMATION);
-				alert.setHeaderText("´ñ±Û µî·Ï ¼º°ø");
+				alert.setHeaderText("ëŒ“ê¸€ ë“±ë¡ ì„±ê³µ");
 				alert.showAndWait();
-				//´ñ±Û ÀÔ·ÂÃ¢ ÃÊ±âÈ­
+				//ëŒ“ê¸€ ì…ë ¥ì°½ ì´ˆê¸°í™”
 				txtrecontent.setText("");
 				replytableshow();
 		}
     
     }
 
-    
-    
-    
-    
     boolean upcheck = true;
     @FXML
     void accupdate(ActionEvent event) {
     	
     	Alert alert = new Alert (AlertType.INFORMATION);
     	if (upcheck) {
-	    	alert.setHeaderText("°Ô½Ã±Û ¼öÁ¤ÈÄ ¼öÁ¤ ¿Ï·á ¹öÆ°À» ´­·¯ÁÖ¼¼¿ä");
+	    	alert.setHeaderText("ê²Œì‹œê¸€ ìˆ˜ì •í›„ ìˆ˜ì • ì™„ë£Œ ë²„íŠ¼ì„ ëˆŒëŸ¬ì£¼ì„¸ìš”");
 	    	alert.showAndWait();
 	    	txttitle.setEditable(true);
 	    	txtcontent.setEditable(true);
-	    	btnupdate.setText("¼öÁ¤¿Ï·á");
+	    	btnupdate.setText("ìˆ˜ì •ì™„ë£Œ");
 	    	upcheck = false;
     	}else {
-    		//dbÃ³¸®
+    		//dbì²˜ë¦¬
     		BoardDao.boardDao.update(
     				controller.board.Board.board.getBnum(),
     				txttitle.getText(),
     				txtcontent.getText()
     				);
     		
-    		alert.setHeaderText("¼öÁ¤ÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù.");
+    		alert.setHeaderText("ìˆ˜ì •ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.");
     		alert.showAndWait();
     		txttitle.setEditable(false);
     		txtcontent.setEditable(false);
@@ -183,4 +182,33 @@ public class Boardview implements Initializable{
     	}
     }
 	
+    public void viewup() {
+//    	>>>>>ê²Œì‹œë¬¼ í´ë¦­ì‹œ ì¡°íšŒìˆ˜ +1 [ë‹¨ ê³„ì •ë‹¹ í•œ ê²Œì‹œë¬¼ì— ëŒ€í•´ í•˜ë£¨ 1ë²ˆë§Œ ê°€ëŠ¥]
+//			ê²Œì‹œë¬¼ì„ í´ë¦­í•œ ë‚ ì§œë¥¼ ê¸°ì–µí•´ì•¼ë˜ë„¤... ë§ì´ ë˜ë‚˜?
+//    			ê²Œì‹œë¬¼ í´ë¦­ì‹œ â†’ ë‚ ì§œ ì €ì¥
+//    			ì–´ë””ì— ì €ì¥í•˜ì§€?
+//    				ê²Œì‹œë¬¼ ë²ˆí˜¸ | ì•„ì´ë”” | ê²Œì‹œë¬¼ í´ë¦­ ë‚ ì§œ â€”â†’ ì˜¤ ì´ë ‡ê²Œ ì €ì¥í•˜ë©´ ë ë“¯?
+//    				ê·¼ë° ì´ê±¸ ì–´ë–»ê²Œ ì €ì¥í•˜ì§€?
+//    				íŒŒì¼ì²˜ë¦¬í•´ì•¼í•˜ë‚˜?
+//    			ì˜¤ëŠ˜ë‚ ì§œë‘ ê²Œì‹œë¬¼ í´ë¦­ ë‚ ì§œë‘ ë¹„êµí•´ì„œ ë‹¤ë¥´ë©´ ê²Œì‹œë¬¼(ë²ˆí˜¸)ì— ì¡°íšŒìˆ˜ +1
+//    			ê°™ìœ¼ë©´ ê·¸ëƒ¥ ê²Œì‹œë¬¼ ì¡°íšŒ
+    	
+    	//í˜„ì¬ ë‚ ì§œ ê°€ì ¸ì˜¤ê¸°
+    	SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
+    	String viewdate = dateformat.format(new Date()); //í˜„ì¬ë‚ ì§œë¥¼ í˜•ì‹ ë³€í™˜
+		
+		try {//ì˜ˆì™¸[ì˜¤ë¥˜]ê°€ ë°œìƒí•  ê²ƒ ê°™ì€ ì½”ë“œ ë¬¶ìŒ
+		FileOutputStream outputStream = new FileOutputStream("D:/lastview.txt", false);
+//		String  = ìƒí’ˆëª… + "," + ì¬ê³ + "," +ê°€ê²©+ "\n"; //, : êµ¬ë¶„
+//		outputStream.write(ë‚´ë³´ë‚´ê¸°.getBytes());	//ë¬¸ìì—´ ->ë°”ì´íŠ¸ì—´
+		}catch (Exception e) {//ì˜ˆì™¸[ì˜¤ë¥˜] ì²˜ë¦¬[ì¡ê¸°] : Exception í´ë˜ìŠ¤
+			
+		}
+    	
+    	
+    	
+    }
+    
+    
+    
 }

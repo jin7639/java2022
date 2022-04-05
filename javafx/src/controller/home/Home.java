@@ -74,7 +74,7 @@ public class Home implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		lblloginid.setText(Login.member.getMid());
+		lblloginid.setText(Login.member.getMid() + " ´Ô");
 		lblpoint.setText("Æ÷ÀÎÆ® : " + Login.member.getMpoint());
 		
 		
