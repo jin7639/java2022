@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:controller="controller.home.Update" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1030.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.home.Update">
    <children>
       <Label layoutX="280.0" layoutY="103.0" prefHeight="40.0" prefWidth="135.0" text="회원정보 수정">
          <font>
@@ -27,6 +27,6 @@
       </Label>
       <TextField fx:id="txtemail" layoutX="280.0" layoutY="231.0" prefHeight="40.0" prefWidth="200.0" />
       <TextField fx:id="txtaddress" layoutX="280.0" layoutY="302.0" prefHeight="40.0" prefWidth="200.0" />
-      <Button fx:id="btsupdate" onAction="#update" layoutX="303.0" layoutY="360.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="155.0" text="수정" />
+      <Button fx:id="btsupdate" layoutX="303.0" layoutY="360.0" mnemonicParsing="false" onAction="#update" prefHeight="30.0" prefWidth="155.0" text="수정" />
    </children>
 </AnchorPane>

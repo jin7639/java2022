@@ -10,12 +10,9 @@ public class Board {
 	private int bview;
 	
 	
-	public Board() {
-		super();
-	}
+	public Board() {}
 	
 	public Board(int bnum, String btitle, String bcontent, String bwriter, String bdate, int bview) {
-		super();
 		this.bnum = bnum;
 		this.btitle = btitle;
 		this.bcontent = bcontent;
