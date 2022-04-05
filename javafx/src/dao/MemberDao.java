@@ -1,10 +1,13 @@
 package dao;
 
+import java.io.FileOutputStream;
 import java.lang.annotation.Retention;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import com.mysql.cj.QueryReturnType;
 
@@ -85,7 +88,6 @@ public class MemberDao { // DB 접근객체
 		//2.로그인
 	public boolean login (String id, String password) {
 		try {
-			
 		
 		//1.SQL 작성
 			
@@ -97,20 +99,78 @@ public class MemberDao { // DB 접근객체
 		ps = con.prepareStatement(sql);
 		ps.setString(1, id);
 		ps.setString(2, password);
-		//3.SQL 실행\
+		//3.SQL 실행
 		rs = ps.executeQuery();
 		
 		//4.SQL 결과
+		try {
+			//현재 날짜 가져오기
+	    	SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+	    	String logindate = format.format(new Date()); //현재날짜를 형식 변환
+	    	
+	    	
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		if (rs.next()) {
 			return true; //아이디 비밀번호 동일 ->로그인 성공
+//			
+			
+			
 		}
 		
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("SQL오류00 " + e);
+			System.out.println("SQL오류 " + e);
 		}
 		
 		return false; //로그인 실패
+	}
+	public boolean point( int point, String id ) {
+		try {
+			if () {
+				//1.SQL 작성
+				String sql = "update member set mpoint = ? where mid = ?";
+				
+				//2.SQL 조작
+				ps = con.prepareStatement(sql);
+				ps.setInt(1, point + 10);
+				ps.setString(2, id);
+				
+				//3.SQL 실행
+				rs = ps.executeQuery();
+				
+				return true;
+			
+		}
+		
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("sql오류 " +  e);
+		}
+		
+		return false;
+	}
+	
+	public void lastlogin(String id) {
+		
+		//1.현재 날짜 가져오기
+    	SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+    	String since = format.format(new Date()); //현재날짜를 형식 변환
+		
+//		//2.객체
+//		상품 상품 = new 상품(상품명, 재고, 가격);
+
+//		//4.파일처리
+		try {//예외[오류]가 발생할 것 같은 코드 묶음					//파일경로		,이어쓰기 = true[옵션]
+		FileOutputStream outputStream = new FileOutputStream("D:/lastlogin.txt", true);
+		String datetxt = id + "," +since;
+		outputStream.write(datetxt.getBytes());	//문자열 ->바이트열
+		}catch (Exception e) {//예외[오류] 처리[잡기] : Exception 클래스
+			System.out.println("저장 오류 "+ e);
+		}
+		System.out.println("날짜 저장 완료");
+		
 	}
 		//3.아이디 찾기
 	public String findid(String email) {
