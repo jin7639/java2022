@@ -20,6 +20,12 @@ import javafx.scene.layout.BorderPane;
 
 public class Home implements Initializable {
 	
+	public static Home home;
+	
+	public Home() {
+		home = this; //this :현재 클래스 메모리 호출
+	}
+	
 	@FXML
 	private Label lblloginid;
 	
@@ -45,7 +51,15 @@ public class Home implements Initializable {
 	public void accupdate(MouseEvent e) {
 		loadpage("/view/home/update.fxml");
 	}
-
+	
+	@FXML
+	private Label lblboard;
+	
+	@FXML
+	public void accboard(MouseEvent e) {
+		loadpage("/view/board/board.fxml");
+		
+	}
 	
 	public void loadpage(String page) {
 		try {

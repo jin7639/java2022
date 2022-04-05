@@ -45,7 +45,7 @@
                   <Font size="11.0" />
                </font>
             </Label>
-            <Label layoutX="100.0" layoutY="391.0" prefHeight="28.0" prefWidth="56.0" text="자유게시">
+            <Label fx:id="lblboard" onMouseClicked="#accboard" layoutX="100.0" layoutY="391.0" prefHeight="28.0" prefWidth="56.0" text="자유게시">
                <font>
                   <Font size="11.0" />
                </font>

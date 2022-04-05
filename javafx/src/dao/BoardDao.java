@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 
 import dto.Board;
 
-
 public class BoardDao {
 	
 	private Connection conn; // 1. DB 연결 클래스
@@ -26,7 +25,6 @@ public class BoardDao {
 
 		}
 	}
-	
 	
 	//1.글쓰기 메소드
 	public boolean write(Board board) {
