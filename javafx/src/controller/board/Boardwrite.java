@@ -59,7 +59,7 @@ public class Boardwrite implements Initializable {
     				Home.home.loadpage("/view/board/board.fxml");
 				}else {
 					Alert alert = new Alert( AlertType.INFORMATION);
-    				alert.setHeaderText("게시글이 작성실패. 관리자에게 문의하세요.");
+    				alert.setHeaderText("게시글 작성 실패. 관리자에게 문의하세요.");
     				alert.showAndWait();
 				}
 	    		

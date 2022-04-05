@@ -68,8 +68,7 @@ public class Board implements Initializable {
     		//2.조회수 증가
     		
     		//3.페이지 전환
-    		System.out.println(board.getBtitle());
-    		
+    		Home.home.loadpage("/view/board/boardview.fxml");
     	});
     	// -> : 람다식 (익명함수 : 이름이 없는 함수 [인수와 실행코드만 존재]) 반복호출 불가(일회용)
     	// vs

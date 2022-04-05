@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class Start extends Application{
@@ -26,6 +27,13 @@ public class Start extends Application{
 				//C:\Users\504\git\java2022\Javafx2\src\img\파일명.확장자
 			//상대 경로 : 현 위치[현재 프로젝트 기준 src] 기준 경로
 				// /img/파일명.확장자
+		
+		//외부폰트 설정
+			//1.폰트 가져오기
+		Font.loadFont(getClass().getResourceAsStream("LeeSeoyun.ttf"), 20);
+			//2. 외부 스타일시트 적용
+		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+		
 			//2.스테이지 설정
 		stage.setResizable(false); //스테이지 크기 고정
 		stage.getIcons().add(image); //스테이지 아이콘 설정

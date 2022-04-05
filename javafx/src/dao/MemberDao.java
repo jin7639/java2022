@@ -126,31 +126,8 @@ public class MemberDao { // DB 접근객체
 		
 		return false; //로그인 실패
 	}
-	public boolean point( int point, String id ) {
-		try {
-			if () {
-				//1.SQL 작성
-				String sql = "update member set mpoint = ? where mid = ?";
-				
-				//2.SQL 조작
-				ps = con.prepareStatement(sql);
-				ps.setInt(1, point + 10);
-				ps.setString(2, id);
-				
-				//3.SQL 실행
-				rs = ps.executeQuery();
-				
-				return true;
-			
-		}
+	
 		
-		} catch (Exception e) {
-			// TODO: handle exception
-			System.out.println("sql오류 " +  e);
-		}
-		
-		return false;
-	}
 	
 	public void lastlogin(String id) {
 		
