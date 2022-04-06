@@ -19,7 +19,7 @@
       <Button fx:id="btnadd" layoutX="823.0" layoutY="103.0" mnemonicParsing="false" onAction="#accadd" prefHeight="30.0" prefWidth="140.0" text="제품등록" />
       <ScrollPane fx:id="scrollpane" layoutX="39.0" layoutY="141.0" prefHeight="538.0" prefWidth="930.0">
          <content>
-            <VBox fx:id="vbox" prefHeight="538.0" prefWidth="908.0" />
+            <VBox fx:id="vbox" prefHeight="538.0" prefWidth="908.0" style="-fx-background-color: #fdf4ea;" />
          </content>
       </ScrollPane>
    </children>

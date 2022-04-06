@@ -41,7 +41,9 @@ public class Productcontrol implements Initializable {
 			for (int col = 0; col < 3; col++) { //열
 				
 				//1.이미지
+				
 				ImageView imageView = new ImageView( new Image(productlist.get(i).getPimg()));
+				
 					//이미지 사이즈
 					imageView.setFitHeight(250);
 					imageView.setFitWidth(250);
@@ -58,11 +60,12 @@ public class Productcontrol implements Initializable {
 				 		int id = Integer.parseInt( e.toString().split(",")[0].split("=")[2]);
 				 		//클릭한 제품 번호 저장
 				 		select = productlist.get(id);
+			 		//화면전환
+				 		Home.home.loadpage("/view/product/productview.fxml");
 				 	});
 				gridPane.add(button, col, row); //해당 열번호, 행번호에 버튼 추가
 				i++;
 			}
-
 		}
 		
 		//나머지 값
@@ -82,6 +85,8 @@ public class Productcontrol implements Initializable {
 			 		System.out.println( e.toString() );
 			 		int id = Integer.parseInt(e.toString().split(",")[0].split("=")[2]);
 			 		select = productlist.get(id);
+			 		//화면전환
+			 		Home.home.loadpage("/view/product/productview.fxml");
 			 	});
 			 	gridPane.add(button, col, row); //해당 열번호, 행번호에 버튼 추가
 				i++;
@@ -90,8 +95,6 @@ public class Productcontrol implements Initializable {
 		
 		//4.
 		vbox.getChildren().add(gridPane);
-		
-		
 	}
 	
     @FXML

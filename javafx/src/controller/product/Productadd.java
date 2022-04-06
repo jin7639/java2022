@@ -77,42 +77,35 @@ public class Productadd implements Initializable {
 
     @FXML
     void accadd(ActionEvent event) {
-    	//1.컨트롤에 입력된 데이터 가져오기
+    	// 1. 컨트롤에 입력된 데이터 가져오기
     	String pname = txtpname.getText();
     	String pcontent = txtpcontent.getText();
-    	int pprice = Integer.parseInt(txtpprice.getText());
-    		//카테고리
+    	int pprice = Integer.parseInt( txtpprice.getText() ) ;	// 문자열 -> 정수열 변환 [ Integer.parseInt ]
+    		// * 카테고리
     	String pcategory = null;
-    	if (opt1.isSelected()) {//만약에 opt1이라는 fxid의 컨트롤이 선택되면
-			pcategory="남성의류";
-		}
-    	if (opt2.isSelected()) {//만약에 opt2이라는 fxid의 컨트롤이 선택되면
-			pcategory="여성의류";
-		}
-    	if (opt3.isSelected()) {//만약에 opt3이라는 fxid의 컨트롤이 선택되면
-			pcategory="게임기기";
-		}
-    	if (opt4.isSelected()) {//만약에 opt4이라는 fxid의 컨트롤이 선택되면
-			pcategory="생활용품";
-		}
-    	
+    		if( opt1.isSelected() ) { // 만약에 opt1라는 fxid의 컨트롤(라디오버튼)이 선택되었으면
+    			pcategory="남성의류";
+    		}
+    		if( opt2.isSelected() ) { pcategory ="여성의류";}
+    		if( opt3.isSelected() ) { pcategory ="게임기기";}
+    		if( opt4.isSelected() ) { pcategory ="생활용품";}
     	int mnum = Login.member.getMnum();
-
-    	//2.객체화
+    	System.out.println(Login.member.getMnum());
+    	// 2. 객체화
     	Product product = new Product(0, pname, pimage, pcontent, pcategory, pprice, 1, null, mnum);
-    	//3.DB처리
+    	// 3. DB처리
     	boolean result =  ProductDao.productDao.add(product);
-    	//4.결과처리
-    	if (result) {
-			Alert alert = new Alert(AlertType.INFORMATION);
-				alert.setHeaderText("제품 등록 완료");
-				alert.showAndWait();
-				Home.home.loadpage("/view/product/product.fxml");
-		}else {
-			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setHeaderText("제품 등록 실패");
+    	if( result ) {
+    		Alert alert = new Alert(AlertType.INFORMATION ); // 메시지 
+    			alert.setHeaderText("제품 등록 완료");
+    		alert.showAndWait();	
+    		Home.home.loadpage("/view/product/product.fxml"); // 화면전화
+    		
+    	}else {
+    		Alert alert = new Alert(AlertType.INFORMATION );
+				alert.setHeaderText("제품 등록 실패 [ 관리자에게 문의]");
 			alert.showAndWait();
-		}
+    	}
     	
     }
 

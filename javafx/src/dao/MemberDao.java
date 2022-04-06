@@ -279,4 +279,27 @@ public class MemberDao { // DB 접근객체
 		return false;
 	}
 	
+	//8. 해당 회원번호로 해당id 넣기
+	public String getmid(int mnum) {
+		try {
+			String sql = "select mid from member where mnum=?";
+
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, mnum);
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				return rs.getString(1);
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;
+		
+		
+		
+	}
+	
+	
+	
 }
