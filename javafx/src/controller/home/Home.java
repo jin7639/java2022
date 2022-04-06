@@ -126,4 +126,9 @@ public class Home implements Initializable {
 		loadpage("/view/home/info.fxml");
 	}
 	
+	@FXML
+	public void accmywriting (MouseEvent e) {
+		loadpage("/view/home/mywriting.fxml");
+	}
+	
 }

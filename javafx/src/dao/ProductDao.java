@@ -107,7 +107,7 @@ public class ProductDao {
 			ps.setInt( 6 , product.getPnum() );
 			ps.executeUpdate();
 			return true;
-		}catch(Exception e ) { System.out.println( "[SQL 오류]"+e  ); }
+		}catch(Exception e ) { System.out.println( "SQL 오류 33"+e  ); }
 		return false;
 		
 	}

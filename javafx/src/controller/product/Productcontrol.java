@@ -32,8 +32,8 @@ public class Productcontrol implements Initializable {
 			//그리드 간 여백
 			gridPane.setPadding(new Insets(10));
 			//버튼 들 여백
-			gridPane.setHgap(20);
-			gridPane.setVgap(20);
+			gridPane.setHgap(50);
+			gridPane.setVgap(50);
 		//3. 반복문
 		int i= 0;
 		for (int row = 0; row < productlist.size() / 3; row++) {//행
@@ -45,8 +45,8 @@ public class Productcontrol implements Initializable {
 				ImageView imageView = new ImageView( new Image(productlist.get(i).getPimg()));
 				
 					//이미지 사이즈
-					imageView.setFitHeight(250);
-					imageView.setFitWidth(250);
+					imageView.setFitHeight(200);
+					imageView.setFitWidth(200);
 				//2.버튼생성 (버튼에 이미지 넣기)
 				Button button = new Button(null, imageView);
 					//버튼 배경제거
@@ -75,8 +75,8 @@ public class Productcontrol implements Initializable {
 			for (int col = 0; col < remain; col++) {
 				ImageView imageView = new ImageView(new Image(productlist.get(i).getPimg()));
 				//이미지 사이즈
-				imageView.setFitHeight(250);
-				imageView.setFitWidth(250);
+				imageView.setFitHeight(200);
+				imageView.setFitWidth(200);
 			//2.버튼생성 (버튼에 이미지 넣기)
 			Button button = new Button(null, imageView);
 			 	button.setStyle("-fx-background-color:transparent");
