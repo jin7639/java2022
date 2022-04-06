@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import dto.Product;
 
@@ -46,7 +47,34 @@ public class ProductDao {
 		return false;
 	}
 	//2. 力前 免仿
-	
+	public ArrayList<Product> list() {
+		ArrayList<Product> productlist = new ArrayList<>();
+		try {
+		String sql = "select * from product";
+		ps = con.prepareStatement(sql);
+		rs = ps.executeQuery();
+		
+		while (rs.next()) {
+			Product product = new Product(
+					rs.getInt(1),
+					rs.getString(2),
+					rs.getString(3),
+					rs.getString(4),
+					rs.getString(5),
+					rs.getInt(6),
+					rs.getInt(7),
+					rs.getString(8),
+					rs.getInt(9)
+					);
+			productlist.add(product);
+		}
+		return productlist;
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("sql坷幅 " + e);
+		}
+		return null;
+	}
 	//3. 力前 炼雀
 	
 	//4. 力前 昏力

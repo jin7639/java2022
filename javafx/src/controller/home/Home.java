@@ -51,9 +51,9 @@ public class Home implements Initializable {
 	private Label lblproduct;
 	
 	@FXML
-	public void accproduct(MouseEvent e ) {
-		loadpage("/view/product/product.fxml");
-	}
+	public void accproduct( MouseEvent e ) { 
+		loadpage("/view/product/product.fxml"); 
+		}
 	
 	@FXML
 	public void accupdate(MouseEvent e) {
@@ -74,7 +74,6 @@ public class Home implements Initializable {
 			Parent parent = FXMLLoader.load(getClass().getResource(page));
 			borderpane.setCenter(parent);
 		} catch (Exception e) {
-			// TODO: handle exception
 			System.out.println("페이지 오류 " + e);
 		}
 	}

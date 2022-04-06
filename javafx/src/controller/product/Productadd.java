@@ -1,6 +1,8 @@
 package controller.product;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -146,6 +148,33 @@ public class Productadd implements Initializable {
     	//6. 이미지 미리보기
     	Image image = new Image( pimage ); // 해당 이미지의 경로값이 / 구분 되어 있어야함
     	img.setImage(image); //imageview에 이미지 넣어주기
+    	
+    	// 선택한 파일을 현재 프로젝트 폴더로 복사해오기
+    	try {
+    		//1. 파일 입력 스트림 [ 이동단위 : 바이트 ]
+    		FileInputStream inputStream = new FileInputStream(file); //file : filechooser에서 선택된 파일 객체
+    		//2. 파일 출력 스트림
+    			//1.새로운 경로 설정
+    		File copyfile = new File("C:\\Users\\504\\git\\java2022\\javafx\\src\\img\\" + file.getName());
+    		FileOutputStream outputStream = new FileOutputStream(copyfile);
+    		//3. 바이트 배열 선언
+    		byte[] bytes = new byte[1024*1024*1024]; // 1gb
+    		//4. 반복을 이용한 inputStream의 파일 스트림 모두 읽어오기
+    		int size;
+    		while ( (size = inputStream.read(bytes)) > 0 ) { //읽어올 바이트가 0보다 작으면 반복문 종료
+				outputStream.write(bytes , 0 , size);
+			}
+    		//5. 용량 큰 경우에는 스트림 종료 필수!!!
+    		inputStream.close();
+    		outputStream.close();
+    		//파일명 db저장
+    		pimage = copyfile.toURI().toString();
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("파일 오류 " + e);
+		}
+    	//2. 파일 출력 스트림
+    	
     }
 
 	
