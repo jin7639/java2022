@@ -29,11 +29,11 @@ public class ProductDao {
 	//1. 제품 등록
 	public boolean add(Product product) {
 		try {
-			String sql = "insert into product(pname,pimg,pcontent,pcategory,pprice,pactivation,mnum)";
+			String sql = "insert into product(pname,pimg,pcontent,pcategory,pprice,pactivation,mnum) values(?,?,?,?,?,?,?)";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, product.getPname());
 			ps.setString(2, product.getPimg());
-			ps.setString(3, product.getPcontnent());
+			ps.setString(3, product.getPcontent());
 			ps.setString(4, product.getPcategory());
 			ps.setInt(5, product.getPprice());
 			ps.setInt(6, product.getPactivation());

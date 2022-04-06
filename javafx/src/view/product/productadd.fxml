@@ -36,7 +36,7 @@
       <Button fx:id="btnadd" layoutX="526.0" layoutY="496.0" mnemonicParsing="false" onAction="#accadd" prefHeight="40.0" prefWidth="312.0" text="제품등록" />
       <Label layoutX="526.0" layoutY="180.0" text="제품사진 등록" />
       <Button fx:id="btnimg" layoutX="526.0" layoutY="198.0" mnemonicParsing="false" onAction="#accimgadd" prefHeight="40.0" prefWidth="312.0" text="이미지등록" />
-      <Label fx:id="txtpath" layoutX="526.0" layoutY="240.0" text="이미지 경로" />
+      <Label fx:id="txtpath" layoutX="526.0" layoutY="240.0" prefHeight="40.0" prefWidth="312.0" text="이미지 경로" />
       <Label layoutX="526.0" layoutY="282.0" text="이미지 미리보기" />
    </children>
 </AnchorPane>

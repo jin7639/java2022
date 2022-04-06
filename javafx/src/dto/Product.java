@@ -5,7 +5,7 @@ public class Product {
 	private int pnum;
 	private String pname;
 	private String pimg;
-	private String pcontnent;
+	private String pcontent;
 	private String pcategory;
 	private int pprice;
 	private int pactivation;
@@ -16,13 +16,13 @@ public class Product {
 		super();
 	}
 
-	public Product(int pnum, String pname, String pimg, String pcontnent, String pcategory, int pprice, int pactivation,
+	public Product(int pnum, String pname, String pimg, String pcontent, String pcategory, int pprice, int pactivation,
 			String pdate, int mnum) {
 		super();
 		this.pnum = pnum;
 		this.pname = pname;
 		this.pimg = pimg;
-		this.pcontnent = pcontnent;
+		this.pcontent = pcontent;
 		this.pcategory = pcategory;
 		this.pprice = pprice;
 		this.pactivation = pactivation;
@@ -54,12 +54,12 @@ public class Product {
 		this.pimg = pimg;
 	}
 
-	public String getPcontnent() {
-		return pcontnent;
+	public String getPcontent() {
+		return pcontent;
 	}
 
-	public void setPcontnent(String pcontnent) {
-		this.pcontnent = pcontnent;
+	public void setPcontent(String pcontent) {
+		this.pcontent = pcontent;
 	}
 
 	public String getPcategory() {
