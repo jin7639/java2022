@@ -48,6 +48,14 @@ public class Home implements Initializable {
 	private Label lblupdate;
 	
 	@FXML
+	private Label lblproduct;
+	
+	@FXML
+	public void accproduct(MouseEvent e ) {
+		loadpage("/view/product/product.fxml");
+	}
+	
+	@FXML
 	public void accupdate(MouseEvent e) {
 		loadpage("/view/home/update.fxml");
 	}

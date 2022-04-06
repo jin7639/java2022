@@ -47,7 +47,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="45.0" layoutY="289.0" prefHeight="28.0" prefWidth="30.0" text="중고" textFill="WHITE">
+            <Label fx:id="lblproduct" onMouseClicked="#accproduct" layoutX="45.0" layoutY="289.0" prefHeight="28.0" prefWidth="30.0" text="중고" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font></Label>
