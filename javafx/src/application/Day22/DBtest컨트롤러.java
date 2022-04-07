@@ -1,4 +1,4 @@
-package application.Day_22;
+package application.Day22;
 
 import java.net.URL;
 import java.util.ArrayList;
