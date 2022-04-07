@@ -20,6 +20,8 @@ import javafx.scene.layout.BorderPane;
 
 public class Home implements Initializable {
 	
+	
+	
 	public static Home home;
 	
 	public Home() {
@@ -123,6 +125,7 @@ public class Home implements Initializable {
 		lblloginid.setText(Login.member.getMid() + " ´Ô");
 		lblpoint.setText("Æ÷ÀÎÆ® : " + Login.member.getMpoint());
 		
+		loadpage("/view/chatting.fxml");
 		
 	}
 	
