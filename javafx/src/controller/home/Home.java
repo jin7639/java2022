@@ -53,6 +53,7 @@ public class Home implements Initializable {
 	@FXML
 	public void accproduct( MouseEvent e ) { 
 		loadpage("/view/product/product.fxml"); 
+		category = null;
 		}
 	
 	@FXML

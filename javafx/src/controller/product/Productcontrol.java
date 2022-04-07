@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -24,8 +25,46 @@ public class Productcontrol implements Initializable {
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		//1. 모든 제품 가져오기
-		ArrayList<Product> productlist = ProductDao.productDao.list(Home.category);
+		show(null); //화면이 처음 열렸을 때는 검색어에 null 넣기
+	}
+	
+    @FXML
+    private Button btnadd;
+
+    @FXML
+    private ScrollPane scrollpane;
+
+    @FXML
+    private VBox vbox;
+
+    @FXML
+    void accadd(ActionEvent event) {
+    	Home.home.loadpage("/view/product/productadd.fxml");
+    }
+    
+    @FXML
+    private TextField txtsearch;
+
+    @FXML
+    private Button btnsearch;
+
+    @FXML
+    void accsearch(ActionEvent event) { //검색 버튼 눌렀을 때
+    	
+    	String search = txtsearch.getText();
+    	show(search); // 입력한 검색어 show 메소드에 넣어주기
+    	
+    }
+    
+    
+    void show(String search) { //메소드화 -> 여러 곳에서 사용가능
+    	
+    	if (vbox.getChildren().isEmpty() == false) { //vbox가 비어있지 않으면
+			vbox.getChildren().remove(0); //vbox내 기존 객체를 삭제
+		}
+    	
+    	//1. 모든 제품 가져오기
+		ArrayList<Product> productlist = ProductDao.productDao.list(Home.category, search);
 		
 		//2. 그리드 클래스 [ 행/열 ]
 		GridPane gridPane = new GridPane();
@@ -41,7 +80,6 @@ public class Productcontrol implements Initializable {
 			for (int col = 0; col < 3; col++) { //열
 				
 				//1.이미지
-				
 				ImageView imageView = new ImageView( new Image(productlist.get(i).getPimg()));
 				
 					//이미지 사이즈
@@ -95,21 +133,5 @@ public class Productcontrol implements Initializable {
 		
 		//4.
 		vbox.getChildren().add(gridPane);
-	}
-	
-    @FXML
-    private Button btnadd;
-
-    @FXML
-    private ScrollPane scrollpane;
-
-    @FXML
-    private VBox vbox;
-
-    @FXML
-    void accadd(ActionEvent event) {
-    	Home.home.loadpage("/view/product/productadd.fxml");
     }
-    
-    
 }

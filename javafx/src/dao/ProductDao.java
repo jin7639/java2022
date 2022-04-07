@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import javax.naming.directory.SearchControls;
+
 import dto.Product;
 
 public class ProductDao {
@@ -47,27 +49,40 @@ public class ProductDao {
 		return false;
 	}
 	//2. 제품 출력
-	public ArrayList<Product> list(String category) {
+	public ArrayList<Product> list(String category , String search) {
 		ArrayList<Product> productlist = new ArrayList<>();
 		try {
-		String sql = "select * from product where pcategory=? order by pnum desc";
-		ps = con.prepareStatement(sql);
-		ps.setString(1, category);
-		rs = ps.executeQuery();
-		
-		while (rs.next()) {
-			Product product = new Product(
-					rs.getInt(1),
-					rs.getString(2),
-					rs.getString(3),
-					rs.getString(4),
-					rs.getString(5),
-					rs.getInt(6),
-					rs.getInt(7),
-					rs.getString(8),
-					rs.getInt(9)
-					);
-			productlist.add(product);
+			String sql = null;
+			if (search == null) {
+				sql = "select * from product where pcategory=? order by pnum desc";
+				ps = con.prepareStatement(sql);
+				ps.setString(1, category);
+			}
+//			다시 전체목록 불러오기 어떻게 하는거지??
+//			else if (category == null) {
+//				sql = "select * from product  order by pnum desc";
+//				ps = con.prepareStatement(sql);
+//			}
+			else {
+				sql = "select * from product where pcategory=? and pname like '%"+search+"%' order by pnum desc";
+				ps = con.prepareStatement(sql);
+				ps.setString(1, category);
+			}
+			
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				Product product = new Product(
+						rs.getInt(1),
+						rs.getString(2),
+						rs.getString(3),
+						rs.getString(4),
+						rs.getString(5),
+						rs.getInt(6),
+						rs.getInt(7),
+						rs.getString(8),
+						rs.getInt(9)
+						);
+				productlist.add(product);
 		}
 		return productlist;
 		} catch (Exception e) {
