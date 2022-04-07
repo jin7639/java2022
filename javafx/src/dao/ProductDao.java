@@ -47,11 +47,12 @@ public class ProductDao {
 		return false;
 	}
 	//2. 제품 출력
-	public ArrayList<Product> list() {
+	public ArrayList<Product> list(String category) {
 		ArrayList<Product> productlist = new ArrayList<>();
 		try {
-		String sql = "select * from product";
+		String sql = "select * from product where pcategory=? order by pnum desc";
 		ps = con.prepareStatement(sql);
+		ps.setString(1, category);
 		rs = ps.executeQuery();
 		
 		while (rs.next()) {
@@ -111,6 +112,41 @@ public class ProductDao {
 		return false;
 		
 	}
+	
+	//상태변경
+	public boolean activation(int pnum) {
+		try {
+			
+			String sql = "select pactivation from product where pnum=?";
+			ps=con.prepareStatement(sql);
+			ps.setInt(1, pnum);
+			rs = ps.executeQuery();
+			
+			if (rs.next()) {
+				String upsql = null;
+				if (rs.getInt(1) == 1) {
+					upsql = "update product set pactivation = 2 where pnum=?";
+				}else if (rs.getInt(1) == 2) {
+					upsql = "update product set pactivation = 3 where pnum=?";
+					
+				}else if (rs.getInt(1) == 3) {
+					upsql = "update product set pactivation = 1 where pnum=?";
+					
+				}else {
+					
+				}
+				ps = con.prepareStatement(upsql);
+				ps.setInt(1, pnum);
+				ps.executeUpdate();
+				return true;
+				
+			}
+		} catch (Exception e) {
+			System.out.println("sql 오류100 " + e);
+		}
+		return false;
+	}
+	
 	
 	
 }

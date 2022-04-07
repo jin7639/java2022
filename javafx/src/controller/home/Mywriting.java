@@ -23,8 +23,6 @@ public class Mywriting implements Initializable {
     	
     		//게시글 작성자 번호랑 로그인한 회원 번호랑 비교
     	
-    	
-    	
     	//2.tableview에 추가
     	TableColumn tc = mywritingtable.getColumns().get(0);
     	tc.setCellValueFactory(new PropertyValueFactory<>("bdate"));
@@ -37,8 +35,6 @@ public class Mywriting implements Initializable {
     
     	//3. tableview 에 list연결
     	mywritingtable.setItems(boardliList);
-    		
-		
 	}
 	
 	 @FXML
@@ -49,8 +45,5 @@ public class Mywriting implements Initializable {
 
 	 @FXML
 	 private TableView<?> myproducttable;
-
-	
-
 	
 }

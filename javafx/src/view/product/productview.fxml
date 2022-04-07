@@ -19,13 +19,13 @@
          </font>
       </Label>
       <Line endX="100.0" layoutX="142.0" layoutY="96.0" startX="-100.0" />
-      <Button fx:id="btnback" layoutX="389.0" layoutY="140.0" mnemonicParsing="false" onAction="#accback" prefHeight="40.0" prefWidth="101.0" text="목록보기" />
-      <ImageView fx:id="img" fitHeight="300.0" fitWidth="376.0" layoutX="130.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="btnupdate" layoutX="258.0" layoutY="140.0" mnemonicParsing="false" onAction="#accupdate" prefHeight="40.0" prefWidth="101.0" text="수정" />
-      <Button fx:id="btndelete" layoutX="120.0" layoutY="140.0" mnemonicParsing="false" onAction="#accdelete" prefHeight="40.0" prefWidth="101.0" text="삭제" />
+      <Button fx:id="btnback" layoutX="829.0" layoutY="57.0" mnemonicParsing="false" onAction="#accback" prefHeight="40.0" prefWidth="101.0" text="목록보기" />
+      <ImageView fx:id="img" fitHeight="250.0" fitWidth="250.0" layoutX="194.0" layoutY="235.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="btnupdate" layoutX="698.0" layoutY="57.0" mnemonicParsing="false" onAction="#accupdate" prefHeight="40.0" prefWidth="101.0" text="수정" />
+      <Button fx:id="btndelete" layoutX="560.0" layoutY="57.0" mnemonicParsing="false" onAction="#accdelete" prefHeight="40.0" prefWidth="101.0" text="삭제" />
       <TextField fx:id="txtpname" layoutX="554.0" layoutY="201.0" prefHeight="40.0" prefWidth="376.0" />
       <Label fx:id="txtpprice" layoutX="554.0" layoutY="173.0" text="희망가격 : 000000원" />
-      <Label fx:id="txtactivation" layoutX="130.0" layoutY="198.0" text="제품 상태 : " />
+      <Label fx:id="txtactivation" layoutX="130.0" layoutY="181.0" text="제품 상태 : " />
       <Label fx:id="txtpdate" layoutX="554.0" layoutY="132.0" text="제품 등록일 : " />
       <Label fx:id="txtmid" layoutX="554.0" layoutY="153.0" text="제품 등록인 : " />
       <TextArea fx:id="txtpcontent" layoutX="554.0" layoutY="249.0" prefHeight="264.0" prefWidth="376.0" />
@@ -35,5 +35,6 @@
           <TableColumn prefWidth="75.0" text="C2" />
         </columns>
       </TableView>
+      <Button fx:id="btnactivation" layoutX="405.0" layoutY="168.0" mnemonicParsing="false" onAction="#accactivation" prefHeight="40.0" prefWidth="101.0" text="판매완료" />
    </children>
 </AnchorPane>

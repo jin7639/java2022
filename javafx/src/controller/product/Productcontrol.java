@@ -25,7 +25,7 @@ public class Productcontrol implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		//1. 모든 제품 가져오기
-		ArrayList<Product> productlist = ProductDao.productDao.list();
+		ArrayList<Product> productlist = ProductDao.productDao.list(Home.category);
 		
 		//2. 그리드 클래스 [ 행/열 ]
 		GridPane gridPane = new GridPane();
