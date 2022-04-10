@@ -6,16 +6,14 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/504/Desktop/setting/smtp/activation.jar"/>
-	<classpathentry kind="lib" path="src/setting/javafx.base.jar"/>
-	<classpathentry kind="lib" path="src/setting/javafx.controls.jar"/>
-	<classpathentry kind="lib" path="src/setting/javafx.fxml.jar"/>
-	<classpathentry kind="lib" path="src/setting/javafx.graphics.jar"/>
-	<classpathentry kind="lib" path="src/setting/javafx.media.jar"/>
-	<classpathentry kind="lib" path="src/setting/javafx.properties"/>
-	<classpathentry kind="lib" path="src/setting/javafx.swing.jar"/>
-	<classpathentry kind="lib" path="src/setting/javafx.web.jar"/>
-	<classpathentry kind="lib" path="src/setting/javafx-swt.jar"/>
-	<classpathentry kind="lib" path="src/setting/mysql-connector-java-8.0.28.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/Documents/개발/setting/openjfx-11_windows-x64_bin-sdk/javafx-sdk-11/lib/javafx.base.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/Documents/개발/setting/openjfx-11_windows-x64_bin-sdk/javafx-sdk-11/lib/javafx.controls.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/Documents/개발/setting/openjfx-11_windows-x64_bin-sdk/javafx-sdk-11/lib/javafx.fxml.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/Documents/개발/setting/openjfx-11_windows-x64_bin-sdk/javafx-sdk-11/lib/javafx.graphics.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/Documents/개발/setting/openjfx-11_windows-x64_bin-sdk/javafx-sdk-11/lib/javafx.media.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/Documents/개발/setting/openjfx-11_windows-x64_bin-sdk/javafx-sdk-11/lib/javafx.swing.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/Documents/개발/setting/openjfx-11_windows-x64_bin-sdk/javafx-sdk-11/lib/javafx.web.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/Documents/개발/setting/openjfx-11_windows-x64_bin-sdk/javafx-sdk-11/lib/javafx-swt.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/Documents/개발/setting/mysql-connector-java-8.0.28/mysql-connector-java-8.0.28/mysql-connector-java-8.0.28.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

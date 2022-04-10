@@ -97,11 +97,11 @@ public class Server {// fxml 사용하지 않는 서버 컨트롤 클래스
 				public void run() {
 					try {
 						while(true) {
-							Socket socket;
-								socket = serverSocket.accept(); //1. 요청 수락후에 수락된 소켓을 저장
+							Socket socket = serverSocket.accept(); //1. 요청 수락후에 수락된 소켓을 저장
 							clientlist.add(new Client(socket)); //2. 연결된 클라이언트 (연결된 소켓) 생성후에 리스트에 넣기
 						}
 					} catch ( Exception e) {
+						serverstop();
 						System.out.println("서버 클라이언트 연결 실패 "+ e);
 					} //요청 
 				}

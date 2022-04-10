@@ -59,14 +59,14 @@ public class Chatting implements Initializable{
     public Room selectroom;
     
     public void show() {
-    	ObservableList<Room> roomlist = RoomDao.roomDao.roomList();
+    	ObservableList<Room>roomlist = RoomDao.roomDao.roomList();
 		TableColumn tc = roomtable.getColumns().get(0);
 		tc.setCellValueFactory(new PropertyValueFactory<>("ronum"));
 		
 		tc = roomtable.getColumns().get(1);
 		tc.setCellValueFactory(new PropertyValueFactory<>("roname"));
     
-		tc = roomtable.getColumns().get(1);
+		tc = roomtable.getColumns().get(2);
 		tc.setCellValueFactory(new PropertyValueFactory<>("mcount"));
     
 		roomtable.setItems(roomlist);
@@ -108,7 +108,10 @@ public class Chatting implements Initializable{
 
     @FXML
     void accmsg(ActionEvent event) {
-
+    	String msg = Login.member.getMid() + " : " + txtmsg.getText() + "\n";
+    	send(msg);
+    	txtmsg.setText("");
+    	txtmsg.requestFocus();
     }
 
     @FXML
@@ -134,16 +137,16 @@ public class Chatting implements Initializable{
     Socket socket;
     
     //2.클라이언트 실행 메소드
-    public void clientstart() {
+    public void clientstart(String ip, int port) {
     	//멀티스레드
     	Thread thread = new Thread() {
     		@Override
     		public void run() {
     			try {
-					socket = new Socket("127.0.0.1",1234); //서버 ip와 port 번호 넣기
+					socket = new Socket(ip, port); //서버 ip와 port 번호 넣기
 					send(Login.member.getMid()+"님 입장했습니다.");
 					receive(); //접속과 동시에 받기 메소드는 무한 루프
-				} catch (Exception e) {}
+				} catch (Exception e) {System.out.println(e);}
     		};
     	}; // 멀티스레드 구현 끝
     	thread.start(); //멀티스레드 실행
@@ -155,6 +158,7 @@ public class Chatting implements Initializable{
 			socket.close();
 		} catch (Exception e) {
 			// TODO: handle exception
+			System.out.println(e);
 		}
     	
     }
@@ -168,7 +172,7 @@ public class Chatting implements Initializable{
 					OutputStream outputStream = socket.getOutputStream(); //1. 출력 스트림
 					outputStream.write(msg.getBytes());//2. 내보내기
 					outputStream.flush(); //3. 스트림 초기화
-				} catch (Exception e) {}
+				} catch (Exception e) {System.out.println(e);}
     		}
     	}; //멀티스레드 구현 끝
     	thread.start(); //멀티스레드 실행
@@ -184,7 +188,7 @@ public class Chatting implements Initializable{
 	    		inputStream.read(bytes);
 	    		String msg = new String(bytes);
 	    		txtcontent.appendText(msg); //입력 받은 내용을 채팅창에 추가하기
-			} catch (Exception e) {} //입력스트림
+			} catch (Exception e) {System.out.println(e);} //입력스트림
     	}
     }
     
@@ -192,7 +196,7 @@ public class Chatting implements Initializable{
     void accconnect(ActionEvent event) {
     	if (btnconnect.getText().equals("채팅방 입장")) {
     		
-    		clientstart();
+    		clientstart(selectroom.getRoip(), selectroom.getRonum());
     		//클라이언트 실행 메소드
     		txtcontent.appendText("---[채팅방 입장]---\n");
     		btnconnect.setText("채팅방 퇴장");

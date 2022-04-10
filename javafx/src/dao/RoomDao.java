@@ -6,8 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-import javax.naming.directory.SearchControls;
-
 import dto.Product;
 import dto.Room;
 import javafx.collections.FXCollections;
@@ -69,7 +67,7 @@ public class RoomDao {
 		
 		ObservableList<Room> roomlist = FXCollections.observableArrayList();
 		try {
-			String sql = "select * from order by ronum desc";
+			String sql = "select * from room order by ronum desc";
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
 			//next -> 한줄씩 넘어가면서 가져오기
@@ -81,11 +79,11 @@ public class RoomDao {
 						);
 				roomlist.add(room);
 			}
-		
+			return roomlist;
 		} catch (Exception e) {
 			System.out.println("sql오류 " + e);
 		}
-		
+		return null;
 	}
 	
 	
