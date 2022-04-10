@@ -69,12 +69,8 @@ public class Login implements Initializable {
 		try {
 			Parent parent = FXMLLoader.load( getClass().getResource(page) );
 			borderpane.setCenter(parent);
-		}catch( Exception e ) { System.out.println("해당 파일이 없습니다. "+e);}
-		
-		
-	}
-	
-	
-	
-	
+		}catch( Exception e ) {
+			System.out.println("해당 파일이 없습니다. "+e);
+			}
+		}
 }

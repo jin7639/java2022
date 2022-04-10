@@ -4,7 +4,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import controller.Main;
-import controller.home.Home;
 import dao.MemberDao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,8 +17,7 @@ public class Loginpane implements Initializable {
 
 		@Override
 		public void initialize(URL arg0, ResourceBundle arg1) {
-			// TODO Auto-generated method stub
-			lblconfirm.setText("");
+			lblconfirm.setText(""); 
 		}
 	
 		@FXML
@@ -64,7 +62,6 @@ public class Loginpane implements Initializable {
 	    		//login.loadpage("/view/signuppane.fxml"); // [x]
 	    	//해결방안 : 기존 컨테이너 가져오는 방법 -> this
 	    	Login.instance.loadpage("/view/login/signuppane.fxml");
-	    	
 	    }
 
 	    @FXML
@@ -82,15 +79,9 @@ public class Loginpane implements Initializable {
 	    		Login.member = MemberDao.memberDao.getMember(id);
 				//페이지 전환
 	    		Main.instance.loadpage("/view/home/home.fxml");
-	    		//테스트
-	    		lblconfirm.setText("로그인 성공");
-	    		
+	    		System.out.println("로그인 성공");
 			}else {
 				lblconfirm.setText("동일한 회원정보가 없습니다.");
-				
 			}
-	    	
-	    	System.out.println("로그인처리");
 	    }
-	
 }

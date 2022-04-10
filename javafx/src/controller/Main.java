@@ -11,12 +11,10 @@ import javafx.scene.layout.BorderPane;
 
 public class Main implements Initializable {
 
-	
 	public static Main instance;
 	public Main() {
 		instance = this;
 	}
-	
 	
 	@FXML
     private BorderPane borderpane; //씬빌더에서 만든 컨테이너 객체
@@ -38,5 +36,4 @@ public class Main implements Initializable {
 			System.out.println("페이지 불러오기 실패 사유 : "+ e);
 		}
 	}
-	
 }

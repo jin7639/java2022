@@ -19,9 +19,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 
 public class Home implements Initializable {
-	
-	
-	
+
 	public static Home home;
 	
 	public Home() {
@@ -121,12 +119,9 @@ public class Home implements Initializable {
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
-		lblloginid.setText(Login.member.getMid() + " 님");
-		lblpoint.setText("포인트 : " + Login.member.getMpoint());
-		
 		loadpage("/view/chatting.fxml");
-		
+		lblloginid.setText( Login.member.getMid()+" 님" );
+		lblpoint.setText("포인트 : "+ Login.member.getMpoint()+" 점");
 	}
 	
 	@FXML //로그아웃 레이블 클릭시
@@ -155,13 +150,9 @@ public class Home implements Initializable {
 				Login.member = null;
 				//페이지전환
 				Main.instance.loadpage("/view/login/login.fxml");
-				
 			}else { //탈퇴 실패
-				
 			}
-			
 		}//아니면
-		
 	}
 	@FXML
 	public void accinfo (MouseEvent e) {
