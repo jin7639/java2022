@@ -50,6 +50,12 @@ public class Home implements Initializable {
 	@FXML
 	private Label lblproduct;
 	
+
+	  @FXML
+	    void accrecord(MouseEvent event) {
+		  loadpage("/view/record.fxml");
+	    }
+	  
 	@FXML
 	public void accproduct( MouseEvent e ) { 
 		loadpage("/view/product/product.fxml"); 

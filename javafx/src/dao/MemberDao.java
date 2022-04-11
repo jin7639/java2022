@@ -8,6 +8,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.mysql.cj.QueryReturnType;
 
@@ -300,6 +302,71 @@ public class MemberDao { // DB 접근객체
 		
 	}
 	
+	//9. 전체 개수(인수-테이블명에 따라) 반환
+	public int counttotal(String tname) {
+		String sql = "select count(*) from " + tname;
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				return rs.getInt(1);
+				//조회 결과의 첫번째 필드를 반환
+			}
+		} catch (Exception e) {
+			System.out.println("sql오류 " + e);
+		}
+		return 0;
+	}
+	
+//	//9. 전체 개수(인수-테이블명에 따라) 반환
+//	public int counttotal2() {
+//		String sql = "select count(*) from product";
+//		try {
+//			ps = con.prepareStatement(sql);
+//			rs = ps.executeQuery();
+//			if (rs.next()) {
+//				return rs.getInt(1);
+//				//조회 결과의 첫번째 필드를 반환
+//			}
+//		} catch (Exception e) {
+//			System.out.println("sql오류 " + e);
+//		}
+//		return 0;
+//	}
+	
+	//10. 날짜별로 가입자 수 반환
+	public Map<String, Integer> datetotal() {
+		Map<String, Integer> map = new HashMap<>();
+		String sql = "select msince, count(*) from member group by msince";
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				map.put(rs.getString(1),rs.getInt(2));
+			}
+			return map;
+		} catch (Exception e) {
+			System.out.println("sql 오류 " + e);
+		}
+		return null;
+	}
+	//11. 날짜 별로 게시물 등록수 반환
+	public Map<String, Integer> datetotal2() {
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		String sql = "select substring_index( bdate , ' ' , 1 )  , count(*) from board group by substring_index( bdate , ' ' , 1 )";
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				map.put(rs.getString(1),rs.getInt(2));
+			}
+			return map;
+		} catch (Exception e) {
+			System.out.println("sql 오류30 " + e);
+		}
+		return null;
+		
+	}
 	
 	
 }

@@ -112,7 +112,7 @@
                   <Font size="14.0" />
                </font></Label>
             <Line endX="-38.0" layoutX="140.0" layoutY="570.0" startX="-100.0" strokeWidth="1.5" />
-            <Label layoutX="47.0" layoutY="571.0" prefHeight="28.0" prefWidth="56.0" text="통계" textFill="WHITE">
+            <Label onMouseClicked="#accrecord" layoutX="47.0" layoutY="571.0" prefHeight="28.0" prefWidth="56.0" text="통계" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
