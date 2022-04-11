@@ -5,11 +5,13 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import controller.login.Login;
 import dao.RoomDao;
 import dto.Room;
+import dto.Roomlive;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -59,9 +61,10 @@ public class Chatting implements Initializable{
     public Room selectroom;
     
     public void show() {
-    	ObservableList<Room>roomlist = RoomDao.roomDao.roomList();
-		TableColumn tc = roomtable.getColumns().get(0);
-		tc.setCellValueFactory(new PropertyValueFactory<>("ronum"));
+    	ObservableList<Room>roomlist = RoomDao.roomDao.roomlist();
+    	
+    	TableColumn tc = roomtable.getColumns().get(0);
+    	tc.setCellValueFactory( new PropertyValueFactory<>("ronum"));
 		
 		tc = roomtable.getColumns().get(1);
 		tc.setCellValueFactory(new PropertyValueFactory<>("roname"));
@@ -93,7 +96,7 @@ public class Chatting implements Initializable{
 				return;
 		}
     	//2. 방 객체
-    	Room room = new Room ( 0, roomname, "1237.0.0.1", 0);
+    	Room room = new Room ( 0, roomname, "127.0.0.1", 0);
     	//3. DB처리
     	RoomDao.roomDao.roomadd(room);
     	//4. 해당 방 서버 실행
@@ -101,6 +104,8 @@ public class Chatting implements Initializable{
     	//서버 실행
     	server.serverstart(room.getRoip(), RoomDao.roomDao.getroomnum());
     	txtroomname.setText(""); // 개설 후 방이름 입력창 공백 처리
+    	show();
+    	
     	Alert alert = new Alert(AlertType.INFORMATION);
     	alert.setHeaderText("방 개설이 완료 되었습니다. 방번호 : " + RoomDao.roomDao.getroomnum());
     	alert.showAndWait();
@@ -144,7 +149,7 @@ public class Chatting implements Initializable{
     		public void run() {
     			try {
 					socket = new Socket(ip, port); //서버 ip와 port 번호 넣기
-					send(Login.member.getMid()+"님 입장했습니다.");
+					send(Login.member.getMid()+"님 입장했습니다.\n");
 					receive(); //접속과 동시에 받기 메소드는 무한 루프
 				} catch (Exception e) {System.out.println(e);}
     		};
@@ -190,6 +195,18 @@ public class Chatting implements Initializable{
 	    		txtcontent.appendText(msg); //입력 받은 내용을 채팅창에 추가하기
 			} catch (Exception e) {System.out.println(e);} //입력스트림
     	}
+    }
+    
+    public void midshow() { // msg메소드:입력창에서 엔터 쳤을때 // send메소드 : 전송버튼 눌렀을때
+    	// 1. 테이블뷰에서 선택된 방 번호의 접속된 회원명단 가져오기 
+    	ArrayList<Roomlive> roomlivelist 
+			= RoomDao.roomDao.getRoomlivelist( selectroom.getRonum() );
+		txtmidlist.setText(""); // 2.명단 초기화
+		int i = 1; 
+		for( Roomlive temp : roomlivelist ) { // 3.리스트내 모든 객체를 하나씩 명단에 추가
+			txtmidlist.appendText( i +"번 "+ temp.getMid() +"\n");
+			i++;
+		}
     }
     
     @FXML
