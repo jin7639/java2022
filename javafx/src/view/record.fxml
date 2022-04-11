@@ -3,6 +3,7 @@
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TitledPane?>
@@ -46,13 +47,35 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Label layoutX="78.0" layoutY="50.0" prefHeight="40.0" prefWidth="50.0" text="제품수">
+                        <Label layoutX="31.0" layoutY="10.0" prefHeight="40.0" prefWidth="50.0" text="제품수">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Label>
-                        <Line endX="-31.666671752929688" layoutX="170.0" layoutY="97.0" startX="-100.0" />
-                        <BarChart fx:id="pbc" layoutX="231.0" layoutY="46.0" prefHeight="250.0" prefWidth="507.0">
+                        <BarChart fx:id="pbc" layoutX="483.0" layoutY="30.0" prefHeight="255.0" prefWidth="336.0">
+                           <xAxis>
+                              <CategoryAxis side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis prefHeight="209.0" prefWidth="0.0" side="LEFT" />
+                           </yAxis>
+                        </BarChart>
+                        <Line endX="27.0" endY="21.0" layoutX="-12.0" layoutY="28.0" startX="122.0" startY="21.0" />
+                        <PieChart fx:id="ppc" layoutX="130.0" layoutY="37.0" prefHeight="241.0" prefWidth="304.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </TitledPane>
+          <TitledPane animated="false" text="게시판 통계">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="78.0" layoutY="36.0" prefHeight="40.0" prefWidth="82.0" text="게시글 수">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <BarChart fx:id="bbc" layoutX="257.0" layoutY="20.0" prefHeight="250.0" prefWidth="507.0">
                            <xAxis>
                               <CategoryAxis side="BOTTOM" />
                            </xAxis>
@@ -60,11 +83,10 @@
                               <NumberAxis side="LEFT" />
                            </yAxis>
                         </BarChart>
+                        <Line endX="27.0" endY="21.0" layoutX="47.0" layoutY="54.0" startX="122.0" startY="21.0" />
                      </children>
                   </AnchorPane>
-            </content>
-          </TitledPane>
-          <TitledPane animated="false" text="게시판 통계" />
+               </content></TitledPane>
         </panes>
       </Accordion>
       <Label layoutX="475.0" layoutY="124.0" prefHeight="40.0" prefWidth="50.0" text="제품수">

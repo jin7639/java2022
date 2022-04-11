@@ -52,22 +52,22 @@
                   <Font size="14.0" />
                </font></Label>
             <Line endX="-38.0" layoutX="140.0" layoutY="316.0" startX="-100.0" strokeWidth="1.5" />
-            <Label fx:id="lblproduct1" onMouseClicked="#accproduct1" layoutX="47.0" layoutY="318.0" prefHeight="28.0" prefWidth="60.0" text="남성의류" textFill="WHITE">
+            <Label fx:id="lblproduct1" layoutX="47.0" layoutY="318.0" onMouseClicked="#accproduct1" prefHeight="28.0" prefWidth="60.0" text="남성의류" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="lblproduct2" onMouseClicked="#accproduct2" layoutX="115.0" layoutY="318.0" prefHeight="28.0" prefWidth="59.0" text="여성의류" textFill="WHITE">
+            <Label fx:id="lblproduct2" layoutX="115.0" layoutY="318.0" onMouseClicked="#accproduct2" prefHeight="28.0" prefWidth="59.0" text="여성의류" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="lblproduct3" onMouseClicked="#accproduct3" layoutX="48.0" layoutY="346.0" prefHeight="28.0" prefWidth="59.0" text="게임기기" textFill="WHITE">
+            <Label fx:id="lblproduct3" layoutX="48.0" layoutY="346.0" onMouseClicked="#accproduct3" prefHeight="28.0" prefWidth="59.0" text="게임기기" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="lblproduct4" onMouseClicked="#accproduct4" layoutX="117.0" layoutY="346.0" prefHeight="28.0" prefWidth="60.0" text="생활용품" textFill="WHITE">
+            <Label fx:id="lblproduct4" layoutX="117.0" layoutY="346.0" onMouseClicked="#accproduct4" prefHeight="28.0" prefWidth="60.0" text="생활용품" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
@@ -112,7 +112,7 @@
                   <Font size="14.0" />
                </font></Label>
             <Line endX="-38.0" layoutX="140.0" layoutY="570.0" startX="-100.0" strokeWidth="1.5" />
-            <Label onMouseClicked="#accrecord" layoutX="47.0" layoutY="571.0" prefHeight="28.0" prefWidth="56.0" text="통계" textFill="WHITE">
+            <Label layoutX="47.0" layoutY="571.0" onMouseClicked="#accrecord" prefHeight="28.0" prefWidth="56.0" text="통계" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
@@ -122,7 +122,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="95.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="87.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../img/icon.png" />
                </image>

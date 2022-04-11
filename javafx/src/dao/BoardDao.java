@@ -45,7 +45,7 @@ public class BoardDao {
 		//4.SQL 결과
 			return true;
 		} catch (Exception e) {
-			System.out.println("SQL 오류0405" + e);
+			System.out.println("SQL 오류" + e);
 		}
 		
 		return false;

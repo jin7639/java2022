@@ -90,42 +90,37 @@ public class MemberDao { // DB 접근객체
 		//2.로그인
 	public boolean login (String id, String password) {
 		try {
-		
-		//1.SQL 작성
+			//1.SQL 작성
+				
+				//연산자 and : 조건 and 조건
+			String sql = "select * from member where mid = ? and mpassword=?";
 			
-			//연산자 and : 조건 and 조건
-		String sql = "select * from member where mid = ? and mpassword=?";
-		
-		//2.SQL 조작
-		
-		ps = con.prepareStatement(sql);
-		ps.setString(1, id);
-		ps.setString(2, password);
-		//3.SQL 실행
-		rs = ps.executeQuery();
-		
-		//4.SQL 결과
-		try {
-			//현재 날짜 가져오기
-	    	SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-	    	String logindate = format.format(new Date()); //현재날짜를 형식 변환
-	    	
-	    	
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-		if (rs.next()) {
-			return true; //아이디 비밀번호 동일 ->로그인 성공
-//			
+			//2.SQL 조작
 			
+			ps = con.prepareStatement(sql);
+			ps.setString(1, id);
+			ps.setString(2, password);
+			//3.SQL 실행
+			rs = ps.executeQuery();
 			
-		}
-		
+			//4.SQL 결과
+			try {
+				//현재 날짜 가져오기
+		    	SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		    	String logindate = format.format(new Date()); //현재날짜를 형식 변환
+		    	
+		    	
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+			if (rs.next()) {
+				return true; //아이디 비밀번호 동일 ->로그인 성공
+			}
+			
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println("SQL오류 " + e);
 		}
-		
 		return false; //로그인 실패
 	}
 	
@@ -191,14 +186,12 @@ public class MemberDao { // DB 접근객체
 		//4.SQL 결과
 		if (rs.next()) {
 			return rs.getString(3);
-			
 		}
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println("아이디찾기 실패 " + e);
 		}
 		return null;
-	
 	}	
 	
 	//5. 아이디 인수로 회원정보 호출
@@ -297,10 +290,25 @@ public class MemberDao { // DB 접근객체
 			// TODO: handle exception
 		}
 		return null;
-		
-		
-		
 	}
+	
+	//11. 카테고리별 개수
+	public Map<String, Integer> countcatgegory() {
+		Map<String, Integer> map = new HashMap<>();
+		String sql = "select pcategory, count(*) from product group by pcategory";
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				map.put(rs.getString(1), rs.getInt(2));
+			}
+			return map;
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;
+	}
+	
 	
 	//9. 전체 개수(인수-테이블명에 따라) 반환
 	public int counttotal(String tname) {
@@ -335,7 +343,7 @@ public class MemberDao { // DB 접근객체
 //	}
 	
 	//10. 날짜별로 가입자 수 반환
-	public Map<String, Integer> datetotal() {
+	public Map<String, Integer> datetotal(String member, String msince) {
 		Map<String, Integer> map = new HashMap<>();
 		String sql = "select msince, count(*) from member group by msince";
 		try {
@@ -351,9 +359,12 @@ public class MemberDao { // DB 접근객체
 		return null;
 	}
 	//11. 날짜 별로 게시물 등록수 반환
-	public Map<String, Integer> datetotal2() {
+	public Map<String, Integer> datetotal2(String tname, String date) {
 		Map<String, Integer> map = new HashMap<String, Integer>();
-		String sql = "select substring_index( bdate , ' ' , 1 )  , count(*) from board group by substring_index( bdate , ' ' , 1 )";
+		
+		String sql = "select substring_index( bdate , ' ' , 1 )  , count(*) "
+						+ " from " + tname
+						+ " group by substring_index( " + date+" , ' ' , 1 )";
 		try {
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
