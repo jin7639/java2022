@@ -21,7 +21,7 @@ public class Mywriting implements Initializable {
 		//1.db에서 모든 게시글 가져오기 --> 작성자가 로그인아이디와 같은 것만 고르기
     	ObservableList<dto.Board> boardliList = BoardDao.boardDao.list();
     	
-    		//게시글 작성자 번호랑 로그인한 회원 번호랑 비교
+    		//게시글 작성자 번호랑 로그인한 회원 번호랑 비교 어떻게 하는건데
     	
     	//2.tableview에 추가
     	TableColumn tc = mywritingtable.getColumns().get(0);

@@ -91,11 +91,14 @@ public class Boardview implements Initializable{
     
     //댓글 테이블 메소드
     public void replytableshow() {
+    	
     	//1. 현재 게시물 번호
     	int bnum = controller.board.Board.board.getBnum();
+    	
     	//2. 
     	ObservableList<Reply> replylist = BoardDao.boardDao.replylist( bnum );
-		//3.
+		
+    	//3.
 		TableColumn tc = replytable.getColumns().get(0);
 		tc.setCellValueFactory(new PropertyValueFactory<>("rnum"));
     
@@ -110,7 +113,6 @@ public class Boardview implements Initializable{
     
 		//4. 테이블 뷰에 리스트 넣어주기
 		replytable.setItems(replylist);
-    
     }
     
     @FXML
@@ -125,7 +127,6 @@ public class Boardview implements Initializable{
     				controller.board.Board.board.getBnum());
     		Home.home.loadpage("/view/board/board.fxml");
 		}
-		
 		//2. 확인 버튼 눌렀을 때
     	//3. 삭제 처리
     }
@@ -150,7 +151,6 @@ public class Boardview implements Initializable{
 				txtrecontent.setText("");
 				replytableshow();
 		}
-    
     }
 
     boolean upcheck = true;
@@ -183,6 +183,7 @@ public class Boardview implements Initializable{
     }
 	
     public void viewup() {
+    	
 //    	>>>>>게시물 클릭시 조회수 +1 [단 계정당 한 게시물에 대해 하루 1번만 가능]
 //			게시물을 클릭한 날짜를 기억해야되네... 말이 되나?
 //    			게시물 클릭시 → 날짜 저장
@@ -204,11 +205,5 @@ public class Boardview implements Initializable{
 		}catch (Exception e) {//예외[오류] 처리[잡기] : Exception 클래스
 			
 		}
-    	
-    	
-    	
     }
-    
-    
-    
 }

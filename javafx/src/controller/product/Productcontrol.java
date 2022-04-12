@@ -21,7 +21,7 @@ import javafx.scene.layout.VBox;
 
 public class Productcontrol implements Initializable {
 
-	 public static Product select ; // 선택된 버튼의 제품 저장
+	public static Product select ; // 선택된 버튼의 제품 저장
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -53,9 +53,7 @@ public class Productcontrol implements Initializable {
     	
     	String search = txtsearch.getText();
     	show(search); // 입력한 검색어 show 메소드에 넣어주기
-    	
     }
-    
     
     void show(String search) { //메소드화 -> 여러 곳에서 사용가능
     	

@@ -26,8 +26,8 @@
       <Button fx:id="btnback" layoutX="841.0" layoutY="101.0" mnemonicParsing="false" onAction="#accback" prefHeight="30.0" prefWidth="119.0" text="목록보기" />
       <Button fx:id="btndelete" layoutX="711.0" layoutY="101.0" mnemonicParsing="false" onAction="#accdelete" prefHeight="30.0" prefWidth="119.0" text="삭제" />
       <Button fx:id="btnupdate" layoutX="582.0" layoutY="101.0" mnemonicParsing="false" onAction="#accupdate" prefHeight="30.0" prefWidth="119.0" text="수정" />
-      <Label fx:id="lblwriter" layoutX="603.0" layoutY="138.0" prefHeight="30.0" prefWidth="87.0" text="작성자: 1234" />
-      <Label fx:id="lbldate" layoutX="693.0" layoutY="138.0" prefHeight="30.0" prefWidth="168.0" text="작성일: 2022-04-05" />
+      <Label fx:id="lblwriter" layoutX="555.0" layoutY="138.0" prefHeight="30.0" prefWidth="87.0" text="작성자: 1234" />
+      <Label fx:id="lbldate" layoutX="673.0" layoutY="138.0" prefHeight="30.0" prefWidth="207.0" text="작성일: 2022-04-11 14:12:11" />
       <Label fx:id="lblview" layoutX="880.0" layoutY="138.0" prefHeight="30.0" prefWidth="80.0" text="조회수: 125" />
       <TextArea fx:id="txtrecontent" layoutX="62.0" layoutY="533.0" prefHeight="45.0" prefWidth="750.0" />
       <Label layoutX="61.0" layoutY="503.0" prefHeight="30.0" prefWidth="39.0" text="댓글" />

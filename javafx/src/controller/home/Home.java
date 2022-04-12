@@ -160,6 +160,7 @@ public class Home implements Initializable {
 			}
 		}//¾Æ´Ï¸é
 	}
+	
 	@FXML
 	public void accinfo (MouseEvent e) {
 		loadpage("/view/home/info.fxml");
