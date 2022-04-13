@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>오디오 태그</h1>
+	<!-- 
+		audio 태그 속성
+			1. controls : 오디오 실행버튼
+			2. autoplay : 오디오 자동실행 [크롬은 불가]
+		video
+			1. controls : 비디오 실행버튼
+			2. autoplay : 비디오 자동실행 [크롬은 불가]
+		iframe
+	 -->
+	<audio controls="controls" autoplay="autoplay" >
+		<source src="music.mp3">
+	</audio>
+	<h1>비디오</h1>
+	<video controls="controls" autoplay="autoplay" loop="loop" width="300">
+		<source src="Flowers.mp4">
+	</video>
+	
+	<h1>외부 비디오</h1>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/4XKljzFV9RE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	
+	<h1>지도</h1>
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26068.77933556215!2d8.01964478509546!3d46.62393919586503!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xdd0644907004fa5a!2z67aA7Yuw7YGsIO2YuO2FlCDquIDroIjsnbTshZQ!5e0!3m2!1sko!2skr!4v1649822342674!5m2!1sko!2skr" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+	
+</body>
+</html>

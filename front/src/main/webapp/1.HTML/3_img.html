@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>img태그 : 이미지 삽입</h1>
+	<!--  
+		img 태그 속성
+			1. alt : 이미지 이름[생략가능]
+			2. src : 이미지 파일 경로
+				상대경로 : 현재 위치 기준 파일 경로
+				절대경로 : 모든 경로 기준 파일 경로
+					/ : 경로 구분
+					../ :상위경로로 이동
+					../../ : 상위경로 앞으로 2번 이동
+			3. width : 사진 가로 크기
+				px : 고정 크기
+				% : 반응형 [디바이스 크기에 따라 변함]
+	 -->
+	<img alt= "귀여움" src= "강아지.jpg" width="300">
+		<!-- 현재 파일과 동일한 폴더에 있으면 파일명만 작성 -->
+	<img alt= "귀여움" src= "../강아지2.jpg" width="30%">
+		<!-- 현재 파일 폴더의 상위 폴더에 존재하면 상위경로로 한 번 이동후 파일명 작성 -->
+	<img alt= "귀여움" src= "../img/강아지3.jpg" width="200">
+	<!-- 다른 폴더에 존재하면 상위경로로 이동후 에 사진 있는 폴더로 이동후 파일명 -->
+	
+	<!-- 절대경로 -->
+	<img alt="" src="C:\Users\504\Desktop\front\src\main\webapp\1.HTML\강아지.jpg" width="300">
+	<!-- 현재 웹에서 보고 있는 프로젝트는 어디에 있나?? -->
+	<img alt="" src="http://localhost:8080/1.HTML/강아지.jpg" >
+	
+	
+	
+</body>
+</html>
