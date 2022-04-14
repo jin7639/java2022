@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Table</title>
+</head>
+<body>
+	<h1>테이블 태그 : 표 만들기</h1>
+	<!-- 
+		<table> 표 태그
+			1. <tr> table row :행
+			2. <td> table data : (셀) 값
+			3. <th> table header : 제목
+	 -->
+	<table border="1">
+		<tr>
+			<th>지역</th><th>최저기온</th><th>최고 기온</th>
+		</tr>
+		<tr>
+			<td>서울</td>
+			<td>20</td>
+			<td>30</td>
+		</tr>
+		<tr>
+			<td>안산</td>
+			<td>6</td>
+			<td>15</td>
+		</tr>
+		<tr>
+			<td>부산</td>
+			<td>22</td>
+			<td>28</td>
+		</tr>
+	</table>
+	<br>
+	<table border="1" style="border-collapse: collapse;">
+		<tr>
+			<th> 출발 </th>
+			<th>도착</th>
+			<th colspan="2">객실요금</th>
+			<th>예약</th>
+		</tr>
+		<tr>
+			<td rowspan="3">서울</td>
+			<td>부산</td>
+			<td>일반실</td>
+			<td>50,000원</td>
+			<td><input type="button" value="예약신청" ></td>
+		</tr>
+		<tr>
+			<td>부산</td>
+			<td>일반실</td>
+			<td>50,000원</td>
+			<td><input type="button" value="예약신청" ></td>
+		</tr>
+		<tr>
+			<td>부산</td>
+			<td>일반실</td>
+			<td>50,000원</td>
+			<td><input type="button" value="예약신청" ></td>
+		</tr>
+	</table>
+</body>
+</html>
