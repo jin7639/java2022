@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>CSS글자</title>
+
+	<style type="text/css">
+		/* 웹 폰트 = 눈누 홈페이지  */
+		@font-face {
+		    font-family: 'LeeSeoyun';
+		    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff') format('woff');
+		    font-weight: normal;
+		    font-style: normal;
+		}
+		@font-face {
+		    font-family: 'ROKAFSlabSerifBold';
+		    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts2201-3@1.0/ROKAFSlabSerifBold.woff') format('woff');
+		    font-weight: normal;
+		    font-style: normal;
+		}
+	
+		/* css 주석처리 */
+		/*  선택자{  속성명  }  */
+		*{ 	/* 모든 태그에 적용 */
+			font-family: "궁서"; 	/*폰트*/
+			color: blue; 			/*폰트 색상*/
+		}
+		h3{ /* h3태그를 선택해서 꾸미기 */
+			font-family: LeeSeoyun;		/*폰트*/
+			color: black;
+			font-size: 30px;	/* 폰트 크기 */
+			text-decoration: overline line-through underline;	
+							/* 윗줄 */   /*취소선*/    /*밑줄*/
+			text-align: center;		/* 폰트 정렬 */
+			text-shadow: 3px 3px 3px blue; /*폰트 그림자*/
+					/*   x축  y축 깊이  색상 */
+		}
+		p{ /* p태그를 선택해서 꾸미기 */
+			font-family: ROKAFSlabSerifBold;
+			background-color: yellow;		/* 배경색 */
+			line-height: 150%; /* 줄간격 [ 기본값 : 100% ] */
+			font-style: italic;	/* 폰트 기울기 */
+			font-weight: bold;	/* 폰트 굵게 */
+			letter-spacing: 2px;	/* 글자 간격 [자간] */
+			word-spacing: 5px;		/* 단어 가격 [어간] */
+		}
+		a{	/* a태그를 선택해서 꾸미기 */
+			text-decoration: none;	/* 밑줄 제거*/
+			color: black;	
+		}
+		a:hover{	/* a태그에 마우스를 올렸을때 */
+			color: orange;
+		}
+		a:visited {	/* a태그에 클릭한 기록이 있으면 */
+			color: blue;
+		}
+ 		a:active {	/* a태그 클릭했을때 */
+			color: green;
+		}
+	</style>
+	
+</head>
+<body>
+
+	<!-- 
+		선택자{ 속성명 = 값 }
+			1. font-family : 글꼴명	: 글꼴
+			2. color : 색상 			: 글색상
+			3. text-decoration
+				overline			: 윗줄
+				underline			: 밑줄
+				line-through 		: 취소선
+			4. text-align			: 텍스트 정렬 
+				center : 가운데 정렬
+				left : 왼쪽 정렬
+				right : 오른쪽 정렬
+			5. text-shadow : x축 y축 깊이 색상		: 글꼴 그림자
+			6. line-height : % 	: 줄간격
+			7. letter-spacing 	: 자간
+			8. word-spacing		: 어간
+			9. font-size 		: 글자 크기
+			10. font-style : italic		[ 글자 기울기 ]
+			11. font-weight : bold 		[ 글자 굵게 ]
+			12. a태그 이벤트 선택자
+				a:hover  	/* a태그에 마우스를 올렸을때 */
+				a:active 	/* a태그 클릭했을때 */
+				a:visited 	/* a태그에 클릭한 기록이 있으면 */
+	 -->
+	<h3> GitHub </h3>
+	<a href="https://github.com/">깃허브로 이동</a>
+	<p>깃허브는 분산 버전 관리 툴인 깃 저장소 호스팅을 지원하는 웹 서비스이다. 루비 온 레일스로 작성되었다.
+		<br>  GitHub는 영리적인 서비스와 오픈소스를 위한 무상 서비스를 모두 제공한다. <p>
+	<p>깃이 텍스트 명령어 입력 방식인데 반해, 깃허브는 그래픽 유저 인터페이스(GUI)를 제공한다. 깃허브는 페이스트빈(pastebin)과 유사한 서비스인 Gist와 위키를 각 저장소마다 운영하고 있으며, 깃 저장소를 통해 고칠 수 있다.</p>
+	
+	
+</body>
+</html>
