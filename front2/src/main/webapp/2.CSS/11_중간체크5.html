@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+	<style type="text/css">
+		form {
+			width: 700px; /*가로 사이즈*/
+			margin: 0 auto; /* 박스모델 가운데 정렬 */
+		}
+		table {
+			width : 700px;
+			border-top: solid 3px black;
+		}
+		td {
+			border-bottom: solid 1px #eeeeee;
+		}
+		input {
+			width: 500px;
+			height: 30px;
+		}
+		textarea {
+			width: 500px;
+			height: 100px;
+		}
+		.col1 {
+			width: 150px;
+		}
+		#buttons {
+			width: 700px;
+			text-align: right;
+		}
+		#buttons button {
+			padding: 10px 20px;
+			margin: 20px 5px;
+		}
+	</style>
+</head>
+<body>
+	<form action=""> <!-- 폼양식 [데이터 전송시] -->
+		<table> <!-- 테이블 태그 -->
+			<tr> <!-- 행 태그 -->
+				<td class="col1">이름</td> <!-- 테이블 데이터 태그 -->
+				<td>홍길동</td> <!-- 테이블 데이터 태그 -->
+			</tr> <!-- 행 end -->
+			<tr>
+				<td class="col1">내용</td>
+				<td><textarea rows="" cols=""></textarea> </td> <!-- 긴글입력상자 -->
+			</tr>
+			<tr>
+				<td class="col1">첨부파일</td>
+				<td><input type="file"></td> <!-- 첨부파일 -->
+			</tr>
+		</table> <!-- 테이블 end -->
+		<div id="buttons"> <!-- 박스모델(구역) display : block -->
+			<button>저장하기</button>
+			<button>목록보기</button>
+		</div> <!-- 박스모델 end -->
+	</form> <!-- 폼 end -->
+</body>
+</html>
