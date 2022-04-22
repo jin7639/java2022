@@ -1,0 +1,52 @@
+@charset "EUC-KR";
+
+	@font-face {
+    font-family: 'HS-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/HS-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+	}
+	@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+	.notosanskr * { 
+	 font-family: 'Noto Sans KR', sans-serif;
+	}
+	 * {
+	 	font-family: 'HS-Regular';
+	 	margin: 0px;
+	 	padding: 0px;
+	 }
+	 a {
+	 	text-decoration: none;
+	 	color: black;
+	 }
+	 a:hover {
+		color: #7a9dc3;
+	}
+	.header_logo {
+		font-size: 40px;
+	}
+	.carousel-item img {
+		width: 100%	
+	}
+	#cs {
+		margin-top: 172px;	
+	}
+	.item .title {
+		font-size: 20px;
+	}
+	.item .content {
+		font-family: 'Noto Sans KR';
+		font-weight: bold;
+		font-size: 12px;
+		margin-bottom: 50px;
+	}
+	.item .price {
+	color: gray;
+	text-decoration: line-through;
+	
+	}
+	.item .price_now {
+		font-size: 20px;
+		margin-left: 8px;
+	}
