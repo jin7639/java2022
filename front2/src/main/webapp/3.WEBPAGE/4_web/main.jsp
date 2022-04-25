@@ -10,7 +10,7 @@
 <body>
 	<!-- 현재 위치에 다른 파일 포함하기 -->
 	<%@include file="header.jsp" %>
-	<div id="cs" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+	<div id="cs" class="carousel slide start" data-bs-ride="carousel" data-bs-interval="3000">
 		<!-- 캐러셀 인디케이터 -->
 		<div class="carousel-indicators">
 			<button type="button" data-bs-target="#cs" data-bs-slide-to="0" class="active"></button>

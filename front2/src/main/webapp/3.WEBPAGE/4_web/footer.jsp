@@ -17,7 +17,8 @@
 				개인정보 보호 책임자 : 임혜란<br>
 				TEL : 1661-5724 <br>
 				FAX : EMAIL : roompacker@roompacker.co.kr<br>
-				사업자등록번호 : 201-86-30891 통신판매업신고 : 제2016-서울송파-1518호 [사업자정보확인]<br>
+				사업자등록번호 : 201-86-30891 <br>
+				통신판매업신고 : 제2016-서울송파-1518호<br>[사업자정보확인]<br>
 				주소 : 서울시 송파구 오금로 111 세기빌딩 10층<br>
 				<br>
 				COPYRIGHT(C) ALL RIGHTS RESERVED.</p>
@@ -35,11 +36,11 @@
 					</p>
 				</div>
 				<div class="col-md-4">
-					<a href="col-md-4"><i class="fab fa-facebook fa-2x"></i> </a>
-					<a href="col-md-4"><i class="fab fa-google fa-2x"></i> </a>
-					<a href="col-md-4"><i class="fab fa-instagram fa-2x"></i> </a>
-					<a href="col-md-4"><i class="fab fa-youtube fa-2x"></i> </a>
-					<a href="col-md-4"><i class="fab fa-github fa-2x"></i> </a>
+					<a href="col-md-4"><i class="fab fa-facebook fa-2x me-1"></i> </a>
+					<a href="col-md-4"><i class="fab fa-google fa-2x me-1"></i> </a>
+					<a href="col-md-4"><i class="fab fa-instagram fa-2x me-1"></i> </a>
+					<a href="col-md-4"><i class="fab fa-youtube fa-2x me-1"></i> </a>
+					<a href="col-md-4"><i class="fab fa-github fa-2x me-1"></i> </a>
 				</div>
 			</div>
 		</div>

@@ -9,7 +9,6 @@ public class Board {
 	private String bdate; 
 	private int bview;
 	
-	
 	public Board() {}
 	
 	public Board(int bnum, String btitle, String bcontent, String bwriter, String bdate, int bview) {

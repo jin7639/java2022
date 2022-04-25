@@ -126,7 +126,6 @@ public class BoardDao {
 			//4.SQL °á°ú
 			return true;
 			
-			
 		} catch (Exception e) {
 			System.out.println(e);
 		}
