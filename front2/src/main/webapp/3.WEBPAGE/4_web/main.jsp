@@ -29,6 +29,9 @@
 		<button class="carousel-control-next" data-bs-target="#cs" data-bs-slide="next">
 			<span class="carousel-control-next-icon"></span>
 		</button>
+		<button class="carousel-control-next" data-bs-target="#cs" data-bs-slide="next">
+			<span class="carousel-control-next-icon"></span>
+		</button>
 	</div> <!-- Ä³·¯¼¿ end -->
 	<br>
 	<div class="container text-center">

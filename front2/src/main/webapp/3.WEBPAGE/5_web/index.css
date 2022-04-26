@@ -1,0 +1,175 @@
+*{
+	font-family: "Nanum Gothic";
+}
+div {
+	padding: 0px;
+}
+a{
+	text-decoration: none;
+	color: black;
+}
+a:hover{
+	color: #eeeeee;
+}
+strong {
+	font-size: 20px;
+}
+.loginbox {
+	width: 370px;
+	padding: 100px 0px 0px 00px;
+}
+.stronginfo {
+	font-size: 14px;
+	color: #999999;
+}
+.tophead{  /* 상단 메뉴 */
+	font-size: 12px; 
+	margin-left: 20px;
+}
+
+.sidemenu{ /*사이드바*/
+	position: fixed; /*고정*/
+	left: 10px;
+	margin-top: 80px;
+}
+.menubox {
+	height: 350px;
+}
+.logo {
+	font-size: 30px;
+	font-weight: bold;	
+	margin-bottom: 40px;
+}
+.sidemenu ul {
+	padding: 0px;
+}
+.sidemenu li {
+	list-style: none;
+	font-weight: bold;	
+}
+#search input{
+	width: 110px;
+	border: none;
+	border-bottom: 1px solid black;
+}
+.content{ /* 본문*/
+	margin-top: 80px;
+}
+.carousel-item img {
+	width: 100%;
+}
+.card {
+	border: none;
+}
+.card-body {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.itembox {
+	padding-top: 80px;
+}
+.title {
+	font-size: 12px;
+}
+.price {
+	font-size: 14px;
+	font-weight: bold;
+}
+.type {
+	font-size: 12px;
+	color: #999999;
+}
+.sideinfo {
+	margin-top: 20px;
+	font-size: 12px;
+	color: #999999;
+}
+.instagram{
+	padding-top: 170px;
+	border-top: 1px solid #eeeeee;
+}
+.insta {
+	font-size: 23px;
+	color: #2e2e2e;
+	font-weight: bold;
+	margin: 0px;
+	
+}
+.insta_id {
+	font-size: 17px;
+	color: #999999;
+	margin: 0px 0px 20px;
+}
+.footer {
+	border-top: 1px solid #eeeeee;
+	padding-top: 50px;
+	margin-top: 100px;
+	margin-bottom: 50px;
+}
+.ft_title {
+	font-size: 14px;
+	font-weight: bold;
+	color: #999999;
+	margin-bottom: 10px;
+}
+.ft_info {
+	font-size: 12px;
+	color: #2e2e2e
+}
+.ft_tel {
+	font-size: 23px;
+	font-weight: bold;
+}
+.btnlogin {
+	width: 76px;
+	height: 76px;
+}
+.btnsnslogin {
+	width: 176px;
+	height: 30px;
+	margin: 5px;
+}
+.btnsnslogin {
+	width: 100%;
+	height: 50px;
+}
+.join ul {
+	list-style: none;
+	padding: 0px;
+}
+.join li {
+	padding: 0px;
+}
+.btnsns {
+	margin: 5px 10px;
+	float: left;
+}
+.logincate {
+	font-size: 11px;
+	margin: 30px 0px;
+}
+.nologin {
+	padding-top: 100px;
+}
+.nologin p {
+	font-size: 12px;
+	color: #757575;
+}
+.nologinrow {
+	margin-bottom: 10px;
+	font-size: 11px;
+}
+.nologin button {
+	width: 100%;
+	height: 40px;
+}
+.logintxt input{
+	border: none;
+	border-bottom: 1px solid #eeeeee;
+	margin-bottom: 10px;
+}
+.loginbox h2{
+	font-size: 20px;
+	font-weight: bold;
+	color: #2e2e2e;
+}

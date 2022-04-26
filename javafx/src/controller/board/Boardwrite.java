@@ -55,6 +55,7 @@ public class Boardwrite implements Initializable {
 	    			Alert alert = new Alert( AlertType.INFORMATION);
 	    				alert.setHeaderText("게시글이 작성되었습니다.");
 	    				alert.showAndWait();
+	    				
 	    			//페이지 전환
     				Home.home.loadpage("/view/board/board.fxml");
 				}else {
@@ -62,7 +63,6 @@ public class Boardwrite implements Initializable {
     				alert.setHeaderText("게시글 작성 실패. 관리자에게 문의하세요.");
     				alert.showAndWait();
 				}
-	    		
 	    }
 	
 	    @Override
