@@ -37,46 +37,21 @@
      			}
      		%>
      		
-     		<!-- 반복문 -->
-     		<%
-     			for(int i = 0; i < 반복횟수; i++) {
-     		%>	
-     			<span style="color: white">*</span>	
-   			<%	
-     			}
-     		%>
-     		<br>		
-     		<!-- 반복문 -->
-     		<%
-     			for(int i = 0; i < 반복횟수; i++) {
-     				for(int s =0; s<=i; s++) {
-     		%>	
-     			<span style="color: white">*</span>	
-	   			<%	
-	     			}
-	     		%>
-     			<br>	
-   			<%	
-     			}
-     		%>
      		
-     		
-     		<!-- 반복문 -->
      		<%
-     			for(int i = 0; i < 반복횟수; i++) {
-     				for(int s = 0; s <= i; s++) {
-     					
-     		%>	
-     			<span style="color: white">　</span>	
-     			<span style="color: white">★</span>	
-	   			<%	
-	     			}
-	     		%>
-     			<br>	
-   			<%	
-     			}
-     		%>
      		
+    		// 공백 b는 입력받은수-현재줄수 까지 1씩증가->공백출력
+    		for ( int i = 1; i <= 반복횟수; i++) {
+    			//1. 공백찍기
+    			for (int b = 1; b<= 반복횟수-i; b++) { %>
+    				<span style="color: white">　</span>	
+    		<% 	}
+    			//2. 별찍기
+    			for (int s = 1 ; s<=i+i-1 ; s++) { %>
+    					<span style="color: white">★</span>	
+    			<%}%>
+    			<br>
+    		<%}%>
      		
      	</body>
      </html>
