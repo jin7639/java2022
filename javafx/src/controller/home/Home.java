@@ -23,7 +23,7 @@ public class Home implements Initializable {
 	public static Home home;
 	
 	public Home() {
-		home = this; //this :ÇöÀç Å¬·¡½º ¸Þ¸ð¸® È£Ãâ
+		home = this; //this :ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¸ï¿½ È£ï¿½ï¿½
 	}
 	
 	@FXML
@@ -71,41 +71,41 @@ public class Home implements Initializable {
 	private Label lblboard;
 	
 	@FXML
-	private Label lblproduct1; // fxid°¡Á®¿À±â
+	private Label lblproduct1; // fxidï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	
 	@FXML
-	private Label lblproduct2; // fxid°¡Á®¿À±â
+	private Label lblproduct2; // fxidï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	
 	@FXML
-	private Label lblproduct3; // fxid°¡Á®¿À±â
+	private Label lblproduct3; // fxidï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	
 	@FXML
-	private Label lblproduct4; // fxid°¡Á®¿À±â
+	private Label lblproduct4; // fxidï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	
 	public static String category;
 	
-	@FXML// ³²¼ºÀÇ·ù ·¹ÀÌºíÀ» Å¬¸¯ÇßÀ»¶§ ÀÌº¥Æ®
+	@FXML// ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®
 	public void accproduct1( MouseEvent e ) {
 		loadpage("/view/product/product.fxml"); 
-		category = "³²¼ºÀÇ·ù";
+		category = "ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½";
 		}
 	
-	@FXML// ¿©¼ºÀÇ·ù ·¹ÀÌºíÀ» Å¬¸¯ÇßÀ»¶§ ÀÌº¥Æ®
+	@FXML// ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®
 	public void accproduct2( MouseEvent e ) {
 		loadpage("/view/product/product.fxml"); 
-		category = "¿©¼ºÀÇ·ù";
+		category = "ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½";
 		}
 	
-	@FXML// °ÔÀÓ±â±â ·¹ÀÌºíÀ» Å¬¸¯ÇßÀ»¶§ ÀÌº¥Æ®
+	@FXML// ï¿½ï¿½ï¿½Ó±ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®
 	public void accproduct3( MouseEvent e ) {
 		loadpage("/view/product/product.fxml"); 
-		category = "°ÔÀÓ±â±â";
+		category = "ï¿½ï¿½ï¿½Ó±ï¿½ï¿½";
 		}
 	
-	@FXML// »ýÈ°¿ëÇ° ·¹ÀÌºíÀ» Å¬¸¯ÇßÀ»¶§ ÀÌº¥Æ®
+	@FXML// ï¿½ï¿½È°ï¿½ï¿½Ç° ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®
 	public void accproduct4( MouseEvent e ) {
 		loadpage("/view/product/product.fxml"); 
-		category = "»ýÈ°¿ëÇ°";
+		category = "ï¿½ï¿½È°ï¿½ï¿½Ç°";
 		}
 	
 	@FXML
@@ -119,46 +119,46 @@ public class Home implements Initializable {
 			Parent parent = FXMLLoader.load(getClass().getResource(page));
 			borderpane.setCenter(parent);
 		} catch (Exception e) {
-			System.out.println("ÆäÀÌÁö ¿À·ù " + e);
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ " + e);
 		}
 	}
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		loadpage("/view/chatting.fxml");
-		lblloginid.setText( Login.member.getMid()+" ´Ô" );
-		lblpoint.setText("Æ÷ÀÎÆ® : "+ Login.member.getMpoint()+" Á¡");
+		lblloginid.setText( Login.member.getMid()+" ï¿½ï¿½" );
+		lblpoint.setText("ï¿½ï¿½ï¿½ï¿½Æ® : "+ Login.member.getMpoint()+" ï¿½ï¿½");
 	}
 	
-	@FXML //·Î±×¾Æ¿ô ·¹ÀÌºí Å¬¸¯½Ã
+	@FXML //ï¿½Î±×¾Æ¿ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ Å¬ï¿½ï¿½ï¿½ï¿½
 	public void logout(MouseEvent e) {
-		//1.Login Á¤º¸ Áö¿ì±â
+		//1.Login ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 		Login.member = null;
-		//2.ÆäÀÌÁö ÀüÈ¯
+		//2.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
 		Main.instance.loadpage("/view/login/login.fxml");
 	}
 	
 	@FXML
 	public void delete(MouseEvent e) {
 		
-		//1.¸Þ½ÃÁö
-		Alert alert = new Alert(AlertType.CONFIRMATION); //È®ÀÎ, Ãë¼Ò ¹öÆ° O
-			alert.setHeaderText("Á¤¸» Å»Åð ÇÏ½Ã°Ú½À´Ï±î?");
-		//2.¹öÆ° È®ÀÎ
-		Optional<ButtonType> optional = alert.showAndWait(); //½ÇÇà
+		//1.ï¿½Þ½ï¿½ï¿½ï¿½
+		Alert alert = new Alert(AlertType.CONFIRMATION); //È®ï¿½ï¿½, ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° O
+			alert.setHeaderText("ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½ ï¿½Ï½Ã°Ú½ï¿½ï¿½Ï±ï¿½?");
+		//2.ï¿½ï¿½Æ° È®ï¿½ï¿½
+		Optional<ButtonType> optional = alert.showAndWait(); //ï¿½ï¿½ï¿½ï¿½
 		
-		if ( optional.get() == ButtonType.OK ) { //È®ÀÎ¹öÆ° ´­·¶À» ¶§
-			//È¸¿ø Å»Åð ÁøÇà
+		if ( optional.get() == ButtonType.OK ) { //È®ï¿½Î¹ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+			//È¸ï¿½ï¿½ Å»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			Boolean result = MemberDao.memberDao.delete(Login.member.getMnum());
 			
-			if (result) { //Å»Åð¼º°ø
-				//·Î±×¾Æ¿ô [ Login Å¬·¡½º³» Member °´Ã¼ null ¿À·ù ¼­Á¤]
+			if (result) { //Å»ï¿½ð¼º°ï¿½
+				//ï¿½Î±×¾Æ¿ï¿½ [ Login Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Member ï¿½ï¿½Ã¼ null ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½]
 				Login.member = null;
-				//ÆäÀÌÁöÀüÈ¯
+				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¯
 				Main.instance.loadpage("/view/login/login.fxml");
-			}else { //Å»Åð ½ÇÆÐ
+			}else { //Å»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			}
-		}//¾Æ´Ï¸é
+		}//ï¿½Æ´Ï¸ï¿½
 	}
 	
 	@FXML
