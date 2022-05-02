@@ -11,7 +11,7 @@
 	<%@include file="../header.jsp" %>
 	<div class="container">
 		<h3>회원가입 페이지</h3>
-		<form action=" /jspweb/src/main/java/controller/signup.java">
+		<form action="signupcontroller.jsp">
 			아이디 : <input type="text" id="mid" placeholder="user id">
 			<span id="idcheck"></span><br>
 			비밀번호 : <input type="password" id="mpassword" placeholder="user password"><br>
