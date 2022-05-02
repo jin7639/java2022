@@ -1,6 +1,6 @@
-<%@page import="Dto.Board"%>
+<%@page import="dto.Board"%>
 <%@page import="controller.Dao.MemberDao"%>
-<%@page import="Dto.Member"%>
+<%@page import="dto.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
