@@ -3,17 +3,18 @@
     pageEncoding="UTF-8"%>
 <% 
 		request.setCharacterEncoding("UTF-8");
-		int bnum = (int)session.getAttribute("bnum2");
+		int bnum = (int)session.getAttribute("bnum_edit");
 		
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		
 	   	MemberDao memberDao = new MemberDao();
 	   	
-	   	boolean result = memberDao.update(bnum, title, content);
+	   	boolean result = memberDao.update(title, content, bnum);
 	   	
 	   	if( result ) {
-	   		response.sendRedirect("");
+	   		response.sendRedirect("main.jsp");
+	    	session.setAttribute("bnum_edit", null);
 	   		
 	   	}
    	%>

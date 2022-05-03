@@ -168,12 +168,13 @@ public class MemberDao {
 		return false;
 	}
 	
-	public boolean update(Board board) {
+	public boolean update(int bnum, String title, String content) {
 		try {
-			String sql = "update board set btitle = ? , bcontent = ?";
+			String sql = "update board set btitle = ? , bcontent = ? where bnum=?";
 			ps = con.prepareStatement(sql);
-			ps.setString(1,board.getBtitle());
-			ps.setString(2,board.getBcontent());
+			ps.setString(1,title);
+			ps.setString(2,content);
+			ps.setInt(3,bnum);
 			ps.executeUpdate();
 			return true;
 		} catch (Exception e) {

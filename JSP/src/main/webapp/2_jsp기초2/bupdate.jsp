@@ -12,11 +12,10 @@
 	<%
 		request.setCharacterEncoding("UTF-8");
 		int bnum = Integer.parseInt(request.getParameter("bnum"));
-		session.setAttribute("bnum2", bnum);
-	
+		session.setAttribute("bnum_edit", bnum);
 	%>
 	
-	<form action="updatecontroller.jsp" method="get">
+	<form action="updatecontroller.jsp?b_num=<%=bnum%>" method="get">
 		<input type="text" name="title">
 		<textarea rows="5" cols="10" name="content"></textarea>
 		<input type="submit" value="수정">
