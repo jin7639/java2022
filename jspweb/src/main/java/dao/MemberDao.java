@@ -1,6 +1,6 @@
 package dao;
 
-import dto.member;
+import dto.Member;
 
 public class MemberDao extends Dao{
 	
@@ -27,18 +27,19 @@ public class MemberDao extends Dao{
 	
 
 	
-	public boolean signup(member member) {
+	public boolean signup(Member member) {
 		try {
 		//1.sql 작성
-		String sql = "insert into member(mid, mpassword, mname, memail, maddress) values(?,?,?,?,?)";
+		String sql = "insert into member(mid, mpassword, mname, mphone, memail, maddress) values(?,?,?,?,?,?)";
 		//2.sql 연결
 		
 			ps = con.prepareStatement(sql);
 			ps.setString(1, member.getMid());
 			ps.setString(2, member.getMpassword());
 			ps.setString(3, member.getMname());
-			ps.setString(4, member.getMemail());
-			ps.setString(5, member.getMaddress());
+			ps.setString(4, member.getMphone());
+			ps.setString(5, member.getMemail());
+			ps.setString(6, member.getMaddress());
 			ps.executeUpdate();
 			System.out.println("회원가입");
 			return true;
@@ -49,6 +50,20 @@ public class MemberDao extends Dao{
 		return false;
 		
 	}
-	
+	//이메일 중복체크
+	public boolean emailcheck (String email) {
+		String sql = "select * from member where memail = "+email;
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				return true;
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("sql오류 : " + e);
+		}
+		return false;
+	}
 	
 }

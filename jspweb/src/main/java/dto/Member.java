@@ -1,27 +1,36 @@
 package dto;
 
-public class member {
+public class Member {
+	
+	@Override
+	public String toString() {
+		return "Member [mnum=" + mnum + ", mid=" + mid + ", mpassword=" + mpassword + ", mname=" + mname + ", mphone="
+				+ mphone + ", memail=" + memail + ", maddress=" + maddress + ", mpoint=" + mpoint + ", mdate=" + mdate
+				+ "]";
+	}
 	
 	private int mnum;
 	private String mid;
 	private String mpassword;
 	private String mname;
+	private String mphone;
 	private String memail;
 	private String maddress;
 	private int mpoint;
 	private String mdate;
 	
-	public member() {
+	public Member() {
 		super();
 	}
 
-	public member(int mnum, String mid, String mpassword, String mname, String memail, String maddress, int mpoint,
-			String mdate) {
+	public Member(int mnum, String mid, String mpassword, String mname, String mphone, String memail, String maddress,
+			int mpoint, String mdate) {
 		super();
 		this.mnum = mnum;
 		this.mid = mid;
 		this.mpassword = mpassword;
 		this.mname = mname;
+		this.mphone = mphone;
 		this.memail = memail;
 		this.maddress = maddress;
 		this.mpoint = mpoint;
@@ -60,6 +69,14 @@ public class member {
 		this.mname = mname;
 	}
 
+	public String getMphone() {
+		return mphone;
+	}
+
+	public void setMphone(String mphone) {
+		this.mphone = mphone;
+	}
+
 	public String getMemail() {
 		return memail;
 	}
@@ -91,7 +108,5 @@ public class member {
 	public void setMdate(String mdate) {
 		this.mdate = mdate;
 	}
-	
-	
-	
+
 }

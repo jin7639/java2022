@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>비 약간</title>
-<!-- 부트스트랩 css -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" >
+	<!-- 부트스트랩 css -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" >
 	<!-- 사용자지정 css -->
 	<link href="/jspweb/css/main.css" rel="stylesheet">
 </head>

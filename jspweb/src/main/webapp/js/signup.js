@@ -9,7 +9,13 @@
 	//jquery: $("#id명")
 		//keyup() : 해당 id에 키보드 눌렸을 때
 		
+	//입력상자 유효성 확인 체크 배열	
+	let pass = [false, false, false, false, false, false, false];
+	//배열 = [ ]
+	
 $( function(){
+	
+	
 	$("#mid").keyup(function(){
 		
 		//1.HTML 태그내 값 가져오기
@@ -41,13 +47,16 @@ $( function(){
 		               
 	               if( result == 1 ){ // 만약에 받은 데이터가 1이면
 	                  idcheck.innerHTML="사용중인 아이디 입니다.";
+	                  pass[0] = false;
 	               }else{ // 만약에 받은 데이터가 1이 아니면
 	                  idcheck.innerHTML="사용가능한 아이디 입니다.";
+	                  pass[0] = true;
 	               }
 	            }
 	         });	//ajax end
 		}else{
 			idcheck.innerHTML="영문 , 숫자 포함 5~15길이로 입력해주세요.";
+			pass[0] = false;
 		}
 	});
 	//비밀번호 체크
@@ -63,11 +72,14 @@ $( function(){
 				// 비밀번호와 비밀번호 체크와 다르면
 					//equals(X) // != (o)
 				$("#passwordcheck").html("패스워드가 서로 다릅니다.");
+				pass[1] = false;
 			}else{
 				$("#passwordcheck").html("사용가능한 비밀번호 입니다.");
+				pass[1] = true; pass[2] = true;
 			}
 		}else{
 			$("#passwordcheck").html("영문과 숫자로 5~15글자 입력해주세요.");
+			pass[1] = false;
 		}
 	}); //비밀번호 유효 확인 end
 	
@@ -80,8 +92,10 @@ $( function(){
 				// 비밀번호와 비밀번호 체크와 다르면
 					//equals(X) // != (o)
 				$("#passwordcheck").html("패스워드가 서로 다릅니다.");
+				pass[2] = false;
 			}else{
 				$("#passwordcheck").html("사용가능한 비밀번호 입니다.");
+				pass[2] = true; pass[1] = true;
 			}
 		}); //비밀번호 일치 확인 end
 		
@@ -92,9 +106,11 @@ $( function(){
 		let namej = /^[가-힣]{2,10}$/;	//한글만 2~10글자
 		
 		if(namej.test(mname)){
-			$("#namecheck").html("사용가능한 이름입니다.")
+			$("#namecheck").html("사용가능한 이름입니다.");
+			pass[3] = true;
 		}else{
-			$("#namecheck").html("한글 2~10글자로 입력해주세요")
+			$("#namecheck").html("한글 2~10글자로 입력해주세요");
+			pass[3] = false;
 		}
 	}); //이름 체크 end
 	
@@ -105,9 +121,11 @@ $( function(){
 		let phonej = /^010([0-9]{4})([0-9]{4})$/;	//숫자만 가능 010-숫자4자리-숫자4자리
 		
 		if(phonej.test(mphone)){
-			$("#phonecheck").html("사용가능한 번호입니다.")
+			$("#phonecheck").html("사용가능한 번호입니다.");
+			pass[4] = true;
 		}else{
-			$("#phonecheck").html("다시 확인해주세요")
+			$("#phonecheck").html("다시 확인해주세요");
+			pass[4] = false;
 		}
 	});	//전화번호 체크 end
 	
@@ -115,19 +133,93 @@ $( function(){
 	$("#memail").keyup(function(){
 		
 		let memail = $("#memail").val(); //해당 id 데이터 가져오기
-		let emailj = /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+$/;	
+		let memailaddress = $("#memailaddress").val();
 		
-		if(emailj.test(memail)){
-			$("#emailcheck").html("사용가능한 이메일입니다.")
+		if( memailaddress == "" ){ 
+			$("#emailcheck").html("이메일을 적어주세요");  
+			pass[5] = false;
 		}else{
-			$("#emailcheck").html("다시 확인해주세요")
-		}
+			let emailj = /^[a-zA-Z0-9]{3,20}$/;	
 		
+			if(emailj.test(memail)){
+			
+				//이메일 중복체크
+						let email = memail+"@"+memailaddress;
+						$.ajax({
+								url : "../emailcheck",
+								data : { "email" : email } , 
+								success : function( result ){
+									if( result == 1 ){
+										$("#emailcheck").html("사용중인 이메일 입니다."); 
+										pass[5] = false;
+									}else{
+										$("#emailcheck").html("사용가능한 이메일 입니다.2");
+										 pass[5] = true;
+									}
+								}
+							}); // ajax end 
+					}else {
+						$("#emailcheck").html("다시 확인해주세요");
+					}
+				}
 	});	//이메일체크 end
+	
+	//이메일주소 목록상자 선택시
+	$("#emailselect").change(function(){	//목록상자 내 값이 변경되었을때
+		let emailselect = $("#emailselect").val();
+		if(emailselect == ""){
+			$("#memailaddress").val(" ");
+			$("#memailaddress").attr("readonly" , false);
+		}else {
+			$("#memailaddress").val(emailselect);
+			$("#memailaddress").attr("readonly" , true);
+			$("#emailcheck").html("사용가능한 이메일 입니다.3");
+			pass[5] = true;
+		}
+	});
+	
+		
+	//주소체크
+		$("#address4").keyup(function(){
+			let address1 = $("#address1").val();
+			let address2 = $("#address2").val();
+			let address3 = $("#address3").val();
+			let address4 = $("#address4").val();
+			
+			if(address1 == "" || address2 == "" || address3 == "" || address4 == ""){
+				$("addresscheck").html("모든 주소를 입력해주세요");
+				pass[6] = false;
+			}else{
+				$("addresscheck").html("사용가능한 주소입니다.");
+				pass[6] = true;
+				
+			}
+			
+		});
 		
 		
 		
 });
+ 
+	 //폼전송 메소드
+	 function signup(){
+		//pass 배열이 모두 true이면 폼 전송
+		let check = true;
+		for(let i = 0; i <pass.length; i++){
+			if(pass[i] == false) check = false;
+			alert(pass[i]);
+		}
+		if(check){
+			//js에서 폼 전송하는 방법
+			document.getElementById("signupform").submit();
+			
+		}else {
+			alert("필수입력 사항이 입력되지 않았습니다.");
+		}
+	}
+			
+	 
+ 
  
  //다음 api js - 주소
  function findaddress() {
@@ -155,13 +247,6 @@ $( function(){
                 document.getElementById("address2").value = roadAddr;
                 document.getElementById("address3").value = data.jibunAddress;
                 
-                // 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
-                if(roadAddr !== ''){
-                    document.getElementById("address4").value = extraRoadAddr;
-                } else {
-                    document.getElementById("address").value = '';
-                }
-
                 var guideTextBox = document.getElementById("guide");
                 // 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
                 if(data.autoRoadAddress) {

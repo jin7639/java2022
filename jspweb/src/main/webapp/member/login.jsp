@@ -9,7 +9,10 @@
 <body>
 	<%@include file="../header.jsp" %>
 	<div class="container">
-		로그인페이지
+	<form action="../login"></form>
+		<input type="text" name="mid">
+		<input type="password" name="mpassword">
+		
 	</div>
 	<%@include file="../footer.jsp" %>
 </body>
