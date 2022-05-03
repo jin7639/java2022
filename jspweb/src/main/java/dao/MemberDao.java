@@ -12,7 +12,7 @@ public class MemberDao extends Dao{
 	public static MemberDao getMemberDao() {return memberDao;}
 
 	public boolean idcheck (String mid) {
-		String sql = "select * from member where mid = " + mid;
+		String sql = "select * from member where mid = '"+mid+"'";
 		try {
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
@@ -52,7 +52,7 @@ public class MemberDao extends Dao{
 	}
 	//이메일 중복체크
 	public boolean emailcheck (String email) {
-		String sql = "select * from member where memail = "+email;
+		String sql = "select * from member where memail = '"+email+"'";
 		try {
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
@@ -64,6 +64,25 @@ public class MemberDao extends Dao{
 			System.out.println("sql오류 : " + e);
 		}
 		return false;
+	}
+
+	public int login(String mid, String mpassword) {
+		String sql = "select * from member where mid = '"+mid+"' and mpassword = '"+mpassword+"'";
+		//String sql = "select * from where mid = ? and mpassword = ?";
+		try {
+			ps = con.prepareStatement(sql);
+			//ps.setString(1, mid);
+			//ps.setString(2, mpassword);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				return 1;
+			}else {
+				return 2;
+			}
+		} catch (Exception e) {
+			System.out.println("sql오류 : " + e);
+		}
+		return 3;
 	}
 	
 }

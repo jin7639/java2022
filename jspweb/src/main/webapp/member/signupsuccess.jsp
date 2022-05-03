@@ -7,6 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h3>환영합니다</h3>
+	<%@include file="../header.jsp" %>
+	
+	<div class="container text-center my-5">
+		<h3>회원가입성공</h3>
+		<h1>환영합니다</h1>
+	</div>
+	<%@include file="../footer.jsp" %>
 </body>
 </html>

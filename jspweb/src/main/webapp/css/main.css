@@ -9,3 +9,15 @@
 * {
 	 font-family: 'HS-Regular';
 }
+a {
+	text-decoration: none;
+	color: black;
+}
+.formname p {
+	margin: 0px;
+	margin-top: 3px;
+}
+.loginform p {
+	margin: 0px;
+	margin-top: 3px;
+}

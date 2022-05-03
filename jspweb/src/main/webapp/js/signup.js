@@ -164,6 +164,7 @@ $( function(){
 				}
 	});	//이메일체크 end
 	
+
 	//이메일주소 목록상자 선택시
 	$("#emailselect").change(function(){	//목록상자 내 값이 변경되었을때
 		let emailselect = $("#emailselect").val();
@@ -207,7 +208,6 @@ $( function(){
 		let check = true;
 		for(let i = 0; i <pass.length; i++){
 			if(pass[i] == false) check = false;
-			alert(pass[i]);
 		}
 		if(check){
 			//js에서 폼 전송하는 방법

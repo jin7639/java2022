@@ -11,12 +11,27 @@
 	<link href="/jspweb/css/main.css" rel="stylesheet">
 </head>
 <body>
+	<%
+		String loginid = (String)session.getAttribute("login");	//세션호출
+	%>
+	
+	
 	<div class="container">
-		헤더 페이지
-	<a href="/jspweb/main.jsp">HOME</a>
-	<a href="/jspweb/member/login.jsp">로그인</a>
-	<a href="/jspweb/member/signup.jsp">회원가입</a>
+	<!-- 공통 -->
+		<a href="/jspweb/main.jsp">HOME</a>
+	<!-- 로그아웃 상태 -->
+		<% if (loginid == null){ %>
+		<a href="/jspweb/member/login.jsp">로그인</a>
+		<a href="/jspweb/member/signup.jsp">회원가입</a>
+		<%} %>
+	<!-- 로그인 상태 -->
+		<% if (loginid != null) {%>
+		<span><%=loginid%>님</span>
+		<a href="logout">로그아웃</a>
+		<a href="/jspweb/member/memberinfo.jsp">회원정보</a>
+		<%} %>
 	</div>
+	
 	
 	<!-- 사용자지정 js -->
 	<script src="/jspweb/js/main.js" type="text/javascript"></script>
