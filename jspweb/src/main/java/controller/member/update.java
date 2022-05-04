@@ -55,7 +55,6 @@ public class update extends HttpServlet {
 		String address3 = request.getParameter("address3");
 		String address4 = request.getParameter("address4");
 			String address = address1+"_"+address2+"_"+address3+"_"+address4;
-		System.out.println(address);
 		
 		Member member = null;
 		if(oldpassword.equals("") || newpassword.equals("")) { //비밀번호 변경 안 할때

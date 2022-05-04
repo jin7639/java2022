@@ -2,6 +2,7 @@
  * 
  */
  
+ 
  function passwordcheck (mid) {
 	//제이쿼리식
 	let mpassword = $("#mpassword").val();

@@ -174,7 +174,7 @@ $( function(){
 		}else {
 			$("#memailaddress").val(emailselect);
 			$("#memailaddress").attr("readonly" , true);
-			$("#emailcheck").html("사용가능한 이메일 입니다.3");
+			$("#emailcheck").html("사용가능한 이메일 입니다.");
 			pass[5] = true;
 		}
 	});

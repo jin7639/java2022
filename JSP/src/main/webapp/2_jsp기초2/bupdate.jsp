@@ -15,15 +15,12 @@
 		session.setAttribute("bnum_edit", bnum);
 	%>
 	
-	<form action="updatecontroller.jsp?b_num=<%=bnum%>" method="get">
-		<input type="text" name="title">
-		<textarea rows="5" cols="10" name="content"></textarea>
+	<form action="bupdatecontroller.jsp?b_num=<%=bnum%>" method="get">
+		<input type="text" name="title"><br>
+		<textarea rows="5" cols="10" name="content"></textarea><br>
 		<input type="submit" value="수정">
 		
 	</form>
-	
-	
-	
 	
 </body>
 </html>

@@ -16,7 +16,6 @@
 		String mid = (String)session.getAttribute("login");
 		//2.회원정보 가져오기
 		Member member = MemberDao.getMemberDao().getmember(mid);
-	
 	%>
 	
 	<div class="container">
@@ -29,7 +28,7 @@
 					<div>회원정보가 수정되었습니다.</div>
 				<%}else if (request.getParameter("result") !=null && request.getParameter("result").equals("2")){ %>
 					<div>회원정보 수정 실패 관리자에게 문의하세요</div>
-				<%} else if (request.getParameter("result") !=null && request.getParameter("result").equals("3")){ %>
+				<%}else if (request.getParameter("result") !=null && request.getParameter("result").equals("3")){ %>
 					<div>비밀번호가 일치하지 않습니다.</div>
 				<%} %>
 				<h3 class="text-center">회원수정</h3>
@@ -69,7 +68,7 @@
 								<input class="form-control" value="<%=member.getMemail().split("@")[1] %>" type="text" id="memailaddress" name="memailaddress">
 							</div>
 							<div class="col">
-								<select class=" form-control" id="emailselect" name="emailselect">
+								<select class="form-control" id="emailselect" name="emailselect">
 									<option value="" style="height: 30px"> 직접 입력 </option>
 									<option value="naver.com" style="height: 30px">naver.com</option>
 									<option value="gmail.com" style="height: 30px">gmail.com</option>
@@ -81,20 +80,19 @@
 						<p>주소</p>
 						<div class="row mb-1">
 							<div class="col-md-8">
-								<input class=" form-control" type="text" id="address1" name="address1" value="<%=member.getMaddress().split("_")[0]%>" placeholder="우편번호">
+								<input class="form-control" type="text" id="address1" name="address1" value="<%=member.getMaddress().split("_")[0]%>" placeholder="우편번호">
 							</div>
 							<div class="col-md-4">
-								<input class=" form-control " type="button" onclick="findaddress()" value="우편번호 찾기">
+								<input class="form-control " type="button" onclick="findaddress()" value="우편번호 찾기">
 							</div>
 						</div>
-						<input class=" form-control mb-1" type="text" id="address2" name="address2" value="<%=member.getMaddress().split("_")[1]%>" placeholder="도로명주소" >
-						<input class=" form-control mb-1" type="text" id="address3" name="address3" value="<%=member.getMaddress().split("_")[2]%>" placeholder="지번주소" >
+						<input class="form-control mb-1" type="text" id="address2" name="address2" value="<%=member.getMaddress().split("_")[1]%>" placeholder="도로명주소" >
+						<input class="form-control mb-1" type="text" id="address3" name="address3" value="<%=member.getMaddress().split("_")[2]%>" placeholder="지번주소" >
 						<span id="guide" style="color:#999;display:none"></span>
-						<input class=" form-control mb-3" type="text" id="address4" name="address4" value="<%=member.getMaddress().split("_")[3]%>" placeholder="상세주소">
-						<span id="addresscheck"></span><br>
+						<input class="form-control mb-3" type="text" id="address4" name="address4" value="<%=member.getMaddress().split("_")[3]%>" placeholder="상세주소">
 					</div>
-					<input type="submit" value="적용">
-					<a href="info.jsp"><button type="button" >취소</button></a> 
+					<input type="submit" value="적용" onclick="update()">
+					<a href="info.jsp"><button type="button" >취소</button></a>
 				</form>
 			</div>
 		</div>

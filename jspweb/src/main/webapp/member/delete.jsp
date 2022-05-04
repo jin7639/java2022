@@ -8,9 +8,7 @@
 </head>
 <body>
 	<%@include file="../header.jsp" %>
-		<%
-			String mid = (String)session.getAttribute("login");
-		%>
+		<% String mid = (String)session.getAttribute("login"); 	%>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-3">

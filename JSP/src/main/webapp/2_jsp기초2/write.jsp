@@ -9,8 +9,8 @@
 <body>
 	
 	<form action="writecontroller.jsp" method="get">
-		<input type="text" name="title">
-		<textarea rows="5" cols="10" name="content"></textarea>
+		<input type="text" name="title"><br>
+		<textarea rows="5" cols="10" name="content"></textarea><br>
 		<input type="submit" value="작성">
 		
 	</form>
