@@ -85,4 +85,89 @@ public class MemberDao extends Dao{
 		return 3;
 	}
 	
+	//회원정보 출력 [인수 : 세션에 저장된 회원id ]
+	public Member getmember (String mid) {
+		//String sql = "select * from member where mid = ? ";
+		String sql = "select * from member where mid = '"+mid+"'";
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				Member member = new Member(
+						rs.getInt(1),
+						rs.getString(2),
+						null,
+						rs.getString(4),
+						rs.getString(5),
+						rs.getString(6),
+						rs.getString(7),
+						rs.getInt(8),
+						rs.getString(9)
+						);
+				return member;
+			}
+		} catch (Exception e) {
+			System.out.println("sql오류 " + e);
+		}
+		return null;
+	}
+	//패스워드 확인 메소드
+	public boolean passwordcheck(String mid, String mpassword) {
+		String sql = "select * from member where mid = '"+mid+"' and mpassword = '"+mpassword+"'";
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if( rs.next() ) return true;
+		} catch (Exception e) {
+			System.out.println("sql오류 "+ e);
+		}
+		return false;
+	}
+
+	public boolean delete(String mid) {
+		String sql = "delete from member where mid = '"+mid+"'";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.execute();
+			return true;
+		}catch (Exception e) {
+			System.out.println("sql오류 : "+ e);
+		}
+
+		return false;
+	}
+
+	public boolean update(Member member) {
+		
+		try {
+			if(member.getMpassword() == null) {	//비밀번호 변경 X
+				String sql = "update member set mname =?, mphone=?, memail=?, maddress=? where mno=?";
+				ps = con.prepareStatement(sql);
+				ps.setString( 1, member.getMname());
+				ps.setString( 2, member.getMphone());
+				ps.setString( 3, member.getMemail());
+				ps.setString( 4, member.getMaddress());
+				ps.setInt( 5, member.getMnum());
+			}else {	//비밀번호 변경 O
+				String sql = "update member set mname =?, mpassword =?, mphone=?, memail=?, maddress=? where mno=?";
+				ps = con.prepareStatement(sql);
+				ps.setString(1, member.getMname());
+				ps.setString(2, member.getMpassword());
+				ps.setString(3, member.getMphone());
+				ps.setString(4, member.getMemail());
+				ps.setString(5, member.getMaddress());
+				ps.setInt(6, member.getMnum());
+			}
+			ps.executeUpdate();
+			return true;
+		} catch (Exception e) {
+			System.out.println("sql오류 "+ e);
+		}
+		return false;
+	}
+	
+	
+	
+	
+	
 }

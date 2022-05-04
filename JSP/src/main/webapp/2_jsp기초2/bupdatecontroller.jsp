@@ -10,7 +10,7 @@
 		
 	   	MemberDao memberDao = new MemberDao();
 	   	
-	   	boolean result = memberDao.update(title, content, bnum);
+	   	boolean result = memberDao.update( bnum, title, content);
 	   	
 	   	if( result ) {
 	   		response.sendRedirect("main.jsp");

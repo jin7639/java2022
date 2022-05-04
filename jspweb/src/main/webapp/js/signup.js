@@ -264,9 +264,10 @@ $( function(){
                 }
             }
         }).open();
-        
 }
 
-
+function passwordchange () {
+	$("#passwordbox").css("display","block");
+}
 
 

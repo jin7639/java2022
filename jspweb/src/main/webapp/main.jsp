@@ -9,7 +9,7 @@
 <body>
 	<%@include file="header.jsp" %>
 	<div class="container">
-		메인페이지
+		
 	</div>
 	<%@include file="footer.jsp" %>
 

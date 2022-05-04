@@ -12,7 +12,7 @@
 	<div class="container">
 		<h3 class=" text-center">회원가입 페이지</h3>
 		<div class="container col-md-6 offset-3">
-			<form class="formname" id="signupform" action="../signup" method="post">
+			<form class="signupform" id="signupform" action="../signup" method="post">
 				<div>
 					<p>아이디</p>
 					<input class="form-control" type="text" id="mid" name="mid" placeholder="user id">

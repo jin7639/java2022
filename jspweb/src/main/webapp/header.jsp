@@ -11,14 +11,27 @@
 	<link href="/jspweb/css/main.css" rel="stylesheet">
 </head>
 <body>
-	<%
-		String loginid = (String)session.getAttribute("login");	//세션호출
-	%>
+	<%String loginid = (String)session.getAttribute("login");	//세션호출 %>
 	
 	
 	<div class="container">
 	<!-- 공통 -->
 		<a href="/jspweb/main.jsp">HOME</a>
+		<a href="#">BIGSIZE!</a>
+		<a href="#">MUSCLE-FIT</a>
+		<a href="#">1+1이벤트</a>
+		<a href="#">아우터</a>
+		<a href="#">상의</a>
+		<a href="#">바지</a>
+		<a href="#">슈즈</a>
+		<a href="#">악세사리</a>
+		<a href="#">BEST</a>
+		<a href="#">모델처럼입자!</a>
+		<a href="#">50% 할인</a><br>
+		<input type="text">
+		<button>검색</button>
+		<a href="#"><img alt="" src="">장바구니</a>
+		
 	<!-- 로그아웃 상태 -->
 		<% if (loginid == null){ %>
 		<a href="/jspweb/member/login.jsp">로그인</a>
@@ -27,9 +40,10 @@
 	<!-- 로그인 상태 -->
 		<% if (loginid != null) {%>
 		<span><%=loginid%>님</span>
-		<a href="logout">로그아웃</a>
-		<a href="/jspweb/member/memberinfo.jsp">회원정보</a>
+		<a href="/jspweb/logout">로그아웃</a>
+		<a href="/jspweb/member/myshopping.jsp">나의쇼핑</a>
 		<%} %>
+		<a href="#">고객센터</a>
 	</div>
 	
 	
