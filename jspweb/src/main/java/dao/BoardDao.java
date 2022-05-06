@@ -1,6 +1,10 @@
 package dao;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 
 import dto.Board;
 
@@ -43,8 +47,38 @@ public class BoardDao extends Dao{
 	}
 	//2. 모든 게시물 출력 메소드 [ 추후기능-> 검색 : 조건 ]
 	public ArrayList<Board> getBoardlist(){
+		
+		ArrayList<Board> boardlist = new ArrayList<Board>();
+		
+			
+				
+		//내림차순
+		String sql = "select * from board order by bno desc";
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				Board board = new Board (
+						rs.getInt(1),
+						rs.getString(2),
+						rs.getString(3),
+						rs.getInt(4),
+						rs.getInt(5),
+						rs.getString(6),
+						rs.getString(7),
+						null
+						);
+						boardlist.add(board);
+			}
+			
+			return boardlist;
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 		return null;
 	}
+	
 	//3. 개별 게시물 출력 메소드 [인수:게시물 번호]
 	public Board getboard( ) {
 		return null;

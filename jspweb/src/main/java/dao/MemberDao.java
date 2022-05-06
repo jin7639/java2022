@@ -180,6 +180,20 @@ public class MemberDao extends Dao{
 		return 0;
 	}
 	
+	//회원id 메소드
+	public String getmid (int mno) {
+		String sql = "select mid from member where mno = '"+mno+"'";
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				return rs.getString(1);
+			}
+		} catch (Exception e) {
+			System.out.println("sql오류 : "+ e);
+		}
+		return null;
+	}
 	
 	
 }
