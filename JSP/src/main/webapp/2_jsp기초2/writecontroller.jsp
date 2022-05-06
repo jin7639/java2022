@@ -24,6 +24,5 @@
     	if( result ) {
     		response.sendRedirect("main.jsp");
     	}
-    
     %>
     

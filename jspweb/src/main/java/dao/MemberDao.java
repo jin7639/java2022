@@ -41,7 +41,6 @@ public class MemberDao extends Dao{
 			ps.setString(5, member.getMemail());
 			ps.setString(6, member.getMaddress());
 			ps.executeUpdate();
-			System.out.println("회원가입");
 			return true;
 			
 		}catch (Exception e) {
@@ -166,7 +165,20 @@ public class MemberDao extends Dao{
 		return false;
 	}
 	
-	
+	//회원번호 출력 메소드
+	public int getmno (String mid) {
+		String sql = "select mno from member where mid = '"+mid+"'";
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				return rs.getInt(1);
+			}
+		} catch (Exception e) {
+			System.out.println("sql오류 : "+ e);
+		}
+		return 0;
+	}
 	
 	
 	
