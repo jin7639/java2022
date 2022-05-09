@@ -39,27 +39,23 @@
 					SimpleDateFormat sdfday = new SimpleDateFormat ("yyyy-MM-dd");
 					String now = sdfday.format(today);
 
-				for (int i = 0; i < boardlist.size(); i++) {
-						//작성일 날짜/시간쪼개기
-					String writedate = boardlist.get(i).getBdate();
-						String writeday = writedate.substring(0,10);
-						System.out.print(writeday);
-						String writedatetime;
-						//오늘-작성일 비교
-						if (writeday.equals(now)) {
-							//작성일 표시값 다시 넣기
-							writedatetime = writeday;
-						}else {
-							writedatetime = writedate.substring(10);
-						}
-					} 
+					//작성일 날짜/시간쪼개기
+					String writedate = board.getBdate().substring(0,10);
+					//오늘-작성일 비교
+					if (!now.equals(writedate)) {
+						//작성일 표시값 다시 넣기
+						writedate = board.getBdate().substring(0,10);
+					}else {
+						writedate = board.getBdate().substring(10);
+					}
+					
 				%>
 			<tr>
 				<td><%=board.getBno()%></td>
 				<td><%=board.getBtitle()%></td>
 				<td><%=MemberDao.memberDao.getmid(board.getMno())%></td>
 				<td><%=board.getBview()%></td>
-				<td><%=writedatetime%></td>
+				<td><%=writedate%></td>
 			</tr>
 			
 			<%} %>
