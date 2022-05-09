@@ -24,8 +24,10 @@
 			<!-- form 첨부파일 전송 인코딩 타입 : enctype="multipart/form-data" -->
 			제목 : <input type="text" name="btitle">
 			내용 : <textarea rows="" cols="" id="summernote" name="bcontent"></textarea>
-					
 			첨부파일 : <input type="file" name="bfile">
+			<!-- 
+			 첨부파일(여러개) : <input type="file" multiple="multiple">
+			 -->
 			<input type="submit" value="등록">
 			<input type="reset" value="취소">
 		</form>

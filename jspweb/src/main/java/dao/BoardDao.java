@@ -80,7 +80,31 @@ public class BoardDao extends Dao{
 	}
 	
 	//3. 개별 게시물 출력 메소드 [인수:게시물 번호]
-	public Board getboard( ) {
+	public Board getboard( int bno ) {
+		
+		//1. sql 작성
+		String sql = "SELECT * from board where bno ="+bno;
+		try {
+			ps = con.prepareStatement(sql);	//2. 연결된 db(con)에 sql 문 설정
+			rs = ps.executeQuery();	//3. 조작된 sql실행
+			//4.검색결과 rs.next()할때마다 결과물에서 레코드 1개씩 호출
+			if (rs.next()) {
+				Board board = new Board (
+						rs.getInt(1),
+						rs.getString(2),
+						rs.getString(3),
+						rs.getInt(4),
+						rs.getInt(5),
+						rs.getString(6),
+						rs.getString(7),
+						null
+						);
+				return board;						
+			}
+		} catch (Exception e) {
+			System.out.println("sql오류 " + e);
+		}
+		
 		return null;
 	}
 	//4. 게시물 수정 메소드 [인수: 게시물 번호 / 수정된 내용]

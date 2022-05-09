@@ -1,6 +1,4 @@
 <%@page import="java.text.SimpleDateFormat"%>
-<%@page import="java.time.LocalDateTime"%>
-<%@page import="java.time.LocalDate"%>
 <%@page import="java.util.Date"%>
 <%@page import="org.apache.jasper.tagplugins.jstl.core.If"%>
 <%@page import="dto.Member"%>
@@ -28,8 +26,7 @@
 				<th>번호</th> <th>제목</th> <th>작성자</th> <th>조회수</th> <th>작성일</th>
 			</tr>
 			<!-- for문 -->
-				<%
-
+			<%
 				ArrayList<Board> boardlist = BoardDao.getBoardDao().getBoardlist();
 				for(Board board : boardlist){
 					//System.out.println( board.toString());
@@ -48,11 +45,20 @@
 					}else {
 						writedate = board.getBdate().substring(10);
 					}
-					
 				%>
-			<tr>
+			<!-- 
+				행을 클릭했을때 이동
+					<tr onclick="location.href='boardview.jsp'" style="cursor: pointer;">
+			
+				*언어별 링크 이동 방법 [상세 페이지 이동시 식별 번호 같이 이동해야함]
+				1. HTML : 파일명(경로).jsp?변수명=값
+				2. JS : "location.href='파일명(경로).jsp?변수명=값'"
+				3. java : response.sendRedirect("파일명(경로).jsp?변수명=값");
+			
+			-->
+			 <tr>
 				<td><%=board.getBno()%></td>
-				<td><%=board.getBtitle()%></td>
+				<td><a href="boardview.jsp?bno=<%=board.getBno()%>"><%=board.getBtitle()%></a></td>
 				<td><%=MemberDao.memberDao.getmid(board.getMno())%></td>
 				<td><%=board.getBview()%></td>
 				<td><%=writedate%></td>
