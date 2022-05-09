@@ -35,7 +35,7 @@ public class filedown extends HttpServlet {
 		// ?는 get방식
 		request.setCharacterEncoding("UTF-8");
 		String bfile = request.getParameter("bfile");
-		System.out.println("파일명 : " + bfile);
+		//System.out.println("파일명 : " + bfile);
 		
 		//서버에서 해당 파일 찾기
 		String uploadpath = request.getSession().getServletContext().getRealPath("/board/upload/"+bfile);

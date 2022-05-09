@@ -31,21 +31,9 @@
 				for(Board board : boardlist){
 					//System.out.println( board.toString());
 					
-					//현재 날짜
-					Date today = new Date();
-					SimpleDateFormat sdfday = new SimpleDateFormat ("yyyy-MM-dd");
-					String now = sdfday.format(today);
-
-					//작성일 날짜/시간쪼개기
-					String writedate = board.getBdate().substring(0,10);
-					//오늘-작성일 비교
-					if (!now.equals(writedate)) {
-						//작성일 표시값 다시 넣기
-						writedate = board.getBdate().substring(0,10);
-					}else {
-						writedate = board.getBdate().substring(10);
-					}
-				%>
+			
+					
+			%>
 			<!-- 
 				행을 클릭했을때 이동
 					<tr onclick="location.href='boardview.jsp'" style="cursor: pointer;">
@@ -59,9 +47,9 @@
 			 <tr>
 				<td><%=board.getBno()%></td>
 				<td><a href="boardview.jsp?bno=<%=board.getBno()%>"><%=board.getBtitle()%></a></td>
-				<td><%=MemberDao.memberDao.getmid(board.getMno())%></td>
+				<td><%=board.getMid()%></td>
 				<td><%=board.getBview()%></td>
-				<td><%=writedate%></td>
+				<td><%=board.getBdate()%></td>
 			</tr>
 			
 			<%} %>

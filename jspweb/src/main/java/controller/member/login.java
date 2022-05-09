@@ -52,6 +52,7 @@ public class login extends HttpServlet {
 			//로그인 성공시 세션처리 [세션 : 서버에 메모리 할당 -> 모든 페이지에서 동일한 메모리 사용 가능
 			HttpSession session = request.getSession(); //Http 내장 세션 호출 [jsp에서는 생략(내장객체가 있음). 서블릿에서는 써야함]
 			session.setAttribute("login", mid);
+			session.setMaxInactiveInterval(60*60*24);
 			response.sendRedirect("/jspweb/main.jsp");
 		}else if (result == 2) { //아이디 비밀번호 다름
 			response.sendRedirect("/jspweb/member/login.jsp?result=2");

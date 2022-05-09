@@ -73,7 +73,7 @@ public class BoardDao extends Dao{
 			
 			return boardlist;
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.out.println("sql 오류 : "+ e);
 		}
 		
 		return null;
@@ -109,16 +109,58 @@ public class BoardDao extends Dao{
 	}
 	//4. 게시물 수정 메소드 [인수: 게시물 번호 / 수정된 내용]
 	public boolean update( Board board ) {
+		String sql = "update board set btitle=? , bcontent=? , bfile=? where bno=?";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, board.getBtitle());
+			ps.setString(2, board.getBcontent());
+			ps.setString(3, board.getBfile());
+			ps.setInt( 4 , board.getBno() );
+			ps.executeUpdate();
+			return true;
+		} catch (Exception e) {
+			System.out.println("오류 " + e);
+		}
 		return false;
 	}
 	//5. 게시물 삭제 메소드 [ 인수 : 삭제할 게시물번호 ]
-	public boolean delete( Board board) {
+	public boolean delete( int bno ) {
+		String sql = "delete from board where bno="+bno;
+		try {
+			ps = con.prepareStatement(sql);
+			ps.execute();
+			return true;
+		} catch (Exception e) {
+			System.out.println("sql오류 " + e);
+		}
+		return false;
+	}
+	//5-2 첨부파일 null로 변경
+	public boolean filedelete (int bno ) {
+		String sql = "update board set bfile=null where bno = "+bno;
+		try {
+			ps = con.prepareStatement(sql);
+			ps.executeUpdate();
+			return true;
+		} catch (Exception e) {
+			System.out.println("첨부파일sql오류 " + e);
+		}
 		return false;
 	}
 	//6. 게시물 조회 증가 메소드 [ 인수 : 증가할 게시물번호 ]
 	public boolean increview( int bno) {
+		String sql = "update board set bview = bview+1 where bno = "+bno;
+		try {
+			ps = con.prepareStatement(sql);
+			ps.executeUpdate();
+			return true;
+		} catch (Exception e) {
+			System.out.println("조회수 sql오류 " + e);
+		}
 		return false;
 	}
+	
+	
 	//7. 댓글 작성 메소드 [ 인수 : 작성된 데이터들 = dto ]
 	public boolean replywrite() {
 		return false;
@@ -135,5 +177,37 @@ public class BoardDao extends Dao{
 	public boolean replydelete() {
 		return false;
 	}
+	
+public ArrayList<Board> getMyBoardlist(int mno){
+		
+		ArrayList<Board> boardlist = new ArrayList<Board>();
+				
+		//내림차순
+		String sql = "select * from board where mno='"+mno+"'order by bno desc";
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				Board board = new Board (
+						rs.getInt(1),
+						rs.getString(2),
+						rs.getString(3),
+						rs.getInt(4),
+						rs.getInt(5),
+						rs.getString(6),
+						rs.getString(7),
+						null
+						);
+						boardlist.add(board);
+			}
+			
+			return boardlist;
+		} catch (Exception e) {
+			System.out.println("내가쓴글 sql 오류 : "+ e);
+		}
+		
+		return null;
+	}
+	
 	
 }
