@@ -45,7 +45,8 @@
 			-->
 			 <tr>
 				<td><%=board.getBno()%></td>
-				<td><a href="boardview.jsp?bno=<%=board.getBno()%>"><%=board.getBtitle()%></a></td>
+				<td><a href="boardview.jsp?bno=<%=board.getBno()%>"><%=board.getBtitle()%></a>
+				<span>(<%=BoardDao.getBoardDao().countreply(board.getBno()) %>)</span></td>
 				<td><%=board.getMid()%></td>
 				<td><%=board.getBview()%></td>
 				<td><%=board.getBdate()%></td>

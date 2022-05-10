@@ -60,6 +60,8 @@
 			<!-- ?는 get방식 -->
 		</table>
 		
+		<!-- ----------------댓글 쓰기---------------------------------------------------------------------------- -->
+		<h4>댓글<span>(<%=BoardDao.getBoardDao().countreply(board.getBno()) %>)</span></h4>
 		<%if( mid != null ){ %>
 		
 			<div class="row">
@@ -74,7 +76,7 @@
 			<h5 class="text-center">비회원은 댓글을 달 수 없습니다.</h5>
 		<%} %>
 		
-		<!-- ----------------댓글쓰기---------------------------------------------------------------------------- -->
+		<!-- ----------------댓글출력---------------------------------------------------------------------------- -->
 		<table id="replytable">
 			<%
 			ArrayList<Reply> replylist = BoardDao.getBoardDao().replylist(bno); 
@@ -83,7 +85,7 @@
 				<td ><%=reply.getMid()%><br><%=reply.getRdate()%></td>
 				<td colspan="2"><%=reply.getRcontent()%><br>
 				<%if(mid != null && mid.equals(reply.getMid())){ %>
-					<button class="btnreply" onclick="replyupdate(<%=reply.getRno()%>)">수정</button>
+					<button class="btnreply" onclick="replyupdateview(<%=reply.getRno()%>,'<%=reply.getRcontent()%>',<%=reply.getBno()%>)">수정</button>
 					<button class="btnreply" onclick="replydelete(<%=reply.getRno()%>)">삭제</button>
 				<%} %>
 				<%if( mid != null ){ %>
@@ -117,7 +119,6 @@
 				<% }%>
 			<% }%>
 		</table>
-		
 	</div>
 	
 	<%@include file="../footer.jsp" %>

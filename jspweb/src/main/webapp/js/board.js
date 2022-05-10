@@ -80,7 +80,7 @@ function rereplywrite(rno, bno){
 function replydelete(rno){
 	$.ajax({
 		url : "replydelete",
-		data : {"rno" : rno},
+		data : {"rno" : rno,},
 		success : function(result){
 			if(result == 1){
 				alert("댓글 삭제 완료");
@@ -93,19 +93,36 @@ function replydelete(rno){
 	});
 }
 
-function replyupdate(rno){
+function replyupdateview(rno,rcontent){
 	alert("수정");
+	$("#"+rno).html(
+		'<div class="row">'+
+			'<div class="col-md-10">'+
+				'<textarea id="rcontent" class="form-control" rows="3">'+
+					rcontent+
+				'</textarea>'+
+			'</div>'+
+			'<div class="col-md-2">'+
+				'<button class="form-control py-4 my-1" onclick="replyupdate('+rno+')">등록</button>'+
+			'</div>'+
+		'</div>'
+	);
+}
+function replyupdate(rno){
+	let rcontent = $("#rcontent").val();
 	$.ajax({
 		url : "replyupdate",
-		data : {"rno" : rno},
+		data : { "rno" : rno , "rcontent" : rcontent},
 		success : function(result){
 			if(result == 1){
-				//댓글창에서 수정
-			}else {
-				
+				alert("댓글수정 완료");
+				$("#rcontent").val("");	//댓글 작성input 공백으로 초기화
+				$("#replytable").load(location.href+" #replytable");	//특정 태그 새로고침
+			}else{
+				alert("댓글수정 실패");
 			}
 		}
-	})
+	});
 }
 
 

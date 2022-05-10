@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.BoardDao;
+import dto.Reply;
 
 /**
  * Servlet implementation class replyupdate
@@ -28,9 +29,14 @@ public class replyupdate extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
+		request.setCharacterEncoding("UTF-8");
+		String rcontent = request.getParameter("rcontent");
 		int rno = Integer.parseInt(request.getParameter("rno"));
-		boolean result = BoardDao.getBoardDao().replyupdate(rno);
+		boolean result = BoardDao.getBoardDao().replyupdate(rcontent, rno);
+		System.out.println(rcontent);
+		System.out.println(rno);
+		System.out.println(result);
 		if (result) {
 			response.getWriter().print(1);
 		}else { 

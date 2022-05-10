@@ -50,15 +50,33 @@
 					<a href="#">아우터</a> <!-- data-bs-toggle="dropdown" : 해당 태그를 클릭했을때 드랍다운 열기 -->
 					<!-- Drop Down -->
 					<div class="dropdown-menu">
-						<a class="dropdown-item" href="#">메뉴</a>
-						<a class="dropdown-item" href="#">메뉴</a>
-						<a class="dropdown-item" href="#">메뉴</a>
-						<a class="dropdown-item" href="#">메뉴</a>
-						<a class="dropdown-item" href="#">메뉴</a>
+						<a class="dropdown-item" href="#">패딩, 점퍼</a>
+						<a class="dropdown-item" href="#">코트</a>
+						<a class="dropdown-item" href="#">재킷</a>
+						<a class="dropdown-item" href="#">가디건</a>
+						<a class="dropdown-item" href="#">HANDMADE</a>
+						<a class="dropdown-item" href="#">양털, 아노락, 후드집업</a>
 					</div>
 				</li>
-				<li class="nav-item"><a href="#">상의</a></li>
-				<li class="nav-item"><a href="#">바지</a></li>
+				<li class="nav-item dropdown">
+					<a href="#">상의</a> 
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="#">니트</a>
+						<a class="dropdown-item" href="#">가디건</a>
+						<a class="dropdown-item" href="#">셔츠</a>
+						<a class="dropdown-item" href="#">티셔츠</a>
+						<a class="dropdown-item" href="#">후드, 맨투맨</a>
+					</div>
+				</li>
+				<li class="nav-item dropdown">
+					<a href="#">바지</a> 
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="#">청바지</a>
+						<a class="dropdown-item" href="#">슬랙스, 치노팬츠</a>
+						<a class="dropdown-item" href="#">밴딩팬츠, 조거팬츠</a>
+						<a class="dropdown-item" href="#">반바지</a>
+					</div>
+				</li>
 				<li class="nav-item"><a href="#">슈즈</a></li>
 				<li class="nav-item"><a href="#">악세사리</a></li>
 				<li class="nav-item"><a href="#">BEST</a></li>

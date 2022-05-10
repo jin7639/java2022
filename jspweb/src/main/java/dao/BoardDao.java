@@ -231,10 +231,33 @@ public class BoardDao extends Dao{
 		return null;
 	}
 	
+	//댓글 수 출력
+	public int countreply(int bno) {
+		int count = 0;
+		String sql = "SELECT count(*) from reply where bno="+bno;
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				count = rs.getInt(1);
+			}
+		} catch (Exception e) {
+			System.out.println("댓글수 출력 sql오류 " + e);
+		}
+		return count;
+	}
+	
+	
 	//9. 댓글 수정 메소드 [ 인수 : 수정할 댓글 번호 ]
-	public boolean replyupdate( Reply reply) {
-		String sql = "update reply set rcontent = ";
-		
+	public boolean replyupdate(String rcontent, int rno) {
+		String sql = "update reply set rcontent = "+rcontent+" where rno = "+rno;
+		try {
+			ps = con.prepareStatement(sql);
+			ps.executeUpdate();
+			return true;
+		} catch (Exception e) {
+			System.out.println("댓글 수정 sql오류 " + e);
+		}
 		return false;
 	}
 	//10. 댓글 삭제 메소드 [ 인수 : 삭제할 댓글 번호 ] 
