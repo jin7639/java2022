@@ -19,7 +19,9 @@
 	<div class="container">
 		<h3>자유게시판</h3>
 		<% if (loginid != null){ %>
-		<a href="boardwrite.jsp">글쓰기</a>
+		<div>
+			<a href="boardwrite.jsp" >글쓰기</a>
+		</div>
 		<%} %>
 		<table class="table">	<!-- 테이블 -->
 			<tr>
@@ -30,9 +32,6 @@
 				ArrayList<Board> boardlist = BoardDao.getBoardDao().getBoardlist();
 				for(Board board : boardlist){
 					//System.out.println( board.toString());
-					
-			
-					
 			%>
 			<!-- 
 				행을 클릭했을때 이동
