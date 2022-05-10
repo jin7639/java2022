@@ -205,14 +205,48 @@ public class BoardDao extends Dao{
 		}
 		return null;
 	}
+	
+	public ArrayList<Reply> rereplylist(int bno, int rno) {
+		ArrayList<Reply> rereplylist = new ArrayList<Reply>();
+		String sql = "select * from reply where bno = "+bno+" and rindex = "+rno;
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				Reply reply = new Reply (
+						rs.getInt(1),
+						rs.getString(2),
+						rs.getString(3),
+						rs.getInt(4),
+						rs.getInt(5),
+						rs.getInt(6),
+						null
+						);
+				rereplylist.add(reply);
+			}
+			return rereplylist;
+		} catch (Exception e) {
+			System.out.println("대댓글 출력 sql오류 " + e);
+		}
+		return null;
+	}
+	
 	//9. 댓글 수정 메소드 [ 인수 : 수정할 댓글 번호 ]
-	public boolean replyupdate() {
-		
+	public boolean replyupdate( Reply reply) {
+		String sql = "update reply set rcontent = ";
 		
 		return false;
 	}
 	//10. 댓글 삭제 메소드 [ 인수 : 삭제할 댓글 번호 ] 
-	public boolean replydelete() {
+	public boolean replydelete(int rno) {
+		String sql = "delete from reply where rno = " + rno+" or rindex = " +rno;
+		try {
+			ps = con.prepareStatement(sql);
+			ps.executeUpdate();
+			return true;
+		} catch (Exception e) {
+			System.out.println("댓글 삭제 sql오류 " + e);
+		}
 		return false;
 	}
 	

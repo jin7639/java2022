@@ -45,11 +45,20 @@ function replywrite(bno){
 	})
 }
 
+
+
 function rereplyview(rno, bno){
 	$("#"+rno).html(
-		'<input type="text" id="rrcontent">'+
-		'<button onclick="rereplywrite('+rno+','+bno+')">대댓글 등록</button>'
+		'<div class="row">'+
+			'<div class="col-md-10">'+
+				'<textarea id="rrcontent" class="form-control" rows="3"></textarea>'+
+			'</div>'+
+			'<div class="col-md-2">'+
+				'<button class="form-control py-4 my-1" onclick="rereplywrite('+rno+','+bno+')">등록</button>'+
+			'</div>'+
+		'</div>'
 	);
+	
 }
 function rereplywrite(rno, bno){
 	let rrcontent = $("#rrcontent").val();
@@ -65,6 +74,39 @@ function rereplywrite(rno, bno){
 				alert("대댓글작성 실패");
 			}
 		}
+	});
+}
+
+function replydelete(rno){
+	$.ajax({
+		url : "replydelete",
+		data : {"rno" : rno},
+		success : function(result){
+			if(result == 1){
+				alert("댓글 삭제 완료");
+				$("#rrcontent").val("");	//댓글 작성input 공백으로 초기화
+				$("#replytable").load(location.href+" #replytable");	//특정 태그 새로고침
+			}else{
+				alert("댓글 삭제 실패");
+			}
+		}
+	});
+}
+
+function replyupdate(rno){
+	alert("수정");
+	$.ajax({
+		url : "replyupdate",
+		data : {"rno" : rno},
+		success : function(result){
+			if(result == 1){
+				//댓글창에서 수정
+			}else {
+				
+			}
+		}
 	})
 }
+
+
 

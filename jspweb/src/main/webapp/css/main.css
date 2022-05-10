@@ -21,6 +21,10 @@ a {
 	text-decoration: none;
 	color: black;
 }
+a::cur
+.header_logo {
+	font-size: 30px;
+}
 .formname p {
 	margin: 0px;
 	margin-top: 3px;
@@ -34,4 +38,41 @@ a {
 }
 h3 {
 	margin-top: 20px;
+}
+.boardview_title {
+	border-bottom: 2px solid black;
+	padding: 10px;
+	margin-top: 20px;
+}
+.boardview_content{
+	padding-top: 15px;
+	min-height: 250px;
+}
+.btnreply{
+	font-size: 8px;
+}
+.topbtn {
+	margin-top: 30px;
+}
+textarea {
+	resize: none;
+}
+.header_topmenu {
+	color: #999999;
+	font-size: 13px;
+	padding: 5px 10px;
+}
+.header_input {
+	border: 0;
+	border-bottom: 2px solid black;
+}
+.shoppingbox {
+	font-size: 10px;
+	background-color: #fd5555;
+	color: white;
+	padding: 5px;
+	border-radius: 20px;
+}
+.dropdown:hover .dropdown-menu{
+	display: block
 }

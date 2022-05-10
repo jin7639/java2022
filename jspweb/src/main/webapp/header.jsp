@@ -4,46 +4,73 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>비 약간</title>
+<title>대체로 화창</title>
 	<!-- 부트스트랩 css -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" >
 	<!-- 사용자지정 css -->
 	<link href="/jspweb/css/main.css" rel="stylesheet">
+	<!-- 폰트어썸 -->
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
 </head>
 <body>
 	<%String loginid = (String)session.getAttribute("login");	//세션호출 %>
 	
 	
 	<div class="container">
+		<div class="py-3">
+			<div class="row">
+				<div class="col-md-4">
+					<a href="/jspweb/main.jsp" class="header_logo">대체로 화창</a>
+				</div>
+				<div class="col-md-4 offset-4 d-flex justify-content-end">
+					<ul class="nav">
+						<!-- 로그아웃 상태 -->
+						<% if (loginid == null){ %>
+							<li><a href="/jspweb/member/login.jsp" class="header_topmenu">로그인</a></li>
+							<li><a href="/jspweb/member/signup.jsp" class="header_topmenu">회원가입</a></li>
+						<%} %>
+						<!-- 로그인 상태 -->
+						<% if (loginid != null) {%>
+							<li><span class="header_topmenu"><%=loginid%>님</span></li>
+							<li><a href="/jspweb/logout" class="header_topmenu">로그아웃</a></li>
+							<li><a href="/jspweb/member/myshopping.jsp" class="header_topmenu">나의쇼핑</a></li>
+						<%} %>
+							<li><a href="/jspweb/board/boardlist.jsp" class="header_topmenu">자유게시판</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
 	<!-- 공통 -->
-		<a href="/jspweb/main.jsp">HOME</a>
-		<a href="#">BIGSIZE!</a>
-		<a href="#">MUSCLE-FIT</a>
-		<a href="#">1+1이벤트</a>
-		<a href="#">아우터</a>
-		<a href="#">상의</a>
-		<a href="#">바지</a>
-		<a href="#">슈즈</a>
-		<a href="#">악세사리</a>
-		<a href="#">BEST</a>
-		<a href="#">모델처럼입자!</a>
-		<a href="#">50% 할인</a><br>
-		<input type="text">
-		<button>검색</button>
-		<a href="#"><img alt="" src="">장바구니</a>
+		<div class="navbar navbar-expand-md navbar-light bg-white">
+			<ul class="navbar-nav col-md-12 justify-content-between">
+				<li class="nav-item"><a href="#" style="color: #030066">BIGSIZE!</a></li>
+				<li class="nav-item"><a href="#" style="color: #00d8f0">MUSCLE-FIT</a></li>
+				<li class="nav-item"><a href="#" style="color: #0100ff">1+1이벤트</a></li>
+				<li class="nav-item dropdown">
+					<a href="#">아우터</a> <!-- data-bs-toggle="dropdown" : 해당 태그를 클릭했을때 드랍다운 열기 -->
+					<!-- Drop Down -->
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="#">메뉴</a>
+						<a class="dropdown-item" href="#">메뉴</a>
+						<a class="dropdown-item" href="#">메뉴</a>
+						<a class="dropdown-item" href="#">메뉴</a>
+						<a class="dropdown-item" href="#">메뉴</a>
+					</div>
+				</li>
+				<li class="nav-item"><a href="#">상의</a></li>
+				<li class="nav-item"><a href="#">바지</a></li>
+				<li class="nav-item"><a href="#">슈즈</a></li>
+				<li class="nav-item"><a href="#">악세사리</a></li>
+				<li class="nav-item"><a href="#">BEST</a></li>
+				<li class="nav-item"><a href="#" style="color: #ffbb00">모델처럼입자!</a></li>
+				<li class="nav-item"><a href="#" style="color: #ff0000">50% 할인</a><br></li>
+				<li class="nav-item"><input type="text" class="header_input" size="13"></li>
+				<li class="nav-item"><a href="#"><i class="fas fa-search"></i></a></li>
+				<li class="nav-item"><a href="#">장바구니<span class="shoppingbox">3</span></a></li>
+			</ul>
+			
+		</div>
 		
-	<!-- 로그아웃 상태 -->
-		<% if (loginid == null){ %>
-		<a href="/jspweb/member/login.jsp">로그인</a>
-		<a href="/jspweb/member/signup.jsp">회원가입</a>
-		<%} %>
-	<!-- 로그인 상태 -->
-		<% if (loginid != null) {%>
-		<span><%=loginid%>님</span>
-		<a href="/jspweb/logout">로그아웃</a>
-		<a href="/jspweb/member/myshopping.jsp">나의쇼핑</a>
-		<%} %>
-		<a href="/jspweb/board/boardlist.jsp">자유게시판</a>
 	</div>
 	
 	
