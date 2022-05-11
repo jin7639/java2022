@@ -47,8 +47,6 @@ public class BoardDao extends Dao{
 		if(key.equals("mid")) {
 			key = "mno";
 			keyword = MemberDao.getMemberDao().getmno(keyword)+"";
-			System.out.println(key);
-			System.out.println(keyword);
 		}
 		
 		String sql = null;

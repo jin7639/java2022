@@ -1,3 +1,6 @@
+<%@page import="dao.ChattingDao"%>
+<%@page import="dto.Chatting"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -10,14 +13,28 @@
 	<%@include file="header.jsp" %>
 	<div class="container">
 		<h3>비회원제 실시간 채팅페이지</h3>
-		<div style="width: 500px; height: 500px; border: 1px solid black; margin: 0 auto;">
+		<div style="overflow-y:scroll; width: 500px; height: 500px; border: 1px solid black; margin: 0 auto;">
+			<table id="chattingtable">
+				<tr><th>닉네임</th><th>내용</th></tr>
+				<% ArrayList<Chatting> chattinglist = ChattingDao.getChattingDao().getchattinglist();
+					for(Chatting chatting : chattinglist){
+				%>
+				<tr>
+					<td id="roadname"><%=chatting.getCname()%></td>
+					<td id="roadcontent"><%=chatting.getCcontent()%></td>
+				</tr>
+				<%} %>
+			</table>
 		</div>
 		<div style="width: 500px; margin: 0 auto;">
-			<input type="text" placeholder="닉네임">
-			<input type="text" placeholder="내용">
-			<button type="button">입력</button>
+			<input type="text" id="cname" placeholder="닉네임">
+			<input type="text" id="ccontent" placeholder="내용">
+			<button type="button" onclick="cwrite()">입력</button>
 		</div>
 	</div>
 	<%@include file="footer.jsp" %>
+	
+	<script src="/jspweb/js/chatting.js" type="text/javascript"></script>
+	
 </body>
 </html>
