@@ -85,7 +85,7 @@
 				<td ><%=reply.getMid()%><br><%=reply.getRdate()%></td>
 				<td colspan="2"><%=reply.getRcontent()%><br>
 				<%if(mid != null && mid.equals(reply.getMid())){ %>
-					<button class="btnreply" onclick="replyupdateview(<%=reply.getRno()%>,'<%=reply.getRcontent()%>',<%=reply.getBno()%>)">수정</button>
+					<button class="btnreply" onclick="replyupdateview(<%=reply.getRno()%>,'<%=reply.getRcontent()%>')">수정</button>
 					<button class="btnreply" onclick="replydelete(<%=reply.getRno()%>)">삭제</button>
 				<%} %>
 				<%if( mid != null ){ %>
@@ -111,12 +111,16 @@
 						<td width="80%">
 							<%=rereply.getRcontent() %> <br> 
 							<%if(mid != null && mid.equals(reply.getMid())){ %>
-								<a href="#"><button class="btnreply">수정</button></a>
-								<a href="#"><button class="btnreply"onclick="replydelete(<%=reply.getRno()%>)">삭제</button></a>
+								<a href="#"><button class="btnreply" onclick="rereplydeleteview(<%=reply.getRno()%>,'<%=reply.getRcontent()%>')">수정</button></a>
+								<a href="#"><button class="btnreply" onclick="rereplydelete(<%=reply.getRno()%>)">삭제</button></a>
 							<%} %>
 						</td>
 					</tr>
 				<% }%>
+				<tr><!-- 대댓글 입력창 -->
+					<td></td>
+					<td colspan="2"  id="<%=reply.getRno()%>"></td>
+				</tr>
 			<% }%>
 		</table>
 	</div>

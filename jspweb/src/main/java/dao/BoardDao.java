@@ -44,6 +44,13 @@ public class BoardDao extends Dao{
 	//2-2 전체 게시글 수 출력 메소드
 	public int gettotalrow( String key, String keyword ) {
 		
+		if(key.equals("mid")) {
+			key = "mno";
+			keyword = MemberDao.getMemberDao().getmno(keyword)+"";
+			System.out.println(key);
+			System.out.println(keyword);
+		}
+		
 		String sql = null;
 		if(key.equals("") && keyword.equals("")) {	//검색이 있을 경우
 			sql = "select count(*) from board";
@@ -64,7 +71,10 @@ public class BoardDao extends Dao{
 	}
 	//2. 모든 게시물 출력 메소드 [ 추후기능-> 검색 : 조건 ]
 	public ArrayList<Board> getBoardlist( int startrow, int listsize, String key, String keyword){
-		
+		if(key.equals("mid")) {
+			key = "mno";
+			keyword = MemberDao.getMemberDao().getmno(keyword)+"";
+		}
 		ArrayList<Board> boardlist = new ArrayList<Board>();
 		String sql = null;		
 		//내림차순

@@ -124,3 +124,37 @@ function replyupdate(rno){
 	});
 }
 
+function rereplydeleteview(rno,rcontent){
+	$("#"+rno).html(
+		'<div class="row">'+
+			'<div class="col-md-10">'+
+				'<textarea id="rrcontentupdate" class="form-control" rows="3">'+
+					rcontent+
+				'</textarea>'+
+			'</div>'+
+			'<div class="col-md-2">'+
+				'<button class="form-control py-4 my-1" onclick="rereplyupdate('+rno+')">등록</button>'+
+			'</div>'+
+		'</div>'
+	);
+	alert(rno);
+	alert(rcontent);
+}
+
+function rereplyupdate(rno){
+	let rcontent = $("#rrcontentupdate").val();
+	$.ajax({
+		url : "replyupdate",
+		data : { "rno" : rno , "rcontent" : rcontent},
+		success : function(result){
+			if(result == 1){
+				alert("대댓글수정 완료");
+				$("#rcontentupdate").val("");	//댓글 작성input 공백으로 초기화
+				$("#replytable").load(location.href+" #replytable");	//특정 태그 새로고침
+			}else{
+				alert("대댓글수정 실패");
+			}
+		}
+	});
+}
+
