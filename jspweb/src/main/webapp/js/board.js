@@ -45,8 +45,6 @@ function replywrite(bno){
 	})
 }
 
-
-
 function rereplyview(rno, bno){
 	$("#"+rno).html(
 		'<div class="row">'+
@@ -58,8 +56,8 @@ function rereplyview(rno, bno){
 			'</div>'+
 		'</div>'
 	);
-	
 }
+
 function rereplywrite(rno, bno){
 	let rrcontent = $("#rrcontent").val();
 	$.ajax({
@@ -94,11 +92,10 @@ function replydelete(rno){
 }
 
 function replyupdateview(rno,rcontent){
-	alert("수정");
 	$("#"+rno).html(
 		'<div class="row">'+
 			'<div class="col-md-10">'+
-				'<textarea id="rcontent" class="form-control" rows="3">'+
+				'<textarea id="rcontentupdate" class="form-control" rows="3">'+
 					rcontent+
 				'</textarea>'+
 			'</div>'+
@@ -107,9 +104,11 @@ function replyupdateview(rno,rcontent){
 			'</div>'+
 		'</div>'
 	);
+	
 }
+
 function replyupdate(rno){
-	let rcontent = $("#rcontent").val();
+	let rcontent = $("#rcontentupdate").val();
 	$.ajax({
 		url : "replyupdate",
 		data : { "rno" : rno , "rcontent" : rcontent},
@@ -124,6 +123,4 @@ function replyupdate(rno){
 		}
 	});
 }
-
-
 

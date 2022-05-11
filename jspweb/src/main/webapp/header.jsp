@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>대체로 화창</title>
+<title></title>
 	<!-- 부트스트랩 css -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" >
 	<!-- 사용자지정 css -->
@@ -20,7 +20,7 @@
 		<div class="py-3">
 			<div class="row">
 				<div class="col-md-4">
-					<a href="/jspweb/main.jsp" class="header_logo">대체로 화창</a>
+					<a href="/jspweb/main.jsp" class="header_logo">EZEN SHOP</a>
 				</div>
 				<div class="col-md-4 offset-4 d-flex justify-content-end">
 					<ul class="nav">
@@ -35,7 +35,7 @@
 							<li><a href="/jspweb/logout" class="header_topmenu">로그아웃</a></li>
 							<li><a href="/jspweb/member/myshopping.jsp" class="header_topmenu">나의쇼핑</a></li>
 						<%} %>
-							<li><a href="/jspweb/board/boardlist.jsp" class="header_topmenu">자유게시판</a></li>
+							<li><a href="/jspweb/board/boardlist.jsp?key=&keyword=" class="header_topmenu">자유게시판</a></li>
 					</ul>
 				</div>
 			</div>

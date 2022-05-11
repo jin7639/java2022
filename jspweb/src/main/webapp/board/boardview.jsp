@@ -69,7 +69,7 @@
 					<textarea id="rcontent" class="form-control" rows="3"></textarea>
 				</div>
 				<div class="col-md-2">
-					<button class="btnreply py-4 my-1" onclick="replywrite(<%=bno%>)">등록</button>
+					<button class="form-control py-4 my-1" onclick="replywrite(<%=bno%>)">등록</button>
 				</div>
 			</div>
 		<%} else { %>

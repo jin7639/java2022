@@ -1,12 +1,6 @@
 @charset "UTF-8";
 
 @font-face {
-    font-family: 'HS-Regular';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/HS-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-	}
-@font-face {
     font-family: 'GimpoGothicBold00';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/GimpoGothicBold00.woff') format('woff');
     font-weight: normal;
@@ -17,13 +11,14 @@
 	 margin: 0px;
 	 
 }
+
 a {
 	text-decoration: none;
 	color: black;
 }
-a::cur
+
 .header_logo {
-	font-size: 30px;
+	font-size: 35px;
 }
 .formname p {
 	margin: 0px;
@@ -75,4 +70,20 @@ textarea {
 }
 .dropdown:hover .dropdown-menu{
 	display: block
+}
+.boardlist_title {
+	border-bottom: 1px solid black;
+	padding: 5px;
+	margin: 100px 0px 50px 0px;
+}
+.boardlist_topbtn{
+	margin: 20px 0px;
+}
+.countreply {
+	color: #999999;
+	font-size: 14px;
+}
+.page-link {
+	color: black;
+	font-size: 12px;
 }

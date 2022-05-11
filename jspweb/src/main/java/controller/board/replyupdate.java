@@ -34,9 +34,6 @@ public class replyupdate extends HttpServlet {
 		String rcontent = request.getParameter("rcontent");
 		int rno = Integer.parseInt(request.getParameter("rno"));
 		boolean result = BoardDao.getBoardDao().replyupdate(rcontent, rno);
-		System.out.println(rcontent);
-		System.out.println(rno);
-		System.out.println(result);
 		if (result) {
 			response.getWriter().print(1);
 		}else { 

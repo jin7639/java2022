@@ -1,10 +1,6 @@
 package dao;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 
 import dto.Board;
 import dto.Reply;
@@ -43,18 +39,40 @@ public class BoardDao extends Dao{
 		} catch (Exception e) {
 			System.out.println("sql오류 " + e);
 		}
-		
 		return false;
 	}
+	//2-2 전체 게시글 수 출력 메소드
+	public int gettotalrow( String key, String keyword ) {
+		
+		String sql = null;
+		if(key.equals("") && keyword.equals("")) {	//검색이 있을 경우
+			sql = "select count(*) from board";
+		}else {//검색이 없을 경우
+			sql = "select count(*) from board where "+key+" like '%"+keyword+"%'";
+		}
+		
+		try {
+			ps=con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				return rs.getInt(1);
+			}
+		} catch (Exception e) {
+			System.out.println("gettotal sql오류 " + e);
+		}
+		return 0;
+	}
 	//2. 모든 게시물 출력 메소드 [ 추후기능-> 검색 : 조건 ]
-	public ArrayList<Board> getBoardlist(){
+	public ArrayList<Board> getBoardlist( int startrow, int listsize, String key, String keyword){
 		
 		ArrayList<Board> boardlist = new ArrayList<Board>();
-		
-			
-				
+		String sql = null;		
 		//내림차순
-		String sql = "select * from board order by bno desc";
+		if(key.equals("") && keyword.equals("")) {	//검색이 있을 경우
+			sql = "select * from board order by bno desc limit "+startrow+","+listsize;
+		}else {	//검색이 없을 경우
+			sql = "select * from board where "+key+" like '%"+keyword+"%' order by bno desc limit "+startrow+","+listsize;
+		}
 		try {
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
@@ -250,7 +268,7 @@ public class BoardDao extends Dao{
 	
 	//9. 댓글 수정 메소드 [ 인수 : 수정할 댓글 번호 ]
 	public boolean replyupdate(String rcontent, int rno) {
-		String sql = "update reply set rcontent = "+rcontent+" where rno = "+rno;
+		String sql = "update reply set rcontent = '"+rcontent+"' where rno = "+rno;
 		try {
 			ps = con.prepareStatement(sql);
 			ps.executeUpdate();
