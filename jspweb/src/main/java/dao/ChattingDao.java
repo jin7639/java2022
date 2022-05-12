@@ -31,7 +31,7 @@ public class ChattingDao extends Dao{
 	}
 	
 	//채팅 출력
-	public ArrayList<Chatting> getchattinglist(){
+	public ArrayList<Chatting> chattinglist(){
 		ArrayList<Chatting> chattinglist = new ArrayList<Chatting>();
 		String sql = "select * from chatting order by cno asc";
 		try {

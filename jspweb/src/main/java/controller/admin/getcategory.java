@@ -1,6 +1,7 @@
-package controller;
+package controller.admin;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -9,20 +10,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.ChattingDao;
-import dto.Chatting;
+import dao.ProductDao;
+import dto.Category;
 
 /**
- * Servlet implementation class cwrite
+ * Servlet implementation class getcategory
  */
-@WebServlet("/chattingroad")
-public class chattingroad extends HttpServlet {
+@WebServlet("/admin/getcategory")
+public class getcategory extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public chattingroad() {
+    public getcategory() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,14 +32,19 @@ public class chattingroad extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		ArrayList<Chatting> chattinglist = ChattingDao.getChattingDao().chattinglist();
-		request.setCharacterEncoding("UTF-8");
+
+		//요청X
+		ArrayList<Category> arraylist = ProductDao.getProductDao().getcategorylist();
 		
-		for (int i = 0; i < chattinglist.size(); i++) {
-			response.getWriter().print(chattinglist.get(i).getCname() + "," + chattinglist.get(i).getCcontent() + "_");
+		//자바에서 js(ajax)에게 html전송
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
+		String html = "";
+			//큰따옴표" 출력하려면 /"로 입력
+		for( Category temp : arraylist) {
+			html += "<input type=\"radio\" name=\"cno\" value=\""+temp.getCno()+"\">"+temp.getCname();
 		}
-	
+		out.print (html);
 	}
 
 	/**

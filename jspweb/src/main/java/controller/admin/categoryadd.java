@@ -1,28 +1,25 @@
-package controller;
+package controller.admin;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.ChattingDao;
-import dto.Chatting;
+import dao.ProductDao;
 
 /**
- * Servlet implementation class cwrite
+ * Servlet implementation class categoryadd
  */
-@WebServlet("/chattingroad")
-public class chattingroad extends HttpServlet {
+@WebServlet("/admin/categoryadd")
+public class categoryadd extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public chattingroad() {
+    public categoryadd() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,14 +28,17 @@ public class chattingroad extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		request.setCharacterEncoding("UTF-8");
-		ArrayList<Chatting> chattinglist = ChattingDao.getChattingDao().chattinglist();
-		request.setCharacterEncoding("UTF-8");
+		String cname = request.getParameter("cname");
 		
-		for (int i = 0; i < chattinglist.size(); i++) {
-			response.getWriter().print(chattinglist.get(i).getCname() + "," + chattinglist.get(i).getCcontent() + "_");
+		boolean result = ProductDao.getProductDao().csave(cname);
+		
+		if(result) {
+			response.getWriter().print(1);
+		}else {
+			response.getWriter().print(2);
 		}
-	
 	}
 
 	/**
