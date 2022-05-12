@@ -40,7 +40,7 @@ public class productadd extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
 		//1.프로젝트(개발자pc) 폴더에 저장
 		//2.서버(톰캣) 폴더에 저장
 		String realpath = request.getSession().getServletContext().getRealPath("/admin/productimg");

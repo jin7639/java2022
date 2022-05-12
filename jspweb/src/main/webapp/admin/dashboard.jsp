@@ -15,7 +15,7 @@
 </head>
 <body>
 	<!-- marquee : 텍스트 슬라이드 / 속성 : scrollamount="속도"-->
-	<marquee scrollamount="10">공지사항 자리 입니다</marquee>
+	<marquee scrollamount="10" class="my-2">공지사항 자리 입니다</marquee>
 	
 	<div id="sidebar">
 		<ul>
