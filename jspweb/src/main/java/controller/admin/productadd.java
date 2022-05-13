@@ -43,11 +43,10 @@ public class productadd extends HttpServlet {
 		
 		//1.프로젝트(개발자pc) 폴더에 저장
 		//2.서버(톰캣) 폴더에 저장
-		String realpath = request.getSession().getServletContext().getRealPath("/admin/productimg");
 		
 		MultipartRequest multi = new MultipartRequest(
 				request, /*요청타입*/
-				realpath, /*저장 폴더위치*/
+				request.getSession().getServletContext().getRealPath("/admin/productimg"), /*저장 폴더위치*/
 				1024*1024*1024, /*파일 최대용량(바이트기준)*/
 				"UTF-8", 
 				new DefaultFileRenamePolicy()

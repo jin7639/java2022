@@ -1,9 +1,6 @@
 package controller.admin;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,19 +8,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.ProductDao;
-import dto.Category;
 
 /**
- * Servlet implementation class getcategory
+ * Servlet implementation class activechange
  */
-@WebServlet("/admin/getcategory")
-public class getcategory extends HttpServlet {
+@WebServlet("/admin/activechange")
+public class activechange extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public getcategory() {
+    public activechange() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,23 +29,16 @@ public class getcategory extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		//요청X
-		ArrayList<Category> arraylist = ProductDao.getProductDao().getcategorylist();
+		int active = Integer.parseInt(request.getParameter("active"));
+		int pno = Integer.parseInt(request.getParameter("pno"));
 		
-		//자바에서 js(ajax)에게 html전송
-		response.setCharacterEncoding("UTF-8");
-		PrintWriter out = response.getWriter();
-		String html = "";
-		
-		int i = 1;
-			//큰따옴표" 출력하려면 /"로 입력
-		for( Category temp : arraylist) {
-			html += "<input type=\"radio\" name=\"cno\" value=\""+temp.getCno()+"\">"+temp.getCname();
-			if (i % 6 == 0) {
-				html += "<br>";
-			}
+		boolean result = ProductDao.getProductDao().activechange(pno, active);
+		if (result) {
+			response.getWriter().print(1);
+		}else {
+			response.getWriter().print(2);
 		}
-		out.print (html);
+		
 	}
 
 	/**

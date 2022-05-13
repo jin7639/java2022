@@ -2,8 +2,12 @@
 function categorybtn(){
 	//특정 태그의 HTML 넣기
 	$("#categoryinput").html(
-		'<input type="text" id="cname">'+
-		'<button onclick="categoryadd()" type="button">등록</button>'
+		'<div class=" col-md-10">'+
+			'<input class="form-control" type="text" id="cname">'+
+		'</div>'+
+		'<div class=" col-md-2">'+
+			'<button class="form-control" onclick="categoryadd()" type="button">등록</button>'+
+		'</div>'
 	)
 }
 
@@ -59,3 +63,14 @@ function productadd(){
 		}
 	})
 }
+
+/* 첨부파일 변경되면 특정태그에 첨부파일 이미지 표시하기ㅣ */
+
+$("#pimg").change(function(e){
+	
+	let reader = new FileReader();
+	reader.readAsDataURL(e.target.files[0]);
+	reader.onload = function(e){
+		$("#preview").attr("src",e.target.result);
+	}
+});

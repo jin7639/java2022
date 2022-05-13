@@ -95,7 +95,7 @@ public class ProductDao extends Dao {
 			}
 			return productlist;
 		} catch (Exception e) {
-			System.out.println("오류 "+ e);
+			System.out.println("getproductlist : "+ e);
 		}
 		return null;
 	}
@@ -104,6 +104,22 @@ public class ProductDao extends Dao {
 		return null;
 	}
 	//4.제품 수정 [U]
+	
+	//4-2. 제품 상태 변경
+	public boolean activechange(int pno, int active) {
+		
+		String sql = "update product set pactive = "+active+" where pno = "+pno;
+		
+		try {
+			ps = con.prepareStatement(sql);
+			ps.executeUpdate();
+			return true;
+		} catch (Exception e) {
+			System.out.println("오류~!!! : "+ e);
+		}
+		
+		return false;
+	}
 	
 	//5.제품 삭제 [D]
 ////////////////////////////////재고////////////////////////////////////////////////////
@@ -116,6 +132,8 @@ public class ProductDao extends Dao {
 		return null;
 	}
 	//3.재고 수정 [U]
+
+	
 	
 	//4.재고 삭제 [D]
 	
