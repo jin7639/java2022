@@ -1,4 +1,7 @@
 @charset "UTF-8";
 .city{
 	border: 1px solid black;	
+	width: 200px;
+	height: 100px;
+	text-align: center;
 }
