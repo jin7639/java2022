@@ -27,10 +27,7 @@
 	</form>
 	<table id="stocklistbox">
 		
-		
 	</table>
-	
-	
 	<script src="/jspweb/js/productstock.js" type="text/javascript"></script>
 </body>
 </html>
