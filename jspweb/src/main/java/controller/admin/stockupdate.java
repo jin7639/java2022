@@ -1,9 +1,6 @@
 package controller.admin;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,19 +8,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.ProductDao;
-import dto.Category;
 
 /**
- * Servlet implementation class getcategory
+ * Servlet implementation class stockupdate
  */
-@WebServlet("/admin/getcategory")
-public class getcategory extends HttpServlet {
+@WebServlet("/admin/stockupdate")
+public class stockupdate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public getcategory() {
+    public stockupdate() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,35 +29,15 @@ public class getcategory extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		//요청X
-		ArrayList<Category> arraylist = ProductDao.getProductDao().getcategorylist();
+		int sno = Integer.parseInt(request.getParameter("sno"));
+		int samount = Integer.parseInt(request.getParameter("samount"));
 		
-		String type = request.getParameter("type");
-		//자바에서 js(ajax)에게 html전송
-		response.setCharacterEncoding("UTF-8");
-		PrintWriter out = response.getWriter();
-		String html = "";
-
-		if(type != null && type.equals("option")) {
-			for( Category temp : arraylist) {
-				html+="<option value=\""+temp.getCno()+"\">"+temp.getCname()+"</option>";
-			}
-		}else {
-			int i = 1;
-				//큰따옴표" 출력하려면 /"로 입력
-			for( Category temp : arraylist) {
-				html += "<input type=\"radio\" name=\"cno\" value=\""+temp.getCno()+"\">"+temp.getCname();
-				if (i % 6 == 0) {
-					html += "<br>";
-				}
-			}
-		}
-		out.print (html);
+		ProductDao.getProductDao().stockupdate(sno, samount);
+		System.out.println(samount);
+		
+		
 	}
-	
-		
-	
-	
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

@@ -11,19 +11,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.ProductDao;
-import dto.Category;
+import dto.Product;
 
 /**
- * Servlet implementation class getcategory
+ * Servlet implementation class getproduct
  */
-@WebServlet("/admin/getcategory")
-public class getcategory extends HttpServlet {
+@WebServlet("/admin/getproduct")
+public class getproduct extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public getcategory() {
+    public getproduct() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,36 +32,25 @@ public class getcategory extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		//요청X
-		ArrayList<Category> arraylist = ProductDao.getProductDao().getcategorylist();
 		
 		String type = request.getParameter("type");
-		//자바에서 js(ajax)에게 html전송
+		int cno = Integer.parseInt(request.getParameter("cno"));
+		
 		response.setCharacterEncoding("UTF-8");
-		PrintWriter out = response.getWriter();
-		String html = "";
-
-		if(type != null && type.equals("option")) {
-			for( Category temp : arraylist) {
-				html+="<option value=\""+temp.getCno()+"\">"+temp.getCname()+"</option>";
-			}
-		}else {
-			int i = 1;
-				//큰따옴표" 출력하려면 /"로 입력
-			for( Category temp : arraylist) {
-				html += "<input type=\"radio\" name=\"cno\" value=\""+temp.getCno()+"\">"+temp.getCname();
-				if (i % 6 == 0) {
-					html += "<br>";
+		PrintWriter out = response.getWriter(); 
+		
+		ArrayList<Product> list = ProductDao.getProductDao().getproductlist();
+		String html =  "";
+		if( type != null && type.equals("option")) {
+			for (Product temp : list) {
+				if(temp.getCno()==cno) {
+					html += "<option value=\""+temp.getPno()+"\">"+temp.getPname()+"</option>";
 				}
 			}
-		}
-		out.print (html);
+		}else {}
+		out.print(html);
 	}
-	
-		
-	
-	
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

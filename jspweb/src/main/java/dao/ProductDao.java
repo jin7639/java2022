@@ -124,15 +124,60 @@ public class ProductDao extends Dao {
 	//5.제품 삭제 [D]
 ////////////////////////////////재고////////////////////////////////////////////////////
 	//1.재고 등록 [C]
-	public boolean ssave() {
+	public boolean ssave( Stock stock ) {
+		try {
+			String sql = "insert into stock (scolor, ssize, samount, pno) values (?,?,?,?)";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, stock.getScolor());
+			ps.setString(2,stock.getSsize());
+			ps.setInt(3, stock.getSamount());
+			ps.setInt(4, stock.getPno());
+			ps.executeUpdate();
+			return true;
+		}catch (Exception e) {
+			System.out.println("ssave : "+ e);
+		}
 		return false;
 	}
+	
 	//2.재고 호출 [R]
-	public ArrayList<Stock> getstocklist(){
+	public ArrayList<Stock> getStocklist(int pno) {
+		ArrayList<Stock> stocklist = new ArrayList<Stock>();
+		String sql = "select * from stock where pno ="+pno;
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				Stock stock = new Stock (
+						rs.getInt(1),
+						rs.getString(2),
+						rs.getString(3),
+						rs.getInt(4),
+						rs.getString(5),
+						rs.getString(6),
+						rs.getInt(7)
+						);
+				stocklist.add(stock);
+			}
+			return stocklist;
+		} catch (Exception e) {
+			System.out.println("getproductlist : "+ e);
+		}
 		return null;
 	}
 	//3.재고 수정 [U]
-
+	public boolean stockupdate(int sno, int samount) {
+		String sql = "update stock set samount = "+samount+" where sno="+sno;
+		try {
+			ps = con.prepareStatement(sql);
+			ps.executeUpdate();
+			return true;
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return false;
+	}
 	
 	
 	//4.재고 삭제 [D]

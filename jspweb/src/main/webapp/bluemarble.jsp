@@ -27,7 +27,7 @@
 							<td class="city">
 								<%=citylist.get(i).getCname() %><br>
 								<%=citylist.get(i).getPland() %>만원<br>
-								<
+								
 							</td>
 					<% }else if(i == 4|| i == 15){%>
 							<td class="city">

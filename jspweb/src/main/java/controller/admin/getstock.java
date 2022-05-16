@@ -11,19 +11,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.ProductDao;
-import dto.Category;
+import dto.Stock;
 
 /**
- * Servlet implementation class getcategory
+ * Servlet implementation class getstock
  */
-@WebServlet("/admin/getcategory")
-public class getcategory extends HttpServlet {
+@WebServlet("/admin/getstock")
+public class getstock extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public getcategory() {
+    public getstock() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,35 +33,42 @@ public class getcategory extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		//요청X
-		ArrayList<Category> arraylist = ProductDao.getProductDao().getcategorylist();
+		int pno = Integer.parseInt(request.getParameter("pno"));
+		String field = request.getParameter("field");
 		
-		String type = request.getParameter("type");
-		//자바에서 js(ajax)에게 html전송
+		ArrayList<Stock> list = ProductDao.getProductDao().getStocklist(pno);
 		response.setCharacterEncoding("UTF-8");
+		
 		PrintWriter out = response.getWriter();
 		String html = "";
-
-		if(type != null && type.equals("option")) {
-			for( Category temp : arraylist) {
-				html+="<option value=\""+temp.getCno()+"\">"+temp.getCname()+"</option>";
-			}
-		}else {
-			int i = 1;
-				//큰따옴표" 출력하려면 /"로 입력
-			for( Category temp : arraylist) {
-				html += "<input type=\"radio\" name=\"cno\" value=\""+temp.getCno()+"\">"+temp.getCname();
-				if (i % 6 == 0) {
-					html += "<br>";
+		
+		if(field != null && field.equals("amount") ) {
+			String scolor = request.getParameter("scolor");
+			String ssize = request.getParameter("ssize");
+			for(Stock temp : list) {
+				if(temp.getScolor().equals(scolor) && temp.getSsize().equals(ssize)) {
+					out.print (temp.getSamount()+","+temp.getUpdatedate());
 				}
 			}
+		}else {
+			for (Stock temp : list) {
+				html += 
+						"<tr>" +
+								"<td> "+temp.getScolor()+" </td>" +
+								"<td> "+temp.getSsize()+" </td>" +
+								"<td> "+temp.getSamount()+" </td>" +
+								"<td>"+
+									"<button onclick=\'showupdate("+temp.getSno()+")\'>수정</button>"+
+								"</td>" +
+								"<td>"+
+									"<button>삭제</button>"+
+								"</td>" +
+								"</tr>";
+			}
+			out.print (html);
 		}
-		out.print (html);
 	}
-	
-		
-	
-	
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
