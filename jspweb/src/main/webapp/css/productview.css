@@ -60,3 +60,6 @@ img {
 .total_price{
 	text-align: right;
 }
+#select_table {
+	font-size: 14px;
+}

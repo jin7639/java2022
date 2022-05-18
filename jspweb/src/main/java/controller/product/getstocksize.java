@@ -37,8 +37,6 @@ public class getstocksize extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		int pno = Integer.parseInt( request.getParameter("pno") );
 		String scolor = request.getParameter("color");
-		System.out.println(pno);
-		System.out.println(scolor);
 		ArrayList<Stock> list = ProductDao.getProductDao().getStocklist(pno);
 		// 제품별 사이즈와 재고 [ 1.문자열 , 2.컬렉션 , 3.json 등 ] 
 			// LIST 컬렉션 : 중복O [ 인덱스 ] 

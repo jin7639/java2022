@@ -10,7 +10,6 @@ $("#color_select").change( function(){
 		url : 'getstocksize' , 
 		data : { 'pno' : pno , 'color': color } ,
 		success : function( re ){
-			
 			let list =re.replace( "{","");
 			let itemlist = list.split(",");
 			let html ="";
@@ -59,6 +58,8 @@ $("#size_select").change( function(){
 		size : size , 
 		amount : amount , 
 		pprice : pprice ,
+		t_price : pprice*pprice,
+		t_point : pprice*pprice*0.01,
 		overcheck : overcheck 
 	}
 	
@@ -73,19 +74,47 @@ $("#size_select").change( function(){
 	
 });
 
+/* 천단위 구분 쉼표 */
+
+/*
+	js 내장 메소드 toLocalString()
+	데이터.toLacalString( undefinde,{maximumFractionDigits : 소수점 표시단위})
+*/
+
+
+/* 패턴 : (앞 = 문자존재), (뒤= 문자열 3글자)
+		 (/d{3}) == (0-9){3}
+		 (?=(/d{3}) +(?!\d))
+		 {} : 길이
+		 + : 앞 표현식 반복되는 부분 대응
+		 x(?!y) : x뒤에 y가 없는 경우
+		 x(?!\d) : x뒤에 숫자가 없는 경우
+		 x(?=y) : x뒤에 y가 있는 경우
+		 \B : 문자 경계선
+		 \g : 전역검색
+		 \i : 대소문자 구분 없는 검색
+	\d : 정수
+*/
+let comm = "/\B (?=(\d{3}) +(?!\d))/g";//천단위 구분쉼표 정규표현식(언어) 변수
+
+
 /* 배열내 모든 객체를 테이블에 출력하는 함수 */
 function optionprint(){
 	 /* 테이블에 추가할 내용물 */
-	let html ='<tr><th width="60%"> 상품명 </th> <th width="25%"> 상품수 </th> <th width="15%"> 가격 </th> </tr>';
+	let html ='<tr><th width="50%"> 상품명 </th> <th width="25%"> 상품수 </th> <th width="25%"> 가격 </th> </tr>';
 	/* 배열내 모든 객체의 정보를 html 화 하기 */
 	for( let i = 0 ; i<selectlist.length ; i++ ){
+		
+		selectlist[i].total_price = selectlist[i].amount*selectlist[i].pprice;
+		selectlist[i].point =  selectlist[i].totalprice * 0.01 ;
+		
 		html += 
 		'<tr>'+
 			'<td> <span>'+selectlist[i].pname+'</span> <br>  <span class="pointbox">- '+selectlist[i].color+'/'+selectlist[i].size+'</span>'+
 			'</td>'+
 			'<td> <div class="row g-0">'+
 					'<div class="col-md-7">'+
-						'<input readonly id="amount" value='+selectlist[i].amount+' type="text" class="form-control amount_input">'+
+						'<input readonly id="amount'+i+'" value='+selectlist[i].amount+' type="text" class="form-control amount_input">'+
 					'</div>'+
 					'<div class="col-md-4">'+
 						
@@ -98,12 +127,19 @@ function optionprint(){
 				'</div>'+
 			'</td>'+
 			'<td>'+
-				'<span class="pricebox">'+(selectlist[i].amount*selectlist[i].pprice)+'</span> <br>' +
-				'<span class="pointbox">(적)'+(selectlist[i].amount*selectlist[i].pprice)*0.01+'</span>'+
+				'<span class="pricebox">'+(selectlist[i].total_price).toString().replace(/\B(?=(\d{3})+(?!\d))/g,",")+'원';+'</span> <br>' +
+				'<span class="pointbox">(적)'+(selectlist[i].point).toString().replace(/\B(?=(\d{3})+(?!\d))/g,",")+'원';+'</span>'+
 			'</td>'+
 		'</tr>'
 	}
 	$("#select_table").html( html );
+	let total_price = 0;
+	let total_amount = 0;
+	for (let i = 0 ; i <selectlist.length; i++){
+		total_price += selectlist[i].total_price;
+		total_amount += selectlist[i].amount;
+	}
+	$("#total_price").html((total_price).toString().replace(/\B(?=(\d{3})+(?!\d))/g,",")+'원' + '('+total_amount+'개)');
 }
 
 /* 해당 인덱스를 배열내 제거 함수  */
@@ -150,6 +186,25 @@ function amountdecre(i){
 	
 }
 
-
-
+/* 관심상품 버튼 눌렀을때  */
+function saveplike(mid){
+	if(mid == null){
+		alert("로그인 후 등록 가능합니다.");
+		return;
+	}
+	let pno = $("#pno").val();
+	$.ajax({
+		url : "saveplike",
+		data : { 'mid' : mid , 'pno' : pno},
+		success : function(result){
+			if(result == 1){
+				$("#plike").html("관심상품 등록♥");
+			}else if(result == 2){
+				$("#plike").html("관심상품 등록♡");
+			}else {
+				alert("오류")
+			}
+		}
+	});
+}
 

@@ -202,4 +202,30 @@ public class ProductDao extends Dao {
 	
 	//4.재고 삭제 [D]
 	
+	
+	
+	///////////////////////찜하기///////////////////////
+	public int saveplike (int pno, int mno) { 
+		System.out.println("pno : " + pno);
+		System.out.println("mno : " + mno);
+		try {
+			String sql = "select plikeno from plike where pno="+pno+" and mno="+mno;
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if (rs.next()) {//존재하면
+				sql = "delete from plike where plikeno = "+rs.getInt(1);
+				ps = con.prepareStatement(sql);
+				ps.executeUpdate();
+				return 2;	//삭제
+			}else {//존재하지 않으면
+				sql = "insert into plike(pno,mno)values("+pno+","+mno+")";
+				ps = con.prepareStatement(sql);
+				ps.executeUpdate();
+				return 1;	//등록
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+			return 3;	//DB오류
+		}
+	}
 }
