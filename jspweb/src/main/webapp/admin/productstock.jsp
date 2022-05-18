@@ -25,7 +25,7 @@
 		수량 <input type="text" id="samount">
 		<button type="button" onclick="stockadd()">재고추가</button>
 	</form>
-	<table id="stocklistbox">
+	<table class="table" id="stocklistbox">
 		
 	</table>
 	<script src="/jspweb/js/productstock.js" type="text/javascript"></script>

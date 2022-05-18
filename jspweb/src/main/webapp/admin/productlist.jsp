@@ -37,8 +37,8 @@
 			<td><%=product.getCno()%></td>
 			<td><!-- 색상 선택 -->
 				<select id="colorbox<%=product.getPno()%>" onchange="getamount( <%=product.getPno()%> )"> 
-					<%  ArrayList<Stock> stocklist = ProductDao.getProductDao().getStocklist(product.getPno()); 
-						for( Stock stock : stocklist ){
+					<%  ArrayList<Stock> stockcolor = ProductDao.getProductDao().getStockcolor(product.getPno());
+						for( Stock stock : stockcolor ){
 					%>
 						<option><%=stock.getScolor()%></option>
 					<% } %>
@@ -46,7 +46,9 @@
 			</td>
 			<td><!-- 사이즈 선택 -->
 				<select id="sizebox<%=product.getPno() %>" onchange="getamount(<%=product.getPno()%>)">
-					<% for (Stock stock : stocklist){%>
+					<% 
+					ArrayList<Stock> stocklist = ProductDao.getProductDao().getStocklist(product.getPno());
+					for (Stock stock : stocklist){%>
 					<option><%=stock.getSsize() %></option>
 					<%} %>
 				</select>

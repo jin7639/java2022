@@ -87,3 +87,41 @@ textarea {
 	color: black;
 	font-size: 12px;
 }
+.adbox{
+	margin: 50px 0px;
+}
+
+.main_title {
+	text-align: center;
+	font-size: 20px;
+	margin: 50px 0px;
+}
+.img_box img{
+	width: 100%;
+}
+.p_item{
+	margin: 10px;
+}
+.p_title{
+	font-size: 14px;
+}
+.p_size{
+	color : #999999;
+	font-size: 12px;
+}
+.p_discount {
+	font-size: 10px;
+	color: #999999;
+	text-decoration: line-through;
+}
+.p_price{
+	font-size: 12px;
+	border-bottom: 1px solid #e8e8e8;
+	padding-bottom: 5px;
+	margin-bottom: 5px;
+}
+.p_review {
+	font-size: 12px;
+	color: #999999;
+	text-align: right;
+}

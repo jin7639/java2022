@@ -100,7 +100,26 @@ public class ProductDao extends Dao {
 		return null;
 	}
 	//3.개별 제품 호출 [R]
-	public Product getproduct() {
+	public Product getproduct(int pno) {
+		String sql = "select * from product where pno = " + pno;
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				Product product = new Product(
+						rs.getInt(1),
+						rs.getString(2),
+						rs.getInt(3),
+						rs.getFloat(4),
+						rs.getInt(5),
+						rs.getString(6),
+						rs.getInt(7)
+						);
+				return product;
+			}
+		} catch (Exception e) {
+			System.out.println("sql오류 " + e);
+		}
 		return null;
 	}
 	//4.제품 수정 [U]
@@ -143,7 +162,7 @@ public class ProductDao extends Dao {
 	//2.재고 호출 [R]
 	public ArrayList<Stock> getStocklist(int pno) {
 		ArrayList<Stock> stocklist = new ArrayList<Stock>();
-		String sql = "select * from stock where pno ="+pno;
+		String sql = "select * from stock where pno = "+pno+" order by scolor asc , ssize desc ";
 		try {
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
@@ -161,10 +180,11 @@ public class ProductDao extends Dao {
 			}
 			return stocklist;
 		} catch (Exception e) {
-			System.out.println("getproductlist : "+ e);
+			System.out.println("getstocklist : "+ e);
 		}
 		return null;
 	}
+	
 	//3.재고 수정 [U]
 	public boolean stockupdate(int sno, int samount) {
 		String sql = "update stock set samount = "+samount+" where sno="+sno;

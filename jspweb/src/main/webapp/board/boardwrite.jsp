@@ -25,7 +25,7 @@
 		<form action="../board/write" method="post" enctype="multipart/form-data">
 			<!-- form 전송 인코딩 타입 : 기본타입은 첨부파일 불가능 -->
 			<!-- form 첨부파일 전송 인코딩 타입 : enctype="multipart/form-data" -->
-			제목  <input type="text" name="btitle" class="form-control mb-4">
+			제목  <input type="text" name="btitle" class="form-control mb-4" id="btitle">
 			<textarea rows="" cols="" id="summernote" name="bcontent"></textarea>
 			첨부파일 : <input type="file" name="bfile">
 			<!-- 
