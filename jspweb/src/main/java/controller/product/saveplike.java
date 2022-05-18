@@ -32,9 +32,7 @@ public class saveplike extends HttpServlet {
 		
 		int pno = Integer.parseInt(request.getParameter("pno"));
 		String mid = request.getParameter("mid");
-		System.out.println("mid : "+mid);
 		int result = ProductDao.getProductDao().saveplike(pno, MemberDao.getMemberDao().getmno(mid));
-		System.out.println("result : " +  result);
 		if(result == 1) {
 			response.getWriter().print(result);
 		}else if(result == 2) {

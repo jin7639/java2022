@@ -206,8 +206,6 @@ public class ProductDao extends Dao {
 	
 	///////////////////////찜하기///////////////////////
 	public int saveplike (int pno, int mno) { 
-		System.out.println("pno : " + pno);
-		System.out.println("mno : " + mno);
 		try {
 			String sql = "select plikeno from plike where pno="+pno+" and mno="+mno;
 			ps = con.prepareStatement(sql);
@@ -228,4 +226,14 @@ public class ProductDao extends Dao {
 			return 3;	//DB오류
 		}
 	}
+	
+	//해당 제품 찜하기 여부 확인
+	public boolean getplike( int pno , int mno ) {
+		String sql = "select * from plike where pno = "+pno+" and mno ="+mno;
+		try { ps = con.prepareStatement(sql); rs = ps.executeQuery();
+			if( rs.next() ) return true;
+		}catch (Exception e) { System.out.println( e );} return false;
+	}
+	
+	
 }

@@ -63,3 +63,16 @@ img {
 #select_table {
 	font-size: 14px;
 }
+.btnbox button {
+	background-color: white;
+	border: 1px solid #999999;
+	padding: 20px 10px;
+	width: 30%;
+}
+#btn1{
+	 background-color: black;
+	 color: white;
+}
+#btn2{
+	margin: 0px 20px;
+}

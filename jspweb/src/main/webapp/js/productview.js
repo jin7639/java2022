@@ -187,23 +187,41 @@ function amountdecre(i){
 }
 
 /* 관심상품 버튼 눌렀을때  */
-function saveplike(mid){
-	if(mid == null){
-		alert("로그인 후 등록 가능합니다.");
-		return;
-	}
+function saveplike( mid ){
+	if( mid == 'null' ){ alert('로그인후 이용 가능합니다.'); return;}
 	let pno = $("#pno").val();
 	$.ajax({
 		url : "saveplike",
-		data : { 'mid' : mid , 'pno' : pno},
-		success : function(result){
-			if(result == 1){
-				$("#plike").html("관심상품 등록♥");
-			}else if(result == 2){
-				$("#plike").html("관심상품 등록♡");
-			}else {
-				alert("오류")
+		data : { 'mid' : mid , 'pno' : pno } , 
+		success : function( result ){
+			if( result == 1 ){
+				 alert('관심 등록');  
 			}
+			else if( result == 2 ){ 
+				alert('관심 취소');  
+				}
+			else if( result == 3 ){ alert('오류발생[관리자에게문의] ');  }
+			// 특정 태그 새로고침
+			$("#btnbox").load( location.href +" #btnbox");
+		}
+	});
+}
+/*현재 선택된 제품들을 장바구니에 담기 */
+function savecart(mno){
+	alert("mno : "+mno);
+	if( mno == 0 ){
+		alert("로그인 후 이용가능합니다");
+		return;
+	}
+	if(selectlist.length == 0){
+		alert("옵션을 선택해주세요");
+		return;
+	}
+	$.ajax({
+		url : 'savecart',
+		data : { 'json' : JSON.stringify( selectlist)},
+		success : function(result){
+			alert("통신");			
 		}
 	});
 }
