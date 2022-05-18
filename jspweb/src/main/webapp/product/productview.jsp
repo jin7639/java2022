@@ -31,11 +31,11 @@
 		
 		DecimalFormat df = new DecimalFormat("###,###원"); // 천단위 구분 쉼표
 		//Float price = product.getPprice()*product.getPdiscount();
-		double pprice = p.getPprice();
-		double discount = p.getPdiscount() ;
-		double price = pprice*(1-(discount/100)); 
+		int pprice = p.getPprice();
+		int discount = (int) Math.round(p.getPdiscount());
+		int price = pprice*(1-(discount/100)); 
+		int point = (int) Math.round(price*0.01);
 		
-		double point = price * 0.01f ; // java 기본타입 : 정수형=int 실수=double	// 포인금액 계산 
 	///////////////////////////////////////////////////////////////////////////////////////		
 	%>
 	<div class="container viewbox">

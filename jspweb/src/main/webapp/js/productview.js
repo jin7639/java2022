@@ -58,8 +58,8 @@ $("#size_select").change( function(){
 		size : size , 
 		amount : amount , 
 		pprice : pprice ,
-		t_price : pprice*pprice,
-		t_point : pprice*pprice*0.01,
+		t_price : amount*pprice,
+		t_point : amount*pprice*0.01,
 		overcheck : overcheck 
 	}
 	
@@ -106,7 +106,7 @@ function optionprint(){
 	for( let i = 0 ; i<selectlist.length ; i++ ){
 		
 		selectlist[i].total_price = selectlist[i].amount*selectlist[i].pprice;
-		selectlist[i].point =  selectlist[i].totalprice * 0.01 ;
+		selectlist[i].point =  selectlist[i].total_price * 0.01 ;
 		
 		html += 
 		'<tr>'+
