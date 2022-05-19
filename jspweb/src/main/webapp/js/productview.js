@@ -195,10 +195,8 @@ function saveplike( mid ){
 		data : { 'mid' : mid , 'pno' : pno } , 
 		success : function( result ){
 			if( result == 1 ){
-				 alert('관심 등록');  
 			}
 			else if( result == 2 ){ 
-				alert('관심 취소');  
 				}
 			else if( result == 3 ){ alert('오류발생[관리자에게문의] ');  }
 			// 특정 태그 새로고침

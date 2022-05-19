@@ -2,6 +2,9 @@ package dao;
 
 import java.util.ArrayList;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import dto.Cart;
 import dto.Category;
 import dto.Product;
@@ -220,7 +223,7 @@ public class ProductDao extends Dao {
 			return true;
 			
 		} catch (Exception e) {
-			System.out.println(e);
+			System.out.println("stockupdate : " + e);
 		}
 		return false;
 	}
@@ -233,7 +236,7 @@ public class ProductDao extends Dao {
 	///////////////////////찜하기///////////////////////
 	public int saveplike (int pno, int mno) { 
 		try {
-			String sql = "select plikeno from plike where pno="+pno+" and mno="+mno;
+			String sql = "select plikeno from plike where pno = "+pno+" and mno = "+mno;
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
 			if (rs.next()) {//존재하면
@@ -248,7 +251,7 @@ public class ProductDao extends Dao {
 				return 1;	//등록
 			}
 		} catch (Exception e) {
-			System.out.println(e);
+			System.out.println("saveplike : " + e);
 			return 3;	//DB오류
 		}
 	}
@@ -256,9 +259,15 @@ public class ProductDao extends Dao {
 	//해당 제품 찜하기 여부 확인
 	public boolean getplike( int pno , int mno ) {
 		String sql = "select * from plike where pno = "+pno+" and mno ="+mno;
-		try { ps = con.prepareStatement(sql); rs = ps.executeQuery();
-			if( rs.next() ) return true;
-		}catch (Exception e) { System.out.println( e );} return false;
+		try { 
+			ps = con.prepareStatement(sql); 
+			rs = ps.executeQuery();
+			if( rs.next() ) {
+				return true;
+			}
+		}catch (Exception e) { 
+			System.out.println("getplike : "+ e );
+			} return false;
 	}
 	
 	/////////////////////////////////////////장바구니///////////////////////////////////////////////
@@ -283,13 +292,49 @@ public class ProductDao extends Dao {
 				return true;
 			}
 		} catch (Exception e) {
-			System.out.println(e);
+			System.out.println("savecart : " + e);
 		}
 		return false;
 	}
 	
-	
-	
+/////////////////////////////////////////장바구니 출력///////////////////////////////////////////////
+	public JSONArray getcart(int mno) {
+		JSONArray jsonArray = new JSONArray();
+		String sql = 
+				"select  \r\n"
+				+ "	A.cartno as 장바구니번호, \r\n"
+				+ "    A.samount as 구매수량, \r\n"
+				+ "    A.totalprice as 총가격, \r\n"
+				+ "	B.scolor as 색상, \r\n"
+				+ "	B.ssize as 사이즈,\r\n"
+				+ "    B.pno as 제품번호,\r\n"
+				+ "    C.pname as 제품명,\r\n"
+				+ "    C.pimg as 제품이미지\r\n"
+				+ "from cart A \r\n"
+				+ "join stock B on A.sno = B.sno \r\n"
+				+ "join product C on B.pno = C.pno \r\n"
+				+ "where A.mno = "+mno;
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				JSONObject object = new JSONObject();
+				object.put("cartno", rs.getInt(1));
+				object.put("samount", rs.getInt(2));
+				object.put("totalprice", rs.getInt(3));
+				object.put("scolor", rs.getString(4));
+				object.put("ssize", rs.getString(5));
+				object.put("pno", rs.getInt(6));
+				object.put("pname", rs.getString(7));
+				object.put("pimg", rs.getString(8));
+				jsonArray.put(object);
+			}
+			return jsonArray;
+		} catch (Exception e) {
+			System.out.println("getcart : " + e);
+		}
+		return null;
+	}
 	
 	
 }

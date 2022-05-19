@@ -43,10 +43,10 @@
 		</div>
 		<div class="row adbox"><!-- 광고 -->
 			<div class="col-md-6">
-				<img alt="" src="/jspweb/img/mainimg1.gif">
+				<img width="100%" alt="" src="/jspweb/img/mainimg1.gif">
 			</div>
 			<div class="col-md-6">
-				<img alt="" src="/jspweb/img/mainimg2.jpg">
+				<img width="100%" alt="" src="/jspweb/img/mainimg2.jpg">
 			</div>
 		</div>
 		<div><!-- 베스트 -->
