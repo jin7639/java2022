@@ -101,10 +101,9 @@
 					<div id="btnbox" class="btnbox">
 						<button id="btn1">바로 구매하기</button>
 						<button id="btn2" onclick="savecart('<%=mno%>')">장바구니 담기</button>
-					<% if( mid !=null && ProductDao.getProductDao().getplike(pno, mno )){
-						System.out.print(ProductDao.getProductDao().getplike(pno, mno ));%>
+					<% if( mid !=null && ProductDao.getProductDao().getplike(pno, mno )){%>
 							<button id="plike" onclick="saveplike('<%=mid%>')">관심상품 ♥</button>
-						<%}else{System.out.print(ProductDao.getProductDao().getplike(pno, mno ));%>
+						<%}else{%>
 							<button id="plike" onclick="saveplike('<%=mid%>')">관심상품 ♡</button>
 						<%} %>
 					</div>

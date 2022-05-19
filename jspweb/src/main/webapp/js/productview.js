@@ -208,7 +208,6 @@ function saveplike( mid ){
 }
 /*현재 선택된 제품들을 장바구니에 담기 */
 function savecart(mno){
-	alert("mno : "+mno);
 	if( mno == 0 ){
 		alert("로그인 후 이용가능합니다");
 		return;
@@ -219,9 +218,13 @@ function savecart(mno){
 	}
 	$.ajax({
 		url : 'savecart',
-		data : { 'json' : JSON.stringify( selectlist)},
+		data : { 'json' : JSON.stringify( selectlist), 'pno': $("#pno").val()},
 		success : function(result){
-			alert("통신");			
+			if(result == -1){
+				alert('장바구니에 등록했습니다.');
+			}else{
+				alert('오류발생[관리자에게 문의] : '+ (result+1)+"옵션");
+			}
 		}
 	});
 }

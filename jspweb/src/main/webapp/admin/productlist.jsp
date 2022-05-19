@@ -37,7 +37,7 @@
 			<td><%=product.getCno()%></td>
 			<td><!-- 색상 선택 -->
 				<select id="colorbox<%=product.getPno()%>" onchange="getamount( <%=product.getPno()%> )"> 
-					<%  ArrayList<Stock> stockcolor = ProductDao.getProductDao().getStockcolor(product.getPno());
+					<%  ArrayList<Stock> stockcolor = ProductDao.getProductDao().getStocklist(product.getPno());
 						for( Stock stock : stockcolor ){
 					%>
 						<option><%=stock.getScolor()%></option>
