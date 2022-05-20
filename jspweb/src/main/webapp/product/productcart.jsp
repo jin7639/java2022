@@ -41,7 +41,7 @@
 				<a href="/jspweb/main.jsp"><button class="form-control py-4" >계속 쇼핑하기</button></a>
 			</div>
 			<div class="col-sm-3">
-				<a href="/jspweb/product/order.jsp">
+				<a href="/jspweb/product/orderpay.jsp">
 					<button class="form-control py-4" style="background-color: darkblue; color: white;">구매하기</button>
 				</a>
 			</div>
