@@ -335,6 +335,4 @@ public class ProductDao extends Dao {
 		}
 		return null;
 	}
-	
-	
 }

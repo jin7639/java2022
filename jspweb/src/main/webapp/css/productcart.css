@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+.processbox {
+	margin: 100px 0px;
+	text-align: right;
+}
+.processbox span {
+	color: gray;
+	margin-left: 30px;
+}
+#process_active{
+	color: black;
+	font-size: 25px;
+}
+
+
+.table th {
+	text-align: center;
+}
+.pnamebox {
+	border-bottom: 1px solid #eeeeee;
+	padding: 2%;
+	padding-bottom: 1%;
+}
+.poptionbox {
+	color: #999999;
+	padding: 2%;
+	font-size: 14px;	
+}
+.amount_btn{
+	display: block;
+	background-color: white;
+	font-size: 5px;
+	border: 1px solid #eeeeee;
+}
+
+.deletebox button{
+	background-color: white;
+	margin-left: 30px;
+	font-size: 10px;
+	border: none;
+}
+.pricebox {
+	text-align: right;
+}
+.paybox{
+	text-align: center;
+	border: 2px solid #999999;
+	padding: 50px 20px;
+	margin: 50px 0px;
+}
+#totalpay{
+	font-size: 25px;
+	color: darkblue;
+}
+.pointbox{
+	margin-top: 20px;
+	color: gray;
+}
