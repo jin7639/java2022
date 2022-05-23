@@ -37,7 +37,6 @@ public class saveorder extends HttpServlet {
 			
 			String mid = (String)request.getSession().getAttribute("login");
 			int mno = MemberDao.getMemberDao().getmno(mid);
-			System.out.println("mno : " + mno);
 			String json = request.getParameter("orderjson");
 			JSONObject jsonobjet = new JSONObject(json);
 			
@@ -46,7 +45,6 @@ public class saveorder extends HttpServlet {
 			String orderaddress = jsonobjet.getString("orderaddress").toString();
 			int ordertotalpay = jsonobjet.getInt("ordertotalpay"); //Integer.parseInt(jsonobjet.getString("ordertotalpay").toString());
 			String orderrequest = jsonobjet.getString("orderrequest").toString();
-		
 		
 			Order order = new Order(0, null, ordername, orderphone, orderaddress, ordertotalpay, 0, orderrequest, 0, mno);
 			

@@ -127,7 +127,6 @@ function cartview(){
 
 //주문 처리 메소드
 function saveorder(){
-	alert("saveorder");
 	
 	let ordername = $("#ordername").val();
 	let orderphone = $("#orderphone").val();
@@ -148,7 +147,6 @@ function saveorder(){
 		url : "saveorder",
 		data : { 'orderjson' : JSON.stringify(orderjson) } , // 객체 -> json형 변환
 		success : function(result){
-			alert("result : " + result);
 			if(result == "true"){
 				location.href = "/jspweb/product/ordersuccess.jsp";
 			}else{
