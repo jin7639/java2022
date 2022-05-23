@@ -29,7 +29,7 @@
 					//3.HTML에 객체 표현식
 				%>
 				
-				회원번호 : <%=member.getMnum() %>	<br>
+				회원번호 : <%=member.getMno() %>	<br>
 				아이디 : <%=member.getMid() %><br>
 				이름 : <%=member.getMname() %><br>
 				연락처 : <%=member.getMphone() %><br>

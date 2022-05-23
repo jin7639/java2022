@@ -34,7 +34,7 @@
 				<h3 class="text-center">회원수정</h3>
 				<hr>
 				<form action="../update" method="post">
-					<input type="hidden" name="mnum" value="<%=member.getMnum()%>">
+					<input type="hidden" name="mnum" value="<%=member.getMno()%>">
 					<div>
 						<p>아이디</p>
 						<%=member.getMid() %>
