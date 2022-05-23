@@ -19,13 +19,73 @@
 		</div>
 		
 		<div class="row">
-			<div class="col-sm-3 offset-3">
-				<a href="/jspweb/main.jsp"><button class="form-control py-4" >계속 쇼핑하기</button></a>
+			<div class="col-sm-8">
+				<div> <!-- 제품목록 -->
+					<table id="carttable" class="table my-5">
+						
+					</table>
+				</div>
+				
+				<div><!-- 받는 사람 정보 -->
+					<input type="checkbox" id="checkbox"> 회원정보와 동일
+					<h5>받는 사람</h5>
+					<form>
+						이름 <input id="ordername"><br>
+						연락처 <input id="orderphone"><br>
+						주소 
+						<div class="row mb-1">
+						<div class="col-md-8">
+							<input class=" form-control" type="text" id="address1" name="address1" placeholder="우편번호">
+						</div>
+						<div class="col-md-4">
+							<input class=" form-control " type="button" onclick="findaddress()" value="우편번호 찾기">
+						</div>
+						</div>
+						<input class=" form-control mb-1" type="text" id="address2" name="address2" placeholder="도로명주소" >
+						<input class=" form-control mb-1" type="text" id="address3" name="address3" placeholder="지번주소" >
+						<span id="guide" style="color:#999;display:none"></span>
+						<input class=" form-control mb-3" type="text" id="address4" name="address4" placeholder="상세주소">
+						배송 요청사항 <input id="orderrequest">
+						
+					</form>
+				</div>
 			</div>
-			<div class="col-sm-3">
-				<button onclick="payment()" class="form-control py-4" style="background-color: darkblue; color: white;">결제하기</button>
+			
+			<div class="col-sm-4">
+				<div class="paybox">
+					<div><!-- 포인트 사용 -->
+						*5000포인트 이상부터 사용가능합니다.<br>
+						포인트 : <input> <button>사용</button>
+					</div>
+					<div><!-- 결제 정보 -->
+						총 상품금액 : <span>12,100 원</span><br>
+						배송비 : <span>12,100 원</span><br>
+						포인트 사용 : <span>12,100 원</span><br>
+						총 결제액 : <span>21,100 원</span>
+					</div>
+					<div><!-- 결제 사용 -->
+						<div>
+							<button>삼성페이</button>
+							<button>카드</button>
+							<button>계좌이체</button>
+							<button>무통장</button>
+							<button>핸드폰</button>
+						</div>
+					
+						<div class="row">
+							<div class="col-sm-6">
+								<a href="/jspweb/main.jsp"><button class="form-control py-4" >계속 쇼핑하기</button></a>
+							</div>
+							<div class="col-sm-6">
+								<button onclick="payment()" class="form-control py-4" style="background-color: darkblue; color: white;">결제하기</button>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
+			
 		</div>
+
 	</div>
 	
 	

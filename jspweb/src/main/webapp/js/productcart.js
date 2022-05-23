@@ -1,7 +1,6 @@
-
 /* JSON 형식 변수 선언 */
 let jsonarray;
-let sumprice = 0;;
+let sumprice = 0;
 let deliverypay = 0;
 let totalpay = 0;
 let point = 0;
@@ -17,7 +16,7 @@ function tableview(){
 	'				<th width="20%">총가격</th>'+
 	'			</tr>';
 	
-			sumprice = 0;;
+			sumprice = 0;
 			deliverypay = 0;
 			totalpay = 0;
 
