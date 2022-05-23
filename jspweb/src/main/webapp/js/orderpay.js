@@ -1,11 +1,10 @@
 
 let jsonarray;
-let totalprice = 0;
+let totalpay = 0;
 
 $(function(){
 	getcart();
-})
-
+});
 function getcart(){
 	$.ajax({
 		url : 'getcart',
@@ -46,12 +45,10 @@ function payment(){
 }
 
 function saveorder(){
-	alert("DB처리");
 	$.ajax({
 		url : "saveorder",
 		success : function(result){
 			alert("DB처리 성공");
 		}
-	})
-	
+	});
 }
