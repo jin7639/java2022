@@ -4,12 +4,12 @@ public class Member {
 	
 	@Override
 	public String toString() {
-		return "Member [mnum=" + mnum + ", mid=" + mid + ", mpassword=" + mpassword + ", mname=" + mname + ", mphone="
+		return "Member [mno=" + mno + ", mid=" + mid + ", mpassword=" + mpassword + ", mname=" + mname + ", mphone="
 				+ mphone + ", memail=" + memail + ", maddress=" + maddress + ", mpoint=" + mpoint + ", mdate=" + mdate
 				+ "]";
 	}
 	
-	private int mnum;
+	private int mno;
 	private String mid;
 	private String mpassword;
 	private String mname;
@@ -23,10 +23,10 @@ public class Member {
 		super();
 	}
 
-	public Member(int mnum, String mid, String mpassword, String mname, String mphone, String memail, String maddress,
+	public Member(int mno, String mid, String mpassword, String mname, String mphone, String memail, String maddress,
 			int mpoint, String mdate) {
 		super();
-		this.mnum = mnum;
+		this.mno = mno;
 		this.mid = mid;
 		this.mpassword = mpassword;
 		this.mname = mname;
@@ -37,12 +37,12 @@ public class Member {
 		this.mdate = mdate;
 	}
 
-	public int getMnum() {
-		return mnum;
+	public int getMno() {
+		return mno;
 	}
 
-	public void setMnum(int mnum) {
-		this.mnum = mnum;
+	public void setMno(int mno) {
+		this.mno = mno;
 	}
 
 	public String getMid() {

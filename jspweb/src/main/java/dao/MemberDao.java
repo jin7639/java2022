@@ -106,7 +106,7 @@ public class MemberDao extends Dao{
 				return member;
 			}
 		} catch (Exception e) {
-			System.out.println("sql오류 " + e);
+			System.out.println("sql오류 getmember " + e);
 		}
 		return null;
 	}
@@ -146,7 +146,7 @@ public class MemberDao extends Dao{
 				ps.setString( 2, member.getMphone());
 				ps.setString( 3, member.getMemail());
 				ps.setString( 4, member.getMaddress());
-				ps.setInt( 5, member.getMnum());
+				ps.setInt( 5, member.getMno());
 			}else {	//비밀번호 변경 O
 				String sql = "update member set mname =?, mpassword =?, mphone=?, memail=?, maddress=? where mno=?";
 				ps = con.prepareStatement(sql);
@@ -155,7 +155,7 @@ public class MemberDao extends Dao{
 				ps.setString(3, member.getMphone());
 				ps.setString(4, member.getMemail());
 				ps.setString(5, member.getMaddress());
-				ps.setInt(6, member.getMnum());
+				ps.setInt(6, member.getMno());
 			}
 			ps.executeUpdate();
 			return true;

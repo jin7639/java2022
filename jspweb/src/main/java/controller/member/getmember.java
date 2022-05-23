@@ -38,7 +38,7 @@ public class getmember extends HttpServlet {
 		
 		try {
 			JSONObject jsonobject = new JSONObject();
-			jsonobject.put("mno", member.getMnum());
+			jsonobject.put("mno", member.getMno());
 			jsonobject.put("mid", member.getMid());
 			jsonobject.put("mname", member.getMname());
 			jsonobject.put("mphone", member.getMphone());
