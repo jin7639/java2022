@@ -7,7 +7,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONObject;
+
 import dao.MemberDao;
+import dao.ProductDao;
+import dto.Order;
 
 /**
  * Servlet implementation class saveorder
@@ -28,19 +32,43 @@ public class saveorder extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+	try {
+			
+			String mid = (String)request.getSession().getAttribute("login");
+			int mno = MemberDao.getMemberDao().getmno(mid);
+			System.out.println("mno : " + mno);
+			String json = request.getParameter("orderjson");
+			JSONObject jsonobjet = new JSONObject(json);
+			
+			String ordername = jsonobjet.getString("ordername").toString();
+			String orderphone = jsonobjet.getString("orderphone").toString();
+			String orderaddress = jsonobjet.getString("orderaddress").toString();
+			int ordertotalpay = jsonobjet.getInt("ordertotalpay"); //Integer.parseInt(jsonobjet.getString("ordertotalpay").toString());
+			String orderrequest = jsonobjet.getString("orderrequest").toString();
+		
+		
+			Order order = new Order(0, null, ordername, orderphone, orderaddress, ordertotalpay, 0, orderrequest, 0, mno);
+			
+			System.out.println(order.toString());
+			
+			//1. 주문 DB처리 [PK]
+			Boolean result =  ProductDao.getProductDao().saveorder(order);
+			System.out.println(result);
+			//2. 주문 상세 DB처리 [cart -> orderdetail]
+			response.getWriter().print(result);
+		} catch (Exception e) {
+			System.out.println("오류 : " + e);
+		}
 	}
+		
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String mid = (String)request.getSession().getAttribute("login");
-		int mno = MemberDao.getMemberDao().getmno(mid);
-		//1. 주문 DB처리 [PK]
-		//2. 주문 상세 DB처리 [cart -> orderdetail]
 		
+	
 	}
-
 }

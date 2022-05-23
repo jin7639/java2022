@@ -49,7 +49,7 @@ public class getmember extends HttpServlet {
 			
 			response.setCharacterEncoding("UTF-8");
 			response.setContentType("application/json"); //이거 안 넣으면 통신 불가
-			response.getWriter().print(jsonobject);
+			response.getWriter().print(jsonobject); //jsonobject 전달
 		} catch (Exception e) {
 			System.out.println("오류" + e);
 		}

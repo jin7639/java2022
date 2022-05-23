@@ -1,5 +1,6 @@
 package dao;
 
+import java.sql.Statement;
 import java.util.ArrayList;
 
 import org.json.JSONArray;
@@ -7,6 +8,7 @@ import org.json.JSONObject;
 
 import dto.Cart;
 import dto.Category;
+import dto.Order;
 import dto.Product;
 import dto.Stock;
 
@@ -52,7 +54,7 @@ public class ProductDao extends Dao {
 			}
 			return list;
 		} catch (Exception e) {
-			System.out.println("오류 "+ e);
+			System.out.println("2오류 "+ e);
 		}
 		return null;
 	}
@@ -74,7 +76,7 @@ public class ProductDao extends Dao {
 			ps.executeUpdate();
 			return true;
 		} catch (Exception e) {
-			System.out.println("오류 "+ e);
+			System.out.println("3오류 "+ e);
 		}
 		return false;
 	}
@@ -361,5 +363,56 @@ public class ProductDao extends Dao {
 		}
 		return false;
 	}
+	//  장바구니 개수 세기
+	public int countcart (int mno) {
+		int count = 0;
+		String sql = "select count(*) from cart where mno = "+mno;
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				count = rs.getInt(1);
+			}
+		} catch (Exception e) {
+			System.out.println("countcart : " + e);
+		}
+		return count;
+	}
+	/////////////////////////////////////////////주문/////////////////////////////////////////////
+public boolean saveorder( Order order  ) {
+		
+		String sql = "insert into porder(ordername,orderphone,orderaddress,ordertotalpay,orderrequest,mno) values(?,?,?,?,?,?)";
+		try { 
+			ps = con.prepareStatement( sql , Statement.RETURN_GENERATED_KEYS );
+			ps.setString( 1 , order.getOrdername() );
+			ps.setString( 2 , order.getOrderphone() );
+			ps.setString( 3 , order.getOrderaddress() );
+			ps.setInt( 4 , order.getOrdertotalpay() );
+			ps.setString( 5 , order.getOrderrequest() );
+			ps.setInt( 6 , order.getMno() );
+			ps.executeUpdate();		
+			
+			rs = ps.getGeneratedKeys(); // pk 값 호출 
+			if( rs.next() ) {
+				System.out.println( "pk값 : "+ rs.getInt(1) );
+				int pk = rs.getInt(1);
+				sql = "insert into porderdetail (samount, totalprice, orderno, sno) select samount, totalprice, "+pk+", sno from cart where mno = "+order.getMno();
+				ps = con.prepareStatement(sql);
+				ps.executeUpdate();	
+				
+				sql = "delete from cart where mno = "+order.getMno();
+				ps = con.prepareStatement(sql);
+				ps.executeUpdate();	
+				return true;
+			}
+		}catch (Exception e) {
+			System.out.println("saveorder : " + e);
+		}
+		return false;
+	}
+	
+	
+	
+	
 	
 }

@@ -1,21 +1,23 @@
 
-let jsonarray;
-let sumprice = 0;
-let deliverypay = 0;
-let totalpay = 0;
-let point = 0;
-let member;
-let mpoint = 0; 
+let jsonarray;	//json 형식 배열 선언
+let sumprice = 0; //상품 총 가격 변수 선언
+let deliverypay = 0; //배송비 변수 선언
+let totalpay = 0; //총주문액 변수 선언
+let point = 0; // 포인트 변수 선언
+let member; //멤버 객체 선언
+let mpoint = 0; //회원이 사용하는 포인트
 
-let pay_method;
+let pay_method; //결제 수단
 
+/* 페이지 열었을 떄 무조건 실행*/
 $(function(){
-	getcart();
-
+	
+	//회원 정보 출력
 	$.ajax({
-		url : "../member/getmember",
+		url : "../member/getmember", //경로 설정 (서블릿에서 정의해준 경로를 따라서 적는 것)
 		success : function(json){
 			member = json
+			getcart(); //제품 출력 메소드
 		}
 	});
 	/*받는사람 정보가 기존 회원정보와 동일 버튼을 눌렀을때 */
@@ -87,8 +89,6 @@ function cartview(){
 		'						<div class="col-sm-5 offset-3">'+
 		'							<input readonly="readonly" value="'+jsonarray[i]['samount']+'" type="text" class="form-control" style="background-color: white">'+
 		'						</div>'+
-		'						<div class="col-sm-2">'+
-		'						</div>'+
 		'					</div>'+
 		'				</td>'+
 		'				<td class="align-middle">'+
@@ -125,12 +125,35 @@ function cartview(){
 }
 		
 
-
+//주문 처리 메소드
 function saveorder(){
+	alert("saveorder");
+	
+	let ordername = $("#ordername").val();
+	let orderphone = $("#orderphone").val();
+	let orderaddress = $("#address1").val()+"_"+$("#address2").val()+"_"+$("#address3").val()+"_"+$("#address4").val();
+	
+	let ordertotalpay = totalpay;
+	let orderrequest = $("#orderrequest").val();
+	
+	let orderjson = {
+		ordername : ordername,
+		orderphone : orderphone,
+		orderaddress : orderaddress,
+		ordertotalpay : ordertotalpay,
+		orderrequest : orderrequest
+	}
+	
 	$.ajax({
 		url : "saveorder",
+		data : { 'orderjson' : JSON.stringify(orderjson) } , // 객체 -> json형 변환
 		success : function(result){
-			alert("성공");
+			alert("result : " + result);
+			if(result == "true"){
+				location.href = "/jspweb/product/ordersuccess.jsp";
+			}else{
+				alert("오류");
+			}
 		}
 	});
 }

@@ -1,3 +1,5 @@
+<%@page import="dao.MemberDao"%>
+<%@page import="dao.ProductDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -89,7 +91,14 @@
 				<li class="nav-item"><a href="#" style="color: #ff0000">50% 할인</a><br></li>
 				<li class="nav-item"><input type="text" class="header_input" size="13"></li>
 				<li class="nav-item"><a href="#"><i class="fas fa-search"></i></a></li>
-				<li class="nav-item"><a href="/jspweb/product/productcart.jsp">장바구니<span class="shoppingbox">3</span></a></li>
+				<li class="nav-item">
+					<a href="/jspweb/product/productcart.jsp">
+						장바구니
+						<span class="shoppingbox">
+							<%=ProductDao.getProductDao().countcart(MemberDao.getMemberDao().getmno(loginid)) %>
+						</span>
+					</a>
+				</li>
 			</ul>
 			
 		</div>
