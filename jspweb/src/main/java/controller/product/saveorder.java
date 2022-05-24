@@ -48,7 +48,6 @@ public class saveorder extends HttpServlet {
 		
 			Order order = new Order(0, null, ordername, orderphone, orderaddress, ordertotalpay, 0, orderrequest, 0, mno);
 			
-			System.out.println(order.toString());
 			
 			//1. 주문 DB처리 [PK]
 			Boolean result =  ProductDao.getProductDao().saveorder(order);

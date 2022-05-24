@@ -10,7 +10,7 @@
 	<ul id="sidebar" class="my-5">
 		<li><a href="myshopping.jsp">주문현황</a></li>
 		<li><a href="#">주문조회</a></li>
-		<li><a href="#">관심상품</a></li>
+		<li><a href="likelist.jsp">관심상품</a></li>
 		<li><a href="#">포인트</a></li>
 		<li><a href="#">쿠폰</a></li>
 		<li><a href="myboard.jsp">내가쓴글</a></li>

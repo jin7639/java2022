@@ -40,7 +40,6 @@ public class savecart extends HttpServlet {
 		
 		int pno = Integer.parseInt( request.getParameter("pno"));
 		String data = request.getParameter("json");
-		System.out.println("json : " +data);
 		
 		String mid = (String)request.getSession().getAttribute("login");
 				int mno = MemberDao.getMemberDao().getmno(mid);
@@ -71,7 +70,6 @@ public class savecart extends HttpServlet {
 					}
 				}
 				Cart cart = new Cart(0 ,amount, totalprice, sno, mno);
-				System.out.println( "cart : "+ cart.toString());
 				
 				boolean result = ProductDao.getProductDao().savecart(cart);
 				if(result == false) {
