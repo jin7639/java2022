@@ -33,3 +33,6 @@ li {
 	height: 100%;
 	padding: 100% 10px 0px 20px ;
 }
+#sidebar button {
+	border: none;
+}

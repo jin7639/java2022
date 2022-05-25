@@ -442,7 +442,6 @@ public JSONArray getorder( int mno ) {
 					JSONObject jsonObject = new JSONObject();
 					
 					jsonObject.put( "orderno" , rs.getInt( 1 ) ) ;
-					System.out.println(rs.getInt( 1 ));
 					jsonObject.put( "orderdate" , rs.getString( 2 ) ) ;
 					jsonObject.put( "orderdetailno" , rs.getInt( 3 ) ) ;
 					jsonObject.put( "orderdetailactive" , rs.getInt( 4 ) ) ;
@@ -471,6 +470,55 @@ public JSONArray getorder( int mno ) {
 				System.out.println("getorder : " + e);
 			}
 			return null;
+}
+
+public boolean cancelorder(int orderdetailno , int active) {
+	
+	try {
+		String sql = "update porderdetail set orderdetailactive = "+active+" where orderdetailno = "+orderdetailno;
+		ps = con.prepareStatement(sql);
+		ps.executeUpdate();
+		return true;
+	} catch (Exception e) {
+		System.out.println("cancel : " + e);
+	}
+	return false;
+}
+
+public JSONArray getchart(int type) {
+	String sql = "";
+	JSONArray ja = new JSONArray();
+	if (type == 1) {
+		
+		sql = "select substring_index(orderdate, ' ',1) as 날짜, "
+					+ "sum(ordertotalpay) from porder "
+					+ "group by 날짜 order by 날짜 desc";
+	}else if( type == 2 ) {
+		sql = "select sum(A.samount), D.cname "
+				+ "from porderdetail A, stock B, product C, category D "
+				+ "where A.sno = B.sno and B.pno = C.pno and C.cno = D.cno "
+				+ "group by D.cname order by orderdetailno desc";
+	}
+	try {
+		ps = con.prepareStatement(sql);
+		rs = ps.executeQuery();
+		while(rs.next()) {
+			JSONObject jo = new JSONObject();
+			if(type == 1) {
+				jo.put("date", rs.getString(1));
+				jo.put("value", rs.getString(2));
+				ja.put(jo);
+			}else if( type == 2 ){
+				jo.put("value", rs.getString(1));
+				jo.put("category", rs.getString(2));
+				ja.put(jo);
+			}
+		}
+		return ja;
+	} catch (Exception e) {
+		System.out.println("getchart : " + e);
+	}
+	return null;
 }
 	
 	
