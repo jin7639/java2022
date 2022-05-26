@@ -1,3 +1,5 @@
+<%@page import="java.util.TreeSet"%>
+<%@page import="java.util.Set"%>
 <%@page import="dto.Stock"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="dao.ProductDao"%>
@@ -38,9 +40,13 @@
 			<td><!-- 색상 선택 -->
 				<select id="colorbox<%=product.getPno()%>" onchange="getamount( <%=product.getPno()%> )"> 
 					<%  ArrayList<Stock> stockcolor = ProductDao.getProductDao().getStocklist(product.getPno());
+						Set<String> colors = new TreeSet<String>();	
 						for( Stock stock : stockcolor ){
+							colors.add(stock.getScolor());
+						}
 					%>
-						<option><%=stock.getScolor()%></option>
+					<% for(String scolor : colors){%>
+						<option><%=scolor%></option>
 					<% } %>
 				</select> 
 			</td>

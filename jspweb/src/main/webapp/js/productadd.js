@@ -11,6 +11,20 @@ function categorybtn(){
 	)
 }
 
+$( function category(){ 
+	getcategory();
+});
+
+/*카테고리 호출*/
+function getcategory(){
+	$.ajax({
+		url : "getcategory",
+		success : function(result){
+			$("#categorybox").html(result);
+		}
+	});
+};
+
 function categoryadd(){
 	let cname = $("#cname").val();
 	$.ajax({
@@ -18,24 +32,15 @@ function categoryadd(){
 		data : {"cname" : cname},
 		success : function(result){
 			if(result == 1){
+				alert("카테고리 추가");
 				$("#categoryinput").html("");
-				
+				getcategory();
 			}else{
 				alert("등록 오류");
 			}
 		}
 	});
 }
-
-/*카테고리 호출*/
-$(function getcategory(){
-	$.ajax({
-		url : "getcategory",
-		success : function(result){
-			$("#categorybox").html(result);
-		}
-	});
-});
 
 /* form 전송 */
 function productadd(){

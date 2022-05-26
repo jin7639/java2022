@@ -9,6 +9,7 @@ import org.json.JSONObject;
 import dto.Cart;
 import dto.Category;
 import dto.Order;
+import dto.Orderdetail;
 import dto.Product;
 import dto.Stock;
 
@@ -485,7 +486,8 @@ public boolean cancelorder(int orderdetailno , int active) {
 	return false;
 }
 
-public JSONArray getchart(int type) {
+public JSONArray getchart(int type,int value) {
+							// value == sno
 	String sql = "";
 	JSONArray ja = new JSONArray();
 	if (type == 1) {
@@ -498,18 +500,28 @@ public JSONArray getchart(int type) {
 				+ "from porderdetail A, stock B, product C, category D "
 				+ "where A.sno = B.sno and B.pno = C.pno and C.cno = D.cno "
 				+ "group by D.cname order by orderdetailno desc";
+	}else if( type == 3 ) {//재고번호 - > 제품별 판매량 추이
+		sql = "select"
+				+ "	substring_index(A.orderdate , ' ',1) as 날짜,"
+				+ "    B.samount "
+				+ "from porder A, porderdetail B, stock C  "
+				+ "where A.orderno = B.orderno  "
+				+ "and B.sno = C.sno  "
+				+ "and C.pno = (select pno from stock where sno = "+value+") "
+				+ "group by 날짜 order by 날짜 desc";
 	}
 	try {
 		ps = con.prepareStatement(sql);
 		rs = ps.executeQuery();
 		while(rs.next()) {
 			JSONObject jo = new JSONObject();
-			if(type == 1) {
+			if(type == 1 || type == 3) {
 				jo.put("date", rs.getString(1));
-				jo.put("value", rs.getString(2));
+				jo.put("value", rs.getInt(2));
 				ja.put(jo);
+				System.out.println(jo);
 			}else if( type == 2 ){
-				jo.put("value", rs.getString(1));
+				jo.put("value", rs.getInt(1));
 				jo.put("category", rs.getString(2));
 				ja.put(jo);
 			}
@@ -521,7 +533,34 @@ public JSONArray getchart(int type) {
 	return null;
 }
 	
-	
+	//오늘 주문 상세 호출
+	public ArrayList<Orderdetail> getorderdetail() {
+		String sql = "select A.*, substring_index(B.orderdate , ' ' , 1)  as 날짜 "
+				+ "from porderdetail A, porder B "
+				+ "where A.orderno = B.orderno\r\n"
+				+ "and substring_index(B.orderdate,' ', 1) = substring_index(now(),' ',1) "
+				+ "and A.orderdetailactive = 3";
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			ArrayList<Orderdetail> list = new ArrayList<Orderdetail>();
+			while (rs.next()) {
+				Orderdetail orderdetail = new Orderdetail();
+				orderdetail.setOrderdetailno(rs.getInt(1));
+				orderdetail.setOrderdetailactive(rs.getInt(2));
+				orderdetail.setSno(rs.getInt(3));
+				orderdetail.setSamount(rs.getInt(4));
+				orderdetail.setTotalprice(rs.getInt(5));
+				orderdetail.setOrderno(rs.getInt(6));
+				
+				list.add(orderdetail);
+			}
+			return list;
+		} catch (Exception e) {
+			System.out.println("오늘 주문 상세 오류 : " + e);
+		}
+		return null;
+	}
 	
 	
 	

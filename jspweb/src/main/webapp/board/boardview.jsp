@@ -111,7 +111,7 @@
 						<td width="80%">
 							<%=rereply.getRcontent() %> <br> 
 							<%if(mid != null && mid.equals(reply.getMid())){ %>
-								<a href="#"><button class="btnreply" onclick="rereplydeleteview(<%=reply.getRno()%>,'<%=reply.getRcontent()%>')">수정</button></a>
+								<a href="#"><button class="btnreply" onclick="rereplyupdateview(<%=reply.getRno()%>,'<%=reply.getRcontent()%>')">수정</button></a>
 								<a href="#"><button class="btnreply" onclick="rereplydelete(<%=reply.getRno()%>)">삭제</button></a>
 							<%} %>
 						</td>

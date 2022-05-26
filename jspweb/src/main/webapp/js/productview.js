@@ -16,7 +16,8 @@ $("#color_select").change( function(){
 				html +="<option value=''>-[필수]옵션 선택-</option>";
 			for( let item of itemlist ){
 				let color = item.split("=")[0];
-				let amount = item.split("=")[1];
+				let amountx = item.split("=")[1];
+				let amount = amountx.split("}")[0];
 					html += "<option value='"+color+"'>"+color+" - "+amount+"</option>";
 			}
 			$("#size_select").html(html);	// id.html( )  : 새로운 데이터 

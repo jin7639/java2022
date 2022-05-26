@@ -76,9 +76,9 @@ public class BoardDao extends Dao{
 		ArrayList<Board> boardlist = new ArrayList<Board>();
 		String sql = null;		
 		//내림차순
-		if(key.equals("") && keyword.equals("")) {	//검색이 있을 경우
+		if(key.equals("") && keyword.equals("")) {	//검색이 없을 경우
 			sql = "select * from board order by bno desc limit "+startrow+","+listsize;
-		}else {	//검색이 없을 경우
+		}else {	//검색이 있을 경우
 			sql = "select * from board where "+key+" like '%"+keyword+"%' order by bno desc limit "+startrow+","+listsize;
 		}
 		try {

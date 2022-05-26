@@ -45,7 +45,7 @@
 		</div>
 		
 		<div class="row col-md-5 offset-2 my-2" id="categoryinput"></div>
-		<div class="my-2" id="categorybox"></div><!-- *DB에 저장된 카테고리 radio버튼으로 표시 [ DB -> java 서블릿 -> JS -> HTML] -->
+		<div class="col-md-5 offset-2 my-2" id="categorybox"></div><!-- *DB에 저장된 카테고리 radio버튼으로 표시 [ DB -> java 서블릿 -> JS -> HTML] -->
 		<div class="row">
 			<div class="col-md-2">
 				<span>대표이미지</span>

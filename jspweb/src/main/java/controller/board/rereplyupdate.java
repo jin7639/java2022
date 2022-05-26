@@ -1,4 +1,4 @@
-package controller.admin;
+package controller.board;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,21 +7,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.JSONArray;
-
-import dao.ProductDao;
+import dao.BoardDao;
+import dto.Reply;
 
 /**
- * Servlet implementation class getchart
+ * Servlet implementation class replyupdate
  */
-@WebServlet("/admin/getchart")
-public class getchart extends HttpServlet {
+@WebServlet("/board/rereplyupdate")
+public class rereplyupdate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public getchart() {
+    public rereplyupdate() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,17 +30,15 @@ public class getchart extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int type = Integer.parseInt(request.getParameter("type"));
-		int value = 0;
-		System.out.println(type);
-		if(request.getParameter("value") !=null) {
-			value = Integer.parseInt(request.getParameter("value"));
+		request.setCharacterEncoding("UTF-8");
+		String rcontent = request.getParameter("rcontent");
+		int rno = Integer.parseInt(request.getParameter("rno"));
+		boolean result = BoardDao.getBoardDao().replyupdate(rcontent, rno);
+		if (result) {
+			response.getWriter().print(1);
+		}else { 
+			response.getWriter().print(2);
 		}
-		JSONArray jsonArray = ProductDao.getProductDao().getchart(type, value);
-		response.setCharacterEncoding("UTF-8");
-		response.setContentType("application/json");
-		response.getWriter().print(jsonArray);
-		System.out.println(jsonArray);
 	}
 
 	/**

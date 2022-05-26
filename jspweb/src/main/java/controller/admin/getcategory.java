@@ -51,9 +51,10 @@ public class getcategory extends HttpServlet {
 				//큰따옴표" 출력하려면 /"로 입력
 			for( Category temp : arraylist) {
 				html += "<input type=\"radio\" name=\"cno\" value=\""+temp.getCno()+"\">"+temp.getCname();
-				if (i % 6 == 0) {
+				if (i % 8 == 0) {
 					html += "<br>";
 				}
+				i++;
 			}
 		}
 		out.print (html);

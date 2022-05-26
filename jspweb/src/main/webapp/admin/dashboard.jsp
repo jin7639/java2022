@@ -17,7 +17,7 @@
 	<!-- marquee : 텍스트 슬라이드 / 속성 : scrollamount="속도"-->
 	<marquee scrollamount="10" class="my-2">공지사항 자리 입니다</marquee>
 	
-	<div id="sidebar">
+	<div id="sidebar" style="z-index: 1;">
 		<ul>
 			<li><h6>EZEN SHOP<br>관리자모드</h6></li>
 			<li><button onclick="pagechange('productlist')">제품 목록</button></li>
