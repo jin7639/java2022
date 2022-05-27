@@ -1,0 +1,60 @@
+@charset "UTF-8";
+
+.chattingbox {
+	border: 3px solid #f9f9f9;
+}
+.enter_title {
+	border-bottom: 3px solid #f9f9f9;
+	text-align: center;
+	padding: 10%;
+}
+.img{
+	margin-left: 5%;
+	width: 100%;
+}
+.btnbox {
+	font-size: 10px;
+}
+/* 채팅 내용 표시되는 구역 */
+.contentbox {
+	height: 500px;
+	background: #b2c7d9;
+	overflow-y: scroll;
+}
+.secontent{
+	text-align: right;
+	margin: 10px;
+}
+.secontent .content {
+	background-color: yellow;
+}
+.recontent{
+	text-align: left;
+	margin: 10px;
+}
+.recontent .content {
+	background-color: white;
+}
+.content {
+	border-color: white;
+	border-radius: 5px;
+	padding: 10px;
+	display: inline-block;
+	font-size: 12px;
+}
+.date {
+	font-size: 8px;
+	margin: 5px 2px;
+}
+.alarm{
+	background-color: #a9bdce;
+	text-align: center;
+	font-size: 10px;
+	padding: 2%;
+	margin: 0 auto;
+	width: 70%;	
+	border-radius: 20px;
+}
+.sendbtn{
+	background-color: #f9e200 !important;
+}
