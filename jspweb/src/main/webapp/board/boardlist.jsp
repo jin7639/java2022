@@ -37,7 +37,7 @@
 			keyword = (String)session.getAttribute("keyword");
 		}
 	%>
-	<!-- --------------------------------전체글/인기글 버튼------------------------------------------------- -->
+<!-- --------------------------------전체글/인기글 버튼------------------------------------------------- -->
 		<div class="row boardlist_topbtn">
 			<div class="col-md-1 offset-10">
 				<a href="/jspweb/board/boardlist.jsp?key=&keyword="><button class="form-control">전체글</button></a>

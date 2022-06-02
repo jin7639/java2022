@@ -46,7 +46,7 @@ public class productadd extends HttpServlet {
 		
 		MultipartRequest multi = new MultipartRequest(
 				request, /*요청타입*/
-				request.getSession().getServletContext().getRealPath("/admin/productimg"), /*저장 폴더위치*/
+				request.getSession().getServletContext().getRealPath("/bookstore/bookimg"), /*저장 폴더위치*/
 				1024*1024*1024, /*파일 최대용량(바이트기준)*/
 				"UTF-8", 
 				new DefaultFileRenamePolicy()

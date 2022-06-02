@@ -17,7 +17,6 @@
 <body>
 	<%String loginid = (String)session.getAttribute("login");	//세션호출 %>
 	
-	
 	<div class="container">
 		<div class="py-3">
 			<div class="row">
@@ -83,7 +82,7 @@
 						<a class="dropdown-item" href="#">반바지</a>
 					</div>
 				</li>
-				<li class="nav-item"><a href="#">슈즈</a></li>
+				<li class="nav-item"><a href="/jspweb/board/안산시약국.jsp">약국</a></li>
 				<li class="nav-item"><a href="/jspweb/board/chatting.jsp">채팅</a></li>
 				<li class="nav-item"><a href="/jspweb/bluemarble.jsp">BEST</a></li>
 				<li class="nav-item"><a href="/jspweb/teamchatting.jsp">트레이닝</a></li>
@@ -100,11 +99,8 @@
 					</a>
 				</li>
 			</ul>
-			
 		</div>
-		
 	</div>
-	
 	
 	<!-- 사용자지정 js -->
 	<script src="/jspweb/js/main.js" type="text/javascript"></script>
