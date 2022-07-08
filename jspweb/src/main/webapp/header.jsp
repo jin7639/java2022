@@ -105,6 +105,7 @@
 	<!-- 사용자지정 js -->
 	<script src="/jspweb/js/main.js" type="text/javascript"></script>
 	<!-- 부트스트랩 js -->
+	
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" ></script>
 	<!-- jquery cdn -->
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>

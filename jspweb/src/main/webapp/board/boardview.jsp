@@ -36,7 +36,7 @@
 					<a href="delete?bno=<%=board.getBno()%>"><button class="form-control">삭제</button></a>
 				</div>
 				<div class="col-md-2">
-					<a href="boardupdate.jsp?bno=<%=board.getBno()%>"><button class="form-control">수정</button></a>
+					<a href="boardupdate.jsp?bno=<%=board.getBno()%>"><button class="form-control"></button></a>
 				</div>
 		<%}%>
 			</div>

@@ -28,7 +28,7 @@
 		//세션을 이용한 검색처리 저장
 		
 		//검색이 있을 경우
-		if (key != null && key != null){
+		if (key != null && keyword != null){
 			session.setAttribute("key", key); //세션 설정 [세션명, 세션데이터]
 			session.setAttribute("keyword", keyword);
 			
